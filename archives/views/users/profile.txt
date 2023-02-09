@@ -1,0 +1,40 @@
+Profil
+
+(CSRF)
+
+(enveloppe) Adresse e-mail (*)
+
+Ex : jean.dupont@user.fr
+
+(cadenas) Ancien mot de passe (*)
+
+Ex : ********
+
+(cadenas) Nouveau mot de passe (*)
+
+Ex : ********
+
+(cadenas) Confirmation du mot de passe (*)
+
+Ex : ********
+
+---
+
+Prénom (*)
+
+Ex : Jean
+
+Nom (*)
+
+Ex : Dupont
+
+Libellé
+
+Ex : Jean Philatélie
+
+Téléphone
+
+Ex (FR) : 01 23 45 67 89
+
+[Valider]
+{% endblock %}

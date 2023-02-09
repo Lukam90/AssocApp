@@ -1,0 +1,9 @@
+Suppression d'un utilisateur
+
+(CSRF)
+
+"La suppression du membre X entraînera également la suppression de toutes ses réservations ?"
+
+[] Je confirme cette suppression.
+
+[Confirmer]

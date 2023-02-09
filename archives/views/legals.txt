@@ -1,0 +1,8 @@
+Mentions Légales
+
+legals/1-infos-legales
+legals/2-presentation
+legals/3-accessibilite
+legals/4-propriete-intellectuelle
+legals/5-liens-cookies
+legals/6-protection

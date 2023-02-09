@@ -1,0 +1,27 @@
+(CSRF)
+
+POST (créer), PUT (éditer)
+
+Membre (*)
+
+> Sélection : Prénom Nom (Libellé)
+
+Evénement (*)
+
+> Sélection : Titre (Date)
+
+Nombre de tables (*)
+
+Min = 1, Max = 12
+
+Statut Payé []
+
+(euro) Somme (*)
+
+Min = 0, Max = 200
+
+Moyen de paiement (*)
+
+(x) Espèces () Chèque 
+
+[Valider]

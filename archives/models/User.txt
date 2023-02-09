@@ -1,0 +1,10 @@
+User
+
+id
+email
+telephone
+password
+role
+first_name
+last_name
+label

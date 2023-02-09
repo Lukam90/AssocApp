@@ -1,0 +1,18 @@
+Suppression d'une réservation
+
+Voulez-vous supprimer cette réservation ?
+
+Rappel Infos :
+- Membre
+- Libellé
+- Evénement (titre et date)
+- Nombre de tables
+- Somme
+- Mode de paiement : Espèces, Chèque
+- Statut : () Payé / () A Payer
+
+(CSRF)
+
+[] Je confirme cette suppression.
+
+[Valider]

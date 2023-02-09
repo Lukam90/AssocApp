@@ -1,0 +1,53 @@
+Id,Nom,Bibliothèque de formes,ID de page,Contenu par,Groupe,Source de la ligne,Destination de la ligne,Source de la flèche,Destination de la flèche,Statut,Zone de texte 1,Zone de texte 2,Zone de texte 3,Zone de texte 4,Zone de texte 5,Zone de texte 6,Zone de texte 7,Zone de texte 8,Commentaires
+1,Document,,,,,,,,,Brouillon,AssocApp,,,,,,,,
+2,Page,,,,,,,,,,MCD,,,,,,,,
+3,Entité,Entité-Association,2,,,,,,,,User,id,email,password,role,first_name,last_name,label,
+4,Entité,Entité-Association,2,,,,,,,,Event,id,title,planned_at,,,,,
+5,Entité,Entité-Association,2,,,,,,,,Booking,id,number,paid,sum,mode,,,
+6,Ligne,,2,,,3,5,None,None,,"0,n","1,1",,,,,,,
+7,Ligne,,2,,,5,4,None,None,,"1,1","0,n",,,,,,,
+8,Page,,,,,,,,,,MLD,,,,,,,,
+9,Entité,Entité-Association,8,,,,,,,,User,id,email,password,role,first_name,last_name,label,
+10,Entité,Entité-Association,8,,,,,,,,Event,id,title,planned_at,,,,,
+11,Entité,Entité-Association,8,,,,,,,,Booking,id,number,paid,sum,mode,user_id,event_id,
+12,Ligne,,8,,,11,10,None,Arrow,,,,,,,,,,
+13,Ligne,,8,,,11,9,None,Arrow,,,,,,,,,,
+14,Page,,,,,,,,,,Relationnel,,,,,,,,
+15,Entité,Entité-Association,14,,,,,,,,User,id,email,password,role,first_name,last_name,label,
+16,Entité,Entité-Association,14,,,,,,,,Event,id,title,planned_at,,,,,
+17,Entité,Entité-Association,14,,,,,,,,Booking,id,number,paid,sum,mode,user_id,event_id,
+18,Ligne,,14,,,17,16,None,Arrow,,,,,,,,,,
+19,Ligne,,14,,,17,15,None,Arrow,,,,,,,,,,
+20,Page,,,,,,,,,,Classes,,,,,,,,
+21,Classe,UML,20,,,,,,,,UserModel,"​- id
+- email
+- password
+- role
+- firstName
+- lastName","​+ getAllUsers()
++ getOneUser()
++ searchUser()
++ register()
++ addUser()
++ editUser()
++ deleteUser()",,,,,,
+22,Classe,UML,20,,,,,,,,BookingModel,"​- id
+- number
+- paid
+- sum
+- mode","​+ getAllBookings()
++ getOneBooking)
++ searchBooking()
++ addBooking()
++ editBooking()
++ deleteBooking()",,,,,,
+23,Classe,UML,20,,,,,,,,EventModel,"​- id
+- title
+- plannetAt","​+ getAllEvents()
++ getOneEvent()
++ searchEvent()
++ addEvent()
++ editEvent()
++ deleteEvent()",,,,,,
+24,Ligne,,20,,,21,22,None,None,,,,,,,,,,
+25,Ligne,,20,,,22,23,None,None,,,,,,,,,,

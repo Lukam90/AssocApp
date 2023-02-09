@@ -1,0 +1,31 @@
+Administration > Réservations
+
+(plus) [Ajouter une réservation]
+
+(Recherche)
+
+Ex : Jean DUPONT
+
+Actions : Editer, Annuler, Supprimer
+
+Si Nb Réservations > 1
+
+# (ID);Membre;Evénement;Date;Nb Tables;Somme;Moyen;Payé;Actions;
+1;René DURAND;Un salon annuel;08/05/2022;4;80,00 €;(Chèque);V
+La Collec de René
+
+2;Martine Dubois;1;20,00 €;(Espèces);V
+Les Cartes de Martine
+
+3;Jean DUPONT;2;40,00 €;(Espèces);X
+Jean Philatélie
+
+4;Mathilde CRESSON;5;100,00 €;(Chèque)
+Les Dessins de Mathilde
+
+5;Damien BOULANGER;3;60,00 €;(Chèque)
+Damien La Brocante
+
+Sinon
+
+"Aucune réservation n'est encore enregistrée."

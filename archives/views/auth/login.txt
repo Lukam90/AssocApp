@@ -1,0 +1,13 @@
+Connexion
+
+Adresse e-mail
+
+(icône enveloppe) Ex : martin.dubois@mail.com
+
+Mot de passe
+
+(icône cadenas) ********
+
+---
+
+Mot de passe oublié ?

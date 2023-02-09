@@ -1,0 +1,57 @@
+@startuml classes
+
+skinparam classAttributeIconSize 0
+
+left to right direction
+
+class User {
+  -id
+  -email
+  -telephone
+  -password
+  -role
+  -firstName
+  -lastName
+  -label
+
+  +getAllUsers()
+  +getOneUser()
+  +searchUser()
+  +register()
+  +addUser()
+  +editUser()
+  +deleteUser()
+}
+
+class Reservation {
+  -id
+  -number
+  -paid
+  -sum
+  -mode
+
+  +getAllReservations()
+  +getOneReservation()
+  +searchReservation()
+  +addReservation()
+  +editReservation()
+  +deleteReservation()
+}
+
+class Event {
+  -id
+  -title
+  -plannedAt
+
+  +getAllEvents()
+  +getOneEvent()
+  +searchEvent()
+  +addEvent()
+  +editEvent()
+  +deleteEvent()
+}
+
+User "1" -- "*" Reservation
+Reservation "*" -- "1" Event
+
+@enduml

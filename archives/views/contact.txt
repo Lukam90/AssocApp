@@ -1,0 +1,19 @@
+Contact
+
+{Formulaire}
+
+(CSRF)
+
+Ma question concerne...
+
+() une réservation () autre chose
+
+(enveloppe) Adresse e-mail (*)
+
+Objet (*)
+
+Message (*) [rows = 10]
+
+Combien font 3 x 7 ? (*) [captcha aléatoire]
+
+[Envoyer]

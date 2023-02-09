@@ -1,0 +1,12 @@
+Politique de Confidentialité
+
+policy/1-definitions
+policy/2-nature-donnees
+policy/3-conservation-donnees
+policy/4-suppression-donnees-compte
+policy/5-suppression-donnees-inactivite
+policy/6-formulaire-contact
+policy/7-cookies
+policy/8-infos-diverses
+policy/9-retrait-consentement
+policy/10-maj-cgu

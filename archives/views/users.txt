@@ -1,0 +1,18 @@
+Administration > Membres
+
+"Le membre a bien été ajouté."
+
+(+) [Ajouter un membre]
+
+(Recherche)
+
+Ex : Jean DUPONT
+
+Actions : Editer, Supprimer
+
+# (ID);Prénom;Nom;Libellé;Actions
+1;René;DURAND;La Collec' de René
+2;Martine;DUBOIS;Les Cartes de Martine
+3;Jean;DUPONT;Jean Philatélie
+4;Mathilde;CRESSON;Les Dessins de Mathilde
+5;Damien;BOULANGER;Damien la Brocante

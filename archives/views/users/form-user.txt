@@ -1,0 +1,15 @@
+(Fiche Inscription / Edition Utilisateur)
+
+(CSRF)
+
+Prénom (*)
+
+"Le prénom doit comporter entre 2 et 32 caractères."
+
+Nom (*)
+        
+"Le nom doit comporter entre 2 et 32 caractères."
+
+Libellé
+
+[Valider]
