@@ -1,0 +1,39 @@
+classDiagram
+    direction LR
+
+    User "1" o-- "*" Reservation : réserve
+
+    class User {
+        - id : int
+        - email : string
+        - password: string
+        - role : string
+        - firstName : string
+        - lastName : string
+        - label : string 
+
+        + getAllUsers()
+        + getUserById()
+        + searchUser()
+        + register()
+        + editUser()
+        + deleteUser()
+        + login()
+        + logout()
+    }
+
+    class Reservation {
+        - id: int
+        - number : int
+        - paid : boolean
+        - paid_at : Date
+        - sum : double
+        - mode : string
+
+        + getAllReservations()
+        + getReservationById()
+        + searchReservation()
+        + addReservation()
+        + editReservation()
+        + deleteReservation()
+    }

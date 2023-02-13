@@ -29,7 +29,6 @@
 |**sum**|la somme réglée (en €)|décimal (3,2)|0 par défaut|
 |**mode**|le mode de paiement ("Chèque", "Espèces")|chaîne (10)|"Espèces" par défaut|
 |**user_id**|l'identifiant de l'exposant concerné|entier|clé étrangère|
-|**event_id**|l'identifiant de l'événement concerné|entier|clé étrangère|
 
 ## La modélisation (UML)
 
