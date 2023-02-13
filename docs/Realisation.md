@@ -12,7 +12,7 @@
 |-|-|-|-|
 |**id**|l'identifiant de l'utilisateur|entier|clé primaire|
 |**email**|l'adresse e-mail de l'exposant / utilisateur|chaîne (255)|optionnel pour un exposant|
-|**password**|le mot de passe de l'exposant / utilisateur|chaîne (32)|optionnel pour un exposant|
+|**password**|le mot de passe de l'exposant / utilisateur|chaîne (255)|optionnel pour un exposant|
 |**role**|le rôle de l'utilisateur ("Exposant", "Trésorier", "Administrateur")|chaîne (20)|"Exposant" par défaut|
 |**first_name**|le prénom de l'exposant / utilisateur|chaîne (32)|requis|
 |**last_name**|le nom de famille de l'exposant / utilisateur|chaîne (50)|requis|
