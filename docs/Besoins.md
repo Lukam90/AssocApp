@@ -24,7 +24,9 @@ La réservation est ensuite validée selon le statut de paiement et le nombre de
 
 ### Next
 
-Il s'agit d'un framework back-end basé sur React, une bibliothèque de composants logiques en JavaScript.
+Il s'agit d'un framework back-end basé sur React et la JAMStack, une bibliothèque de composants logiques en JavaScript.
+
+Il est aussi possible d'avoir un rendu côté serveur.
 
 ### Vercel
 
@@ -38,10 +40,13 @@ Il s'agit d'un gestionnaire de versions classique parmi les outils DevOPS.
 
 Il s'agit d'un gestionnaire de dépendances (ou packages) propre à NodeJS et à l'environnement de JavaScript.
 
+### Laravel
+
+Il s'agit d'un framework back-end basé sur le langage PHP.
+
 ### MySQL
 
-Il s'agit d'un SGBD (système de gestion de bases de données) permettant de stocker, de
-manipuler et de gérer des informations dans une base de données relationnelle.
+Il s'agit d'un SGBD (système de gestion de bases de données) permettant de stocker, de manipuler et de gérer des informations dans une base de données relationnelle.
 
 ### Jest
 
@@ -89,15 +94,15 @@ La gestion des données se déroule en 4 actions selon le modèle CRUD :
 
 Les utilisateurs sont définis en 3 rôles : exposant (par défaut), trésorier et administrateur (unique).
 
-L'administrateur peut gérer l'ensemble des utilisateurs, des événements et des réservations.
+L'administrateur peut gérer l'ensemble des utilisateurs et des réservations.
 
 Le trésorerier peut gérer l'ensemble des réservations.
 
-Un exposant peut consulter sa dernière réservation.
+Un exposant peut consulter l'état de sa dernière réservation.
 
 Un utilisateur peut modifier ses informations générales et ses identifiants.
 
-**Exposants**
+**Exposant**
 
 - inscription manuelle d'un utilisateur
 - réinitialisation du mot de passe

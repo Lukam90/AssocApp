@@ -1,5 +1,5 @@
 classDiagram
-    direction LR
+    direction RL
 
     User "1" o-- "*" Reservation : réserve
 

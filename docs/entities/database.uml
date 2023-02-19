@@ -1,0 +1,68 @@
+erDiagram
+    User {
+        id int
+        email varchar
+        password varchar
+        first_name varchar
+        last_name varchar
+        phone varchar
+        label varchar
+    }
+
+    Role {
+        id int
+        label varchar
+    }
+
+    Mode {
+        id int
+        label varchar
+    }
+
+    Event {
+        id int
+        planned_at date
+        label varchar
+        available int
+    }
+
+    Document {
+        id int
+        title varchar
+        file blob
+    }
+
+    Reservation {
+        id int
+        paid boolean
+        paid_at date
+        sum double
+    }
+
+    Status {
+        id int
+        label varchar
+    }
+
+    Stand {
+        id int
+        number int
+        pos_x int
+        pos_y int
+        comment varchar
+    }
+
+    User || -- }o Role
+    User o{ -- || Message
+    User o{ -- || Message
+    User o{ -- || Document
+    User || -- }o Mode
+    User o{ -- }| Event
+    User |{ -- || Table
+
+    Mode o{ -- || Reservation
+    Table || -- }| Reservation
+    Event o{ -- || Reservation
+    Status o{ -- || Reservation
+
+    Document o| -- }o Event
