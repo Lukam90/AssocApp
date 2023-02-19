@@ -7,11 +7,24 @@ erDiagram
         last_name varchar
         phone varchar
         label varchar
+        is_member boolean
     }
 
     Role {
         id int
         label varchar
+    }
+
+    Membership {
+        id int
+        price double
+        year int
+    }
+
+    Message {
+        id int
+        object varchar
+        context text
     }
 
     Mode {
@@ -24,6 +37,7 @@ erDiagram
         planned_at date
         label varchar
         available int
+        price double
     }
 
     Document {
@@ -36,7 +50,8 @@ erDiagram
         id int
         paid boolean
         paid_at date
-        sum double
+        total double
+        comment varchar
     }
 
     Status {
@@ -44,25 +59,27 @@ erDiagram
         label varchar
     }
 
-    Stand {
+    Table {
         id int
-        number int
+        price double
         pos_x int
         pos_y int
-        comment varchar
     }
 
-    User || -- }o Role
-    User o{ -- || Message
-    User o{ -- || Message
-    User o{ -- || Document
-    User || -- }o Mode
-    User o{ -- }| Event
-    User |{ -- || Table
+    User || -- }o Role : "exerce"
+    User o{ -- || Message : "envoie"
+    User o{ -- || Message : "reçoit"
+    User o{ -- || Document : "télécharge"
+    User || -- }o Mode : "paie avec"
+    User o{ -- }| Event : "s'inscrit à"
+    User |{ -- || Table : "réserve"
+    User o{ -- || Membership : "paie"
 
-    Mode o{ -- || Reservation
-    Table || -- }| Reservation
-    Event o{ -- || Reservation
-    Status o{ -- || Reservation
+    Mode o{ -- || Reservation : "règle"
+    Mode o{ -- || Membership : "règle"
 
-    Document o| -- }o Event
+    Table || -- }| Reservation : "regroupe"
+    Event o{ -- || Reservation : "concerne"
+    Status o{ -- || Reservation : "est"
+
+    Document o| -- }o Event : "concerne"
