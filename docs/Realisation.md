@@ -75,6 +75,56 @@
 |**mode_id**|l'identifiant du mode de paiement|entier|clé étrangère|
 |**event_id**|l'identifiant de l'événement|entier|clé étrangère|
 
+## Les cardinalités
+
+### User (0,n) - Message (1,n)
+
+Un utilisateur peut envoyer plusieurs messages à un autre utilisateur. (0,n)
+
+(réflexion, en même temps)
+
+### User (1,1) - Mode (0,n)
+
+Un utilisateur utilise un seul mode de paiement. (1,1)
+
+Un mode de paiement peut être adopté par plusieurs utilisateurs. (0,n)
+
+### User (0,n) - Event (0,n)
+
+Un utilisateur peut s'inscrire à plusieurs événements. (0,n)
+
+Un événement peut accueillir plusieurs exposants. (0,n)
+
+### User (1,n) - (1,1) Table
+
+Un utilisateur réserve au moins une table. (1,n)
+
+Une table est réservée pour un seul utilisateur. (1,1)
+
+### Mode (0,n) - (1,1) Reservation
+
+Un mode de paiement peut concerner plusieurs réservations. (0,n)
+
+Une réservation est réglée avec un seul mode de paiement. (1,1)
+
+### Table (1,1) - (1,n) Reservation
+
+Une table concerne une seule réservation. (1,1)
+
+Une réservation regroupe au moins une table. (1,n)
+
+### Event (0,n) - (1,1) Reservation
+
+Un événement peut regrouper plusieurs réservations. (0,n)
+
+Une réservation concerne un seul événement. (1,1)
+
+### Document (0,1) - (0,n) Event
+
+Un document peut concerner un événement. (0,1)
+
+Un événement peut regrouper plusieurs documents. (0,n)
+
 ## La modélisation (UML)
 
 ### Les cas d'utilisation

@@ -278,6 +278,20 @@ L'administrateur peut donc enregistrer un exposant manuellement avec :
 |**mode_id**|l'identifiant du mode de paiement|entier|clé étrangère|
 |**event_id**|l'identifiant de l'événement|entier|clé étrangère|
 
+## Les cardinalités
+
+### User (0,n) - Message (1,n)
+
+Un utilisateur peut envoyer plusieurs messages à un autre utilisateur. (0,n)
+
+(réflexion, en même temps)
+
+### User (1,1) - Mode (0,n)
+
+Un utilisateur utilise un seul mode de paiement. (1,1)
+
+Un mode de paiement peut être adopté par plusieurs utilisateurs. (0,n)
+
 ## La modélisation (UML)
 
 ### Les cas d'utilisation
