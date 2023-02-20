@@ -8,23 +8,14 @@ erDiagram
         phone varchar
         label varchar
         is_member boolean
-    }
-
-    Role {
-        id int
-        label varchar
-    }
-
-    Membership {
-        id int
-        price double
-        year int
+        role label
     }
 
     Message {
         id int
         object varchar
-        context text
+        content text
+        is_newsletter boolean
     }
 
     Mode {
@@ -35,9 +26,9 @@ erDiagram
     Event {
         id int
         planned_at date
-        label varchar
-        available int
-        price double
+        title varchar
+        num_available int
+        fixed_price double
     }
 
     Document {
@@ -48,15 +39,10 @@ erDiagram
 
     Reservation {
         id int
-        paid boolean
+        status label
         paid_at date
         total double
-        comment varchar
-    }
-
-    Status {
-        id int
-        label varchar
+        comment text
     }
 
     Table {
@@ -66,20 +52,16 @@ erDiagram
         pos_y int
     }
 
-    User || -- }o Role : "exerce"
-    User o{ -- || Message : "envoie"
-    User o{ -- || Message : "reçoit"
+    User o{ -- }| Message : "envoie"
+    User o{ -- }| Message : "reçoit"
     User o{ -- || Document : "télécharge"
     User || -- }o Mode : "paie avec"
     User o{ -- }| Event : "s'inscrit à"
     User |{ -- || Table : "réserve"
-    User o{ -- || Membership : "paie"
 
     Mode o{ -- || Reservation : "règle"
-    Mode o{ -- || Membership : "règle"
 
     Table || -- }| Reservation : "regroupe"
     Event o{ -- || Reservation : "concerne"
-    Status o{ -- || Reservation : "est"
 
     Document o| -- }o Event : "concerne"
