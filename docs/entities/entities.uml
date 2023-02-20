@@ -8,6 +8,7 @@ erDiagram
         phone varchar
         label varchar
         is_member boolean
+        is_optin boolean
         role label
     }
 
@@ -54,9 +55,8 @@ erDiagram
 
     User o{ -- }| Message : "envoie"
     User o{ -- }| Message : "reçoit"
-    User o{ -- || Document : "télécharge"
     User || -- }o Mode : "paie avec"
-    User o{ -- }| Event : "s'inscrit à"
+    User o{ -- }o Event : "s'inscrit à"
     User |{ -- || Table : "réserve"
 
     Mode o{ -- || Reservation : "règle"
