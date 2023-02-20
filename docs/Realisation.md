@@ -1,8 +1,6 @@
-# Réalisation
-
 ## La base de données
 
-(schéma)
+![](docs/entities/entities.png)
 
 ## Les entités
 
@@ -50,7 +48,7 @@
 |||||
 |-|-|-|-|
 |**id**|l'identifiant de l'événement|entier|clé primaire|
-|**planned_at**|la date prévue de l'événement, au format JJ/MM/AAAA|date|requis|
+|**planned_at**|la date prévue de l'événement (JJ/MM/AAAA)|date|requis|
 |**title**|l'intitulé de l'événement|chaîne (255)|requis|
 |**num_available**|le nombre de tables disponibles|entier (3)|requis|
 |**fixed_price**|le prix de base pour une table|décimal (2,2)|requis|
@@ -61,20 +59,21 @@
 |-|-|-|-|
 |**id**|l'identifiant de la table|entier|clé primaire|
 |**price**|prix individuel d'une table|décimal (2,2)|déterminé par le prix de base **fixed_price** par défaut|
-|**pos_x**|emplacement X (abscisses) de la table sur le plan de la salle|entier|optionnel|
-|**pos_y**|emplacement Y (ordonnées) de la table sur le plan de la salle|entier|optionnel|
+|**pos_x**|emplacement X (horizontal) de la table sur le plan de la salle|entier|optionnel|
+|**pos_y**|emplacement Y (vertical) de la table sur le plan de la salle|entier|optionnel|
 
 ### Reservation - Les réservations
 
 |||||
 |-|-|-|-|
 |**id**|l'identifiant de la réservation|entier|clé primaire|
-|**number**|le nombre de table réservées|entier (2)|0 par défaut|
-|**paid**|le statut de paiement ("oui" / "non")|booléen|"non" par défaut|
-|**paid_at**|la date de paiement (JJ/MM/AAAA)|date courante par défaut|
-|**sum**|la somme réglée (en €)|décimal (3,2)|0 par défaut|
-|**mode**|le mode de paiement ("Chèque", "Espèces")|chaîne (10)|"Espèces" par défaut|
-|**user_id**|l'identifiant de l'exposant concerné|entier|clé étrangère|
+|**number**|le nombre de table réservées|entier (2)|1 par défaut|
+|**status**|le statut de paiement ("A Payer", "Payé", "Annulé")|chaîne (20)|"A Payer" par défaut|
+|**paid_at**|la date de paiement (JJ/MM/AAAA)|requis si statut "Payé"|
+|**total**|la somme totale réglée pour les tables (en €)|décimal (3,2)|0 par défaut|
+|**comment**|les commentaires de la réservation|texte|optionnel|
+|**mode_id**|l'identifiant du mode de paiement|entier|clé étrangère|
+|**event_id**|l'identifiant de l'événement|entier|clé étrangère|
 
 ## La modélisation (UML)
 

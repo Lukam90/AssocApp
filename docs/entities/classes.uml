@@ -25,9 +25,9 @@ classDiagram
     class Reservation {
         - id: int
         - number : int
-        - paid : boolean
+        - status : string
         - paid_at : Date
-        - sum : double
+        - total : double
         - mode : string
 
         + getAllReservations()

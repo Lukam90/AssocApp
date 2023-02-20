@@ -1,4 +1,4 @@
-# Besoins
+# Application AACCP - Conception
 
 ## Le contexte du projet
 
@@ -92,15 +92,73 @@ La gestion des données se déroule en 4 actions selon le modèle CRUD :
 
 ### Les utilisateurs
 
+#### Les rôles
+
 Les utilisateurs sont définis en 3 rôles : exposant (par défaut), trésorier et administrateur (unique).
 
-L'administrateur peut gérer l'ensemble des utilisateurs et des réservations.
+L'administrateur détient l'ensemble des droits pour la gestion des données (utilisateurs, messages, modes de paiement, documents, événements, tables, réservations).
 
-Le trésorerier peut gérer l'ensemble des réservations.
+Le trésorerier peut gérer l'ensemble des réservations et des tables.
 
-Un exposant peut consulter l'état de sa dernière réservation.
+Chaque utilisateur inscrit et connecté peut :
+- consulter l'état de sa dernière réservation et ses messages
+- modifier ses informations générales et ses identifiants
 
-Un utilisateur peut modifier ses informations générales et ses identifiants.
+Un utilisateur non connecté est un invité.
+
+#### L'inscription d'un exposant
+
+**Rôle** : Invité
+
+**Page** : register.js
+
+Un exposant peut s'inscrire avec :
+- son adresse e-mail (requis)
+- son mot de passe (requis, de 8 à 32 caractères, dont au moins une minuscule, une majuscule et un chiffre)
+- son prénom (requis, 2 à 50 caractères alphabétiques et -)
+- son nom de famille (requis, 2 à 50 caractères alphabétiques et -)
+- son numéro de téléphone (optionnel, de 10 à 20 caractères numériques et +)
+- son libellé de stand (optionnel, de 2 à 255 caractères)
+
+#### La connexion d'un utilisateur
+
+**Rôle** : Invité
+
+**Page** : login.js
+
+Un utilisateur inscrit est invité à se connecter avec :
+- son adresse e-mail
+- son mot de passe
+
+Un message d'erreur s'affiche si :
+- l'adresse e-mail est introuvable
+- le mot de passe est incorrect
+
+Un message confirme la connexion d'un utilisateur.
+
+#### La déconnexion d'un utilisateur
+
+**Rôles** : Exposant, Trésorier, Administrateur
+
+Un utilisateur déconnecté est redirigé vers la page d'accueil.
+
+Un message confirme sa déconnexion.
+
+#### L'inscription manuelle d'un utilisateur
+
+**Rôle** : Administrateur
+
+**Page** : admin/users.js
+
+Tous les exposants n'ont pas un accès à Internet ou une maîtrise de l'outil informatique.
+
+Certains refusent d'inscrire des informations personnelles sensibles (adresse e-mail, téléphone) sur Internet.
+
+L'administrateur peut donc enregistrer un exposant manuellement avec :
+- son prénom (requis, 2 à 50 caractères alphabétiques et -)
+- son nom de famille (requis, 2 à 50 caractères alphabétiques et -)
+- son numéro de téléphone (optionnel, de 10 à 20 caractères numériques et +)
+- son libellé de stand (optionnel, de 2 à 255 caractères)
 
 **Exposant**
 
@@ -141,89 +199,4 @@ Un utilisateur peut modifier ses informations générales et ses identifiants.
 - édition d'une réservation
 - suppression d'une réservation
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(...)
