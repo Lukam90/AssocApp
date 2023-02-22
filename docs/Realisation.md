@@ -2,9 +2,9 @@
 
 ![](docs/entities/entities.png)
 
-## Les entités
+### Les entités
 
-### User - Les utilisateurs
+**User - Les utilisateurs**
 
 |||||
 |-|-|-|-|
@@ -19,7 +19,7 @@
 |**is_optin**|l'exposant est inscrit à la newsletter de l'association|booléen|"non" par défaut|
 |**role**|le rôle de l'utilisateur ("Exposant", "Trésorier", "Administrateur")|chaîne (20)|"Exposant" par défaut|
 
-### Message - Les messages
+**Message - Les messages**
 
 |||||
 |-|-|-|-|
@@ -28,14 +28,14 @@
 |**content**|contenu textuel du message|texte|requis|
 |**is_newsletter**|envoi groupé ou newsletter|booléen|"non" par défaut|
 
-### Mode - Les modes de paiement
+**Mode - Les modes de paiement**
 
 |||||
 |-|-|-|-|
 |**id**|l'identifiant du mode de paiement|entier|clé primaire|
 |**label**|libellé du mode de paiement|chaîne (50)|requis|
 
-### Document - Les documents
+**Document - Les documents**
 
 |||||
 |-|-|-|-|
@@ -43,7 +43,7 @@
 |**title**|l'intitulé du document|chaîne (255)|requis|
 |**file**|le fichier source (document texte, image)|blob|requis|
 
-### Event - Les événements
+**Event - Les événements**
 
 |||||
 |-|-|-|-|
@@ -53,58 +53,58 @@
 |**num_available**|le nombre de tables disponibles|entier (3)|requis|
 |**fixed_price**|le prix de base pour une table|décimal (2,2)|requis|
 
-### Reservation - Les réservations
+**Reservation - Les réservations**
 
 |||||
 |-|-|-|-|
 |**id**|l'identifiant de la réservation|entier|clé primaire|
 |**number**|le nombre de table réservées|entier (2)|1 par défaut|
 |**status**|le statut de paiement ("A Payer", "Payé", "Annulé")|chaîne (20)|"A Payer" par défaut|
-|**paid_at**|la date de paiement (JJ/MM/AAAA)|requis si statut "Payé"|
+|**paid_at**|la date de paiement (JJ/MM/AAAA)|date|requis si statut "Payé"|
 |**total**|la somme totale réglée pour les tables (en €)|décimal (3,2)|0 par défaut|
 |**comment**|les commentaires de la réservation|texte|optionnel|
 |**mode_id**|l'identifiant du mode de paiement|entier|clé étrangère|
 |**event_id**|l'identifiant de l'événement|entier|clé étrangère|
 
-## Les cardinalités
+### Les cardinalités
 
-### User (0,n) - Message (1,n)
+**User (0,n) - Message (1,n)**
 
 Un utilisateur peut envoyer plusieurs messages à un autre utilisateur. (0,n)
 
-(réflexion, en même temps)
+Un message est reçu par au moins un utilisateur. (1,n)
 
-### User (1,1) - Mode (0,n)
+**User (1,1) - Mode (0,n)**
 
 Un utilisateur utilise un seul mode de paiement. (1,1)
 
 Un mode de paiement peut être adopté par plusieurs utilisateurs. (0,n)
 
-### User (0,n) - Event (0,n)
+**User (0,n) - Event (0,n)**
 
 Un utilisateur peut s'inscrire à plusieurs événements. (0,n)
 
 Un événement peut accueillir plusieurs exposants. (0,n)
 
-### Mode (0,n) - (1,1) Reservation
+**Mode (0,n) - (1,1) Reservation**
 
 Un mode de paiement peut concerner plusieurs réservations. (0,n)
 
 Une réservation est réglée avec un seul mode de paiement. (1,1)
 
-### Event (0,n) - (1,1) Reservation
+**Event (0,n) - (1,1) Reservation**
 
 Un événement peut regrouper plusieurs réservations. (0,n)
 
 Une réservation concerne un seul événement. (1,1)
 
-### Document (0,1) - (0,n) Event
+**Document (0,1) - (0,n) Event**
 
 Un document peut concerner un événement. (0,1)
 
 Un événement peut regrouper plusieurs documents. (0,n)
 
-## La modélisation (UML)
+## La modélisation
 
 ### Les cas d'utilisation
 

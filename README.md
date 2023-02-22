@@ -22,43 +22,121 @@ La réservation est ensuite validée selon le statut de paiement et le nombre de
 
 ## L'environnement technique
 
-### Next
+Next
 
 Il s'agit d'un framework back-end basé sur React et la JAMStack, une bibliothèque de composants logiques en JavaScript.
 
 Il est aussi possible d'avoir un rendu côté serveur.
 
-### Vercel
+**Vercel**
 
 Il s'agit de l'hébergeur choisi et à l'origine du framework Next.
 
-### GitHub
+**GitHub**
 
 Il s'agit d'un gestionnaire de versions classique parmi les outils DevOPS.
 
-### NPM
+**NPM**
 
 Il s'agit d'un gestionnaire de dépendances (ou packages) propre à NodeJS et à l'environnement de JavaScript.
 
-### Laravel
+**Laravel**
 
 Il s'agit d'un framework back-end basé sur le langage PHP.
 
-### MySQL
+**MySQL**
 
 Il s'agit d'un SGBD (système de gestion de bases de données) permettant de stocker, de manipuler et de gérer des informations dans une base de données relationnelle.
 
-### Jest
+**Jest**
 
 Il s'agit du framework de référence pour les tests automatisés en JavaScript.
 
-### Maildev
+**Maildev**
 
 Cet outil permet de tester l'envoi et la réception d'e-mails en local.
 
 ## Les spécifications fonctionnelles
 
-### Le traîtement des données
+Les priorités sont définies comme suit :
+
+|||
+|-|-|
+|**B**|Basse|
+|**M**|Moyenne|
+|**H**|Haute|
+
+Les états d'avancement sont définis comme suit :
+
+|||
+|-|-|
+||à faire|
+|**!**|en cours|
+|**T**|à tester|
+|**x**|finalisé|
+
+***
+
+||||
+|-|-|-|
+|**L'inscription et la connexion**|||
+||||
+|L'inscription d'un utilisateur|||
+|La connexion d'un utilisateur|||
+|La déconnexion d'un utilisateur|||
+|L'inscription manuelle d'un utilisateur|||
+|La réinitialisation du mot de passe|||
+|La page de réinitialisation du mot de passe|||
+||||
+|**Le profil d'un utilisateur**|||
+||||
+|Profil > Onglet "Informations Personnelles"|||
+|Profil > Onglet "Connexion"|||
+|Profil > Onglet "Réservation"|||
+||||
+|**La gestion des utilisateurs**|||
+||||
+|La liste des utilisateurs|||
+|La recherche d'un utilisateur|||
+|L'inscription manuelle d'un utilisateur|||
+|L'édition manuelle d'un utilisateur|||
+||||
+|**La gestion des événements**|||
+||||
+|La liste des événements|||
+|La recherche d'un événement|||
+|L'ajout d'un événement|||
+|L'édition d'un événement|||
+||||
+|**La gestion des modes de paiement**|||
+||||
+|La liste des modes de paiement|||
+|L'ajout d'un mode de paiement|||
+|L'édition d'un mode de paiement|||
+||||
+|**La gestion des réservations**|||
+||||
+|La liste des réservations|||
+|La recherche d'une réservation|||
+|L'ajout d'une réservation|||
+|L'édition d'une réservation|||
+||||
+|**La gestion des documents**|||
+||||
+|La liste des documents|||
+|La recherche d'un document|||
+|L'ajout d'un document|||
+|L'édition d'un document|||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+
+## Le traîtement des données
 
 Le traîtement des données doit respecter la norme RGPD (Réglement Général de la Protection des Données).
 
@@ -85,14 +163,12 @@ Il est donc nécessaire de :
 - s’assurer que les sous-traitants respectent la norme RGPD
 
 La gestion des données se déroule en 4 actions selon le modèle CRUD :
-- Create (créer)
-- Read (lire)
-- Update (éditer)
-- Delete (supprimer)
+- **Create** (créer)
+- **Read** (lire)
+- **Update** (éditer)
+- **Delete** (supprimer)
 
-### Les utilisateurs
-
-#### Les rôles
+## Les rôles
 
 Les utilisateurs sont définis en 3 rôles : exposant (par défaut), trésorier et administrateur (unique).
 
@@ -106,10 +182,13 @@ Chaque utilisateur inscrit et connecté peut :
 
 Un utilisateur non connecté est un invité.
 
-#### L'inscription d'un exposant
+## L'inscription et la connexion
 
-**Rôle** : Invité
 
+
+### L'inscription d'un utilisateur
+
+**Rôle** : Invité<br>
 **Page** : register.js
 
 Un exposant peut s'inscrire avec :
@@ -131,7 +210,7 @@ Le mot de passe doit comporter :
 - au moins un chiffre (0-9)
 - au moins un caractère spécial
 
-#### La connexion d'un utilisateur
+### La connexion d'un utilisateur
 
 **Rôle** : Invité
 
@@ -148,7 +227,7 @@ Un message d'erreur s'affiche si :
 
 Un message confirme la connexion d'un utilisateur.
 
-#### La déconnexion d'un utilisateur
+### La déconnexion d'un utilisateur
 
 **Rôles** : Exposant, Trésorier, Administrateur
 
@@ -156,26 +235,9 @@ Un utilisateur déconnecté est redirigé vers la page d'accueil.
 
 Un message confirme sa déconnexion.
 
-#### L'inscription manuelle d'un utilisateur
 
-**Rôle** : Administrateur
 
-**Page** : admin/users.js
-
-Tous les exposants n'ont pas un accès à Internet ou une maîtrise de l'outil informatique.
-
-Certains refusent d'inscrire des informations personnelles sensibles (adresse e-mail, téléphone) sur Internet.
-
-L'administrateur peut donc enregistrer un exposant manuellement avec :
-
-||||
-|-|-|-|
-|son **prénom**|de 2 et 50 caractères alphabétiques, accents et - inclus|requis|
-|son **nom de famille**|de 2 et 50 caractères alphabétiques, accents et - inclus|requis|
-|son **numéro de téléphone**|de 10 à 20 caractères numériques, + inclus|optionnel|
-|son **libellé de stand**|de 2 à 255 caractères|optionnel|
-
-#### La réinitialisation du mot de passe
+### La réinitialisation du mot de passe
 
 **Rôle** : Invité
 
@@ -189,7 +251,7 @@ Si l'adresse e-mail existe, l'utilisateur reçoit un e-mail de réinitialisation
 
 Sinon, un message d'erreur indique l'inexistence de l'adresse e-mail.
 
-#### La page de réinitialisation du mot de passe
+### La page de réinitialisation du mot de passe
 
 **Rôle** : Invité
 
@@ -210,15 +272,15 @@ Un message confirme la réinitialisation du mot de passe et redirige l'utilisate
 
 Un message d'erreur s'affiche si le mot de passe n'est pas valide ou confirmé.
 
-#### Le profil d'un utilisateur
+## Le profil d'un utilisateur
 
 **Rôles** : Administrateur, Trésorier, Exposant
 
-**Page** : 
+**Page** : profile.js
 
 Un utilisateur peut consulter son profil selon les onglets suivants :
 
-##### Les informations personnelles (Onglet "Informations")
+### Profil > Onglet "Informations Personnelles"
 
 L'utilisateur peut changer ses informations personnelles de base :
 
@@ -230,7 +292,7 @@ L'utilisateur peut changer ses informations personnelles de base :
 |son **libellé de stand**|de 2 à 255 caractères|optionnel|
 |son **inscription à la newsletter**|case à cocher (optin)||
 
-##### Les identifiants de connexion (Onglet "Connexion")
+### Profil > Onglet "Connexion"
 
 L'utilisateur peut changer son adresse e-mail au besoin.
 
@@ -239,7 +301,7 @@ Il peut aussi changer son mot de passe en indiquant :
 - son nouveau mot de passe
 - la confirmation du nouveau mot de passe
 
-##### La consultation d'une réservation (Onglet "Réservation")
+### Profil > Onglet "Réservation"
 
 Un utilisateur peut consulter l'état de sa réservation pour le dernier événement.
 
@@ -249,15 +311,51 @@ Il y retrouve :
 - le statut de paiement
 - la date de paiement
 
-**Exposant**
+## La gestion des utilisateurs
 
-- consultation d'une réservation
-- édition du profil
+### La liste des utilisateurs
 
-**Trésorier**
+**Rôle** : Administrateur, Trésorier
 
-- liste des utilisateurs
-- recherche d'un utilisateur
+**Page** : admin/users.js
+
+?
+
+### La recherche d'un utilisateur
+
+**Rôle** : Administrateur, Trésorier
+
+**Page** : admin/users.js
+
+?
+
+### L'inscription manuelle d'un utilisateur
+
+**Rôle** : Administrateur
+
+**Page** : admin/users-form.js
+
+Tous les exposants n'ont pas un accès à Internet ou une maîtrise de l'outil informatique.
+
+Certains refusent d'inscrire des informations personnelles sensibles (adresse e-mail, téléphone) sur Internet.
+
+L'administrateur peut donc enregistrer un exposant manuellement avec :
+
+||||
+|-|-|-|
+|son **prénom**|de 2 et 50 caractères alphabétiques, accents et - inclus|requis|
+|son **nom de famille**|de 2 et 50 caractères alphabétiques, accents et - inclus|requis|
+|son **numéro de téléphone**|de 10 à 20 caractères numériques, + inclus|optionnel|
+|son **libellé de stand**|de 2 à 255 caractères|optionnel|
+
+### L'édition manuelle d'un utilisateur
+
+**Rôle** : Administrateur
+
+**Page** : admin/users-form.js
+
+?
+
 
 **Administrateur**
 
@@ -265,35 +363,264 @@ Il y retrouve :
 - édition des informations d'un utilisateur
 - suppression d'un utilisateur
 
-### Les événements
+## La gestion des événements
 
 **Rôle** : Administrateur
 
-- liste des événements
-- recherche d'un événement
-- ajout d'un événement
-- édition d'un événement
-- suppression d'un événement
+### La liste des événements
 
-### Les réservations
+**Page** : admin/events.js
 
-**Rôles** : Administrateur, Trésorier
+?
 
-- liste des réservations
-- recherche d'une réservation
-- ajout d'une réservation
-- édition d'une réservation
-- suppression d'une réservation
+### La recherche d'un événement
 
-(...)
+**Page** : admin/events.js
+
+?
+
+### L'ajout d'un événement
+
+**Page** : admin/events.js
+
+?
+
+### L'édition d'un événement
+
+**Page** : admin/events.js
+
+?
+
+## La gestion des modes de paiement
+
+**Rôle** : Administrateur
+
+### La liste des modes de paiement
+
+**Page** : admin/modes.js
+
+?
+
+### L'ajout des modes de paiement
+
+**Page** : admin/modes-form.js
+
+?
+
+### L'édition des modes de paiement
+
+**Page** : admin/modes-form.js
+
+?
+
+## La gestion des réservations
+
+**Rôle** : Administrateur, Trésorier
+
+### La liste des réservations
+
+**Page** : admin/reservations.js
+
+?
+
+### La recherche d'une réservation
+
+**Page** : admin/reservations.js
+
+?
+
+### L'ajout d'une réservation
+
+**Page** : admin/reservations-form.js
+
+?
+
+### L'édition d'une réservation
+
+**Page** : admin/reservations-form.js
+
+?
+
+## La gestion des documents
+
+**Rôle** : Administrateur
+
+### La liste des documents
+
+**Page** : admin/documents.js
+
+?
+
+### La recherche d'un document
+
+**Page** : admin/documents.js
+
+?
+
+### L'ajout d'un document
+
+**Page** : admin/documents-form.js
+
+?
+
+### L'édition d'un document
+
+**Page** : admin/documents-form.js
+
+?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## La base de données
 
 ![](docs/entities/entities.png)
 
-## Les entités
+### Les entités
 
-### User - Les utilisateurs
+**User - Les utilisateurs**
 
 |||||
 |-|-|-|-|
@@ -308,7 +635,7 @@ Il y retrouve :
 |**is_optin**|l'exposant est inscrit à la newsletter de l'association|booléen|"non" par défaut|
 |**role**|le rôle de l'utilisateur ("Exposant", "Trésorier", "Administrateur")|chaîne (20)|"Exposant" par défaut|
 
-### Message - Les messages
+**Message - Les messages**
 
 |||||
 |-|-|-|-|
@@ -317,14 +644,14 @@ Il y retrouve :
 |**content**|contenu textuel du message|texte|requis|
 |**is_newsletter**|envoi groupé ou newsletter|booléen|"non" par défaut|
 
-### Mode - Les modes de paiement
+**Mode - Les modes de paiement**
 
 |||||
 |-|-|-|-|
 |**id**|l'identifiant du mode de paiement|entier|clé primaire|
 |**label**|libellé du mode de paiement|chaîne (50)|requis|
 
-### Document - Les documents
+**Document - Les documents**
 
 |||||
 |-|-|-|-|
@@ -332,7 +659,7 @@ Il y retrouve :
 |**title**|l'intitulé du document|chaîne (255)|requis|
 |**file**|le fichier source (document texte, image)|blob|requis|
 
-### Event - Les événements
+**Event - Les événements**
 
 |||||
 |-|-|-|-|
@@ -342,58 +669,58 @@ Il y retrouve :
 |**num_available**|le nombre de tables disponibles|entier (3)|requis|
 |**fixed_price**|le prix de base pour une table|décimal (2,2)|requis|
 
-### Reservation - Les réservations
+**Reservation - Les réservations**
 
 |||||
 |-|-|-|-|
 |**id**|l'identifiant de la réservation|entier|clé primaire|
 |**number**|le nombre de table réservées|entier (2)|1 par défaut|
 |**status**|le statut de paiement ("A Payer", "Payé", "Annulé")|chaîne (20)|"A Payer" par défaut|
-|**paid_at**|la date de paiement (JJ/MM/AAAA)|requis si statut "Payé"|
+|**paid_at**|la date de paiement (JJ/MM/AAAA)|date|requis si statut "Payé"|
 |**total**|la somme totale réglée pour les tables (en €)|décimal (3,2)|0 par défaut|
 |**comment**|les commentaires de la réservation|texte|optionnel|
 |**mode_id**|l'identifiant du mode de paiement|entier|clé étrangère|
 |**event_id**|l'identifiant de l'événement|entier|clé étrangère|
 
-## Les cardinalités
+### Les cardinalités
 
-### User (0,n) - Message (1,n)
+**User (0,n) - Message (1,n)**
 
 Un utilisateur peut envoyer plusieurs messages à un autre utilisateur. (0,n)
 
-(réflexion, en même temps)
+Un message est reçu par au moins un utilisateur. (1,n)
 
-### User (1,1) - Mode (0,n)
+**User (1,1) - Mode (0,n)**
 
 Un utilisateur utilise un seul mode de paiement. (1,1)
 
 Un mode de paiement peut être adopté par plusieurs utilisateurs. (0,n)
 
-### User (0,n) - Event (0,n)
+**User (0,n) - Event (0,n)**
 
 Un utilisateur peut s'inscrire à plusieurs événements. (0,n)
 
 Un événement peut accueillir plusieurs exposants. (0,n)
 
-### Mode (0,n) - (1,1) Reservation
+**Mode (0,n) - (1,1) Reservation**
 
 Un mode de paiement peut concerner plusieurs réservations. (0,n)
 
 Une réservation est réglée avec un seul mode de paiement. (1,1)
 
-### Event (0,n) - (1,1) Reservation
+**Event (0,n) - (1,1) Reservation**
 
 Un événement peut regrouper plusieurs réservations. (0,n)
 
 Une réservation concerne un seul événement. (1,1)
 
-### Document (0,1) - (0,n) Event
+**Document (0,1) - (0,n) Event**
 
 Un document peut concerner un événement. (0,1)
 
 Un événement peut regrouper plusieurs documents. (0,n)
 
-## La modélisation (UML)
+## La modélisation
 
 ### Les cas d'utilisation
 

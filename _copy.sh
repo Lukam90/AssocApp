@@ -1,5 +1,5 @@
 date=`date +"%H.%M"`
-name="Next"
+name="AssocApp"
 
 target="$HOME/Téléchargements/Copies/CP-$name-$date"
 
