@@ -22,7 +22,7 @@ La réservation est ensuite validée selon le statut de paiement et le nombre de
 
 ## L'environnement technique
 
-Next
+**Next**
 
 Il s'agit d'un framework back-end basé sur React et la JAMStack, une bibliothèque de composants logiques en JavaScript.
 
@@ -70,71 +70,62 @@ Les états d'avancement sont définis comme suit :
 
 |||
 |-|-|
-||à faire|
 |**!**|en cours|
 |**T**|à tester|
 |**x**|finalisé|
 
 ***
 
-||||
-|-|-|-|
-|**L'inscription et la connexion**|||
-||||
-|L'inscription d'un utilisateur|||
-|La connexion d'un utilisateur|||
-|La déconnexion d'un utilisateur|||
-|L'inscription manuelle d'un utilisateur|||
-|La réinitialisation du mot de passe|||
-|La page de réinitialisation du mot de passe|||
-||||
-|**Le profil d'un utilisateur**|||
-||||
-|Profil > Onglet "Informations Personnelles"|||
-|Profil > Onglet "Connexion"|||
-|Profil > Onglet "Réservation"|||
-||||
-|**La gestion des utilisateurs**|||
-||||
-|La liste des utilisateurs|||
-|La recherche d'un utilisateur|||
-|L'inscription manuelle d'un utilisateur|||
-|L'édition manuelle d'un utilisateur|||
-||||
-|**La gestion des événements**|||
-||||
-|La liste des événements|||
-|La recherche d'un événement|||
-|L'ajout d'un événement|||
-|L'édition d'un événement|||
-||||
-|**La gestion des modes de paiement**|||
-||||
-|La liste des modes de paiement|||
-|L'ajout d'un mode de paiement|||
-|L'édition d'un mode de paiement|||
-||||
-|**La gestion des réservations**|||
-||||
-|La liste des réservations|||
-|La recherche d'une réservation|||
-|L'ajout d'une réservation|||
-|L'édition d'une réservation|||
-||||
-|**La gestion des documents**|||
-||||
-|La liste des documents|||
-|La recherche d'un document|||
-|L'ajout d'un document|||
-|L'édition d'un document|||
-||||
-||||
-||||
-||||
-||||
-||||
-||||
-||||
+|||
+|-|-|
+|**L'inscription et la connexion**||
+|||
+|L'inscription d'un utilisateur||
+|La connexion d'un utilisateur||
+|La déconnexion d'un utilisateur||
+|L'inscription manuelle d'un utilisateur||
+|La réinitialisation du mot de passe||
+|La page de réinitialisation du mot de passe||
+|||
+|**Le profil d'un utilisateur**||
+|||
+|Profil > Onglet "Informations Personnelles"||
+|Profil > Onglet "Connexion"||
+|Profil > Onglet "Réservation"||
+|||
+|**La gestion des utilisateurs**||
+|||
+|La liste des utilisateurs||
+|La recherche d'un utilisateur||
+|L'inscription manuelle d'un utilisateur||
+|L'édition manuelle d'un utilisateur||
+|||
+|**La gestion des événements**||
+|||
+|La liste des événements||
+|La recherche d'un événement||
+|L'ajout d'un événement||
+|L'édition d'un événement||
+|||
+|**La gestion des modes de paiement**||
+|||
+|La liste des modes de paiement||
+|L'ajout d'un mode de paiement||
+|L'édition d'un mode de paiement||
+|||
+|**La gestion des réservations**||
+|||
+|La liste des réservations||
+|La recherche d'une réservation||
+|L'ajout d'une réservation||
+|L'édition d'une réservation||
+|||
+|**La gestion des documents**||
+|||
+|La liste des documents||
+|La recherche d'un document||
+|L'ajout d'un document||
+|L'édition d'un document||
 
 ## Le traîtement des données
 
@@ -193,7 +184,7 @@ Un utilisateur non connecté est un invité.
 
 Un exposant peut s'inscrire avec :
 
-||||
+|||
 |-|-|-|
 |son **adresse e-mail**|format e-mail|requis|
 |son **mot de passe**|valide|requis|
@@ -284,7 +275,7 @@ Un utilisateur peut consulter son profil selon les onglets suivants :
 
 L'utilisateur peut changer ses informations personnelles de base :
 
-||||
+|||
 |-|-|-|
 |son **prénom**|de 2 et 50 caractères alphabétiques, accents et - inclus|requis|
 |son **nom de famille**|de 2 et 50 caractères alphabétiques, accents et - inclus|requis|
@@ -341,7 +332,7 @@ Certains refusent d'inscrire des informations personnelles sensibles (adresse e-
 
 L'administrateur peut donc enregistrer un exposant manuellement avec :
 
-||||
+|||
 |-|-|-|
 |son **prénom**|de 2 et 50 caractères alphabétiques, accents et - inclus|requis|
 |son **nom de famille**|de 2 et 50 caractères alphabétiques, accents et - inclus|requis|
@@ -468,147 +459,3 @@ L'administrateur peut donc enregistrer un exposant manuellement avec :
 **Page** : admin/documents-form.js
 
 ?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

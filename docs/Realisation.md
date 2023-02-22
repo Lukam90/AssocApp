@@ -1,6 +1,6 @@
 ## La base de données
 
-![](docs/entities/entities.png)
+![](docs/diagrams/entities.png)
 
 ### Les entités
 
@@ -108,107 +108,20 @@ Un événement peut regrouper plusieurs documents. (0,n)
 
 ### Les cas d'utilisation
 
-![](usecases/ucase-reservations.png)
-
-![](images/Usecases.png)
+?
 
 ### Diagrammes de classe
 
-![](images/classes.png)
+?
 
 ### MCD (Modèle Conceptuel de Données)
 
-![](images/MCD.png)
+?
 
 ### MLD (Modèle Logique de Données)
 
-![](images/MLD.png)
+?
 
 ### Schéma relationnel
 
-![](images/Relationnel.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+?
