@@ -113,12 +113,23 @@ Un utilisateur non connecté est un invité.
 **Page** : register.js
 
 Un exposant peut s'inscrire avec :
-- son adresse e-mail (requis)
-- son mot de passe (requis, de 8 à 32 caractères, dont au moins une minuscule, une majuscule et un chiffre)
-- son prénom (requis, 2 à 50 caractères alphabétiques et -)
-- son nom de famille (requis, 2 à 50 caractères alphabétiques et -)
-- son numéro de téléphone (optionnel, de 10 à 20 caractères numériques et +)
-- son libellé de stand (optionnel, de 2 à 255 caractères)
+
+||||
+|-|-|-|
+|son **adresse e-mail**|format e-mail|requis|
+|son **mot de passe**|valide|requis|
+|son **prénom**|de 2 à 50 caractères alphabétiques, - inclus|requis|
+|son **nom de famille**|de 2 à 50 caractères alphabétiques, - inclus|requis|
+|son **numéro de téléphone**|de 10 à 20 caractères numériques, + inclus|optionnel|
+|son **libellé de stand**|de 2 à 255 caractères|optionnel|
+|son **inscription à la newsletter**|case à cocher (optin)||
+
+Le mot de passe doit comporter :
+- entre 8 et 32 caractères
+- au moins une minuscule (a-z)
+- au moins une majuscule (A-Z)
+- au moins un chiffre (0-9)
+- au moins un caractère spécial
 
 #### La connexion d'un utilisateur
 
@@ -131,6 +142,7 @@ Un utilisateur inscrit est invité à se connecter avec :
 - son mot de passe
 
 Un message d'erreur s'affiche si :
+- l'adresse e-mail ou le mot de passe n'est pas renseigné
 - l'adresse e-mail est introuvable
 - le mot de passe est incorrect
 
@@ -155,16 +167,90 @@ Tous les exposants n'ont pas un accès à Internet ou une maîtrise de l'outil i
 Certains refusent d'inscrire des informations personnelles sensibles (adresse e-mail, téléphone) sur Internet.
 
 L'administrateur peut donc enregistrer un exposant manuellement avec :
-- son prénom (requis, 2 à 50 caractères alphabétiques et -)
-- son nom de famille (requis, 2 à 50 caractères alphabétiques et -)
-- son numéro de téléphone (optionnel, de 10 à 20 caractères numériques et +)
-- son libellé de stand (optionnel, de 2 à 255 caractères)
+
+||||
+|-|-|-|
+|son **prénom**|de 2 et 50 caractères alphabétiques, accents et - inclus|requis|
+|son **nom de famille**|de 2 et 50 caractères alphabétiques, accents et - inclus|requis|
+|son **numéro de téléphone**|de 10 à 20 caractères numériques, + inclus|optionnel|
+|son **libellé de stand**|de 2 à 255 caractères|optionnel|
+
+#### La réinitialisation du mot de passe
+
+**Rôle** : Invité
+
+**Page** : login.js
+
+Un utilisateur peut demander la réinitialisation du mot de passe pour se connecter.
+
+Un clic sur le lien affiche une fenêtre modale avec une adresse e-mail à renseigner.
+
+Si l'adresse e-mail existe, l'utilisateur reçoit un e-mail de réinitialisation du mot de passe.
+
+Sinon, un message d'erreur indique l'inexistence de l'adresse e-mail.
+
+#### La page de réinitialisation du mot de passe
+
+**Rôle** : Invité
+
+**Page** : reset.js
+
+Un lien du mail de réinitialisation du mot de passe redirige l'utilisateur vers une page dédiée.
+
+L'utilisateur doit renseigner son nouveau mot de passe et le confirmer.
+
+Le mot de passe doit comporter :
+- entre 8 et 32 caractères
+- au moins une minuscule (a-z)
+- au moins une majuscule (A-Z)
+- au moins un chiffre (0-9)
+- au moins un caractère spécial
+
+Un message confirme la réinitialisation du mot de passe et redirige l'utilisateur sur la page de connexion.
+
+Un message d'erreur s'affiche si le mot de passe n'est pas valide ou confirmé.
+
+#### Le profil d'un utilisateur
+
+**Rôles** : Administrateur, Trésorier, Exposant
+
+**Page** : 
+
+Un utilisateur peut consulter son profil selon les onglets suivants :
+
+##### Les informations personnelles (Onglet "Informations")
+
+L'utilisateur peut changer ses informations personnelles de base :
+
+||||
+|-|-|-|
+|son **prénom**|de 2 et 50 caractères alphabétiques, accents et - inclus|requis|
+|son **nom de famille**|de 2 et 50 caractères alphabétiques, accents et - inclus|requis|
+|son **numéro de téléphone**|de 10 à 20 caractères numériques, + inclus|optionnel|
+|son **libellé de stand**|de 2 à 255 caractères|optionnel|
+|son **inscription à la newsletter**|case à cocher (optin)||
+
+##### Les identifiants de connexion (Onglet "Connexion")
+
+L'utilisateur peut changer son adresse e-mail au besoin.
+
+Il peut aussi changer son mot de passe en indiquant :
+- son ancien mot de passe
+- son nouveau mot de passe
+- la confirmation du nouveau mot de passe
+
+##### La consultation d'une réservation (Onglet "Réservation")
+
+Un utilisateur peut consulter l'état de sa réservation pour le dernier événement.
+
+Il y retrouve :
+- l'année du dernier événement
+- l'intitulé du dernier événement
+- le statut de paiement
+- la date de paiement
 
 **Exposant**
 
-- inscription manuelle d'un utilisateur
-- réinitialisation du mot de passe
-- envoi d'un nouveau mot de passe
 - consultation d'une réservation
 - édition du profil
 

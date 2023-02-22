@@ -7,10 +7,13 @@ classDiagram
         - id : int
         - email : string
         - password: string
-        - role : string
         - firstName : string
         - lastName : string
-        - label : string 
+        - phone : string
+        - label : string
+        - isMember : boolean
+        - isOption : boolean
+        - role : string
 
         + getAllUsers()
         + getUserById()
@@ -22,16 +25,42 @@ classDiagram
         + logout()
     }
 
+    class Message {
+        - id : int
+        - object : string
+        - content : string
+        - isNewsletter : boolean
+    }
+
+    class Mode {
+        - id : int
+        - label : string
+    }
+
+    class Event {
+        - id : int
+        - plannedAt : Date
+        - title : string
+        - numAvailable : int
+        - fixedPrice : double
+    }
+
+    class Document {
+        - id : int
+        - title : string
+        - file : blob
+    }
+
     class Reservation {
-        - id: int
+        - id : int
         - number : int
         - status : string
-        - paid_at : Date
+        - paidAt : Date
         - total : double
-        - mode : string
+        - comment : string
 
         + getAllReservations()
-        + getReservationById()
+        + getOneReservation(id)
         + searchReservation()
         + addReservation()
         + editReservation()

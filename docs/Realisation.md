@@ -53,15 +53,6 @@
 |**num_available**|le nombre de tables disponibles|entier (3)|requis|
 |**fixed_price**|le prix de base pour une table|décimal (2,2)|requis|
 
-### Table - Les tables
-
-|||||
-|-|-|-|-|
-|**id**|l'identifiant de la table|entier|clé primaire|
-|**price**|prix individuel d'une table|décimal (2,2)|déterminé par le prix de base **fixed_price** par défaut|
-|**pos_x**|emplacement X (horizontal) de la table sur le plan de la salle|entier|optionnel|
-|**pos_y**|emplacement Y (vertical) de la table sur le plan de la salle|entier|optionnel|
-
 ### Reservation - Les réservations
 
 |||||
