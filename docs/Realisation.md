@@ -95,23 +95,11 @@ Un utilisateur peut s'inscrire à plusieurs événements. (0,n)
 
 Un événement peut accueillir plusieurs exposants. (0,n)
 
-### User (1,n) - (1,1) Table
-
-Un utilisateur réserve au moins une table. (1,n)
-
-Une table est réservée pour un seul utilisateur. (1,1)
-
 ### Mode (0,n) - (1,1) Reservation
 
 Un mode de paiement peut concerner plusieurs réservations. (0,n)
 
 Une réservation est réglée avec un seul mode de paiement. (1,1)
-
-### Table (1,1) - (1,n) Reservation
-
-Une table concerne une seule réservation. (1,1)
-
-Une réservation regroupe au moins une table. (1,n)
 
 ### Event (0,n) - (1,1) Reservation
 

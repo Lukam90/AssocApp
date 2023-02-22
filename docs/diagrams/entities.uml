@@ -40,28 +40,19 @@ erDiagram
 
     Reservation {
         id int
+        number int
         status label
         paid_at date
         total double
         comment text
     }
 
-    Table {
-        id int
-        price double
-        pos_x int
-        pos_y int
-    }
-
     User o{ -- }| Message : "envoie"
     User o{ -- }| Message : "reçoit"
     User || -- }o Mode : "paie avec"
     User o{ -- }o Event : "s'inscrit à"
-    User |{ -- || Table : "réserve"
 
     Mode o{ -- || Reservation : "règle"
-
-    Table || -- }| Reservation : "regroupe"
     Event o{ -- || Reservation : "concerne"
 
     Document o| -- }o Event : "concerne"

@@ -160,9 +160,12 @@ L'administrateur peut donc enregistrer un exposant manuellement avec :
 - son numéro de téléphone (optionnel, de 10 à 20 caractères numériques et +)
 - son libellé de stand (optionnel, de 2 à 255 caractères)
 
+#### La réinitialisation du mot de passe
+
+
+
 **Exposant**
 
-- inscription manuelle d'un utilisateur
 - réinitialisation du mot de passe
 - envoi d'un nouveau mot de passe
 - consultation d'une réservation
