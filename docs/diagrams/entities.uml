@@ -7,16 +7,38 @@ erDiagram
         last_name varchar
         phone varchar
         label varchar
+        is_active boolean
         is_member boolean
+        is_notified boolean
         is_optin boolean
         role label
     }
 
-    Message {
+    Notification {
+        id int
+        content text
+        send_at date
+    }
+
+    Newsletter {
         id int
         object varchar
         content text
-        is_newsletter boolean
+        is_published boolean
+        send_at date
+    }
+
+    Ticket {
+        id int
+        full_name varchar
+        label varchar
+        email varchar
+        phone varchar
+        type varchar
+        object varchar
+        content text
+        created_at date
+        status varchar
     }
 
     Mode {
@@ -47,8 +69,9 @@ erDiagram
         comment text
     }
 
-    User o{ -- }| Message : "envoie"
-    User o{ -- }| Message : "reçoit"
+    User o{ -- || Notification : "reçoit"
+    User o{ -- }| Newsletter : "envoie"
+    User o{ -- o| Ticket : "crée"
     User || -- }o Mode : "paie avec"
     User o{ -- }o Event : "s'inscrit à"
 
