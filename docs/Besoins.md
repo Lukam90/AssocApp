@@ -80,52 +80,62 @@ Les états d'avancement sont définis comme suit :
 |-|-|
 |**L'inscription et la connexion**||
 |||
-|L'inscription d'un utilisateur||
-|La connexion d'un utilisateur||
-|La déconnexion d'un utilisateur||
-|L'inscription manuelle d'un utilisateur||
-|La réinitialisation du mot de passe||
-|La page de réinitialisation du mot de passe||
+|L'inscription d'un utilisateur|M|
+|La connexion d'un utilisateur|M|
+|La déconnexion d'un utilisateur|M|
+|L'inscription manuelle d'un utilisateur|H|
+|La réinitialisation du mot de passe|B|
+|La page de réinitialisation du mot de passe|B|
 |||
 |**Le profil d'un utilisateur**||
 |||
-|Profil > Onglet "Informations Personnelles"||
-|Profil > Onglet "Connexion"||
-|Profil > Onglet "Réservation"||
+|Profil > Onglet "Informations Personnelles"|M|
+|Profil > Onglet "Connexion"|M|
+|Profil > Onglet "Réservation"|M|
 |||
 |**La gestion des utilisateurs**||
 |||
-|La liste des utilisateurs||
-|La recherche d'un utilisateur||
-|L'inscription manuelle d'un utilisateur||
-|L'édition manuelle d'un utilisateur||
+|La liste des utilisateurs|H|
+|La recherche d'un utilisateur|M|
+|L'inscription manuelle d'un utilisateur|H|
+|L'édition manuelle d'un utilisateur|H|
 |||
 |**La gestion des événements**||
 |||
-|La liste des événements||
-|La recherche d'un événement||
-|L'ajout d'un événement||
-|L'édition d'un événement||
+|La liste des événements|H|
+|La recherche d'un événement|M|
+|L'ajout d'un événement|H|
+|L'édition d'un événement|H|
 |||
 |**La gestion des modes de paiement**||
 |||
-|La liste des modes de paiement||
-|L'ajout d'un mode de paiement||
-|L'édition d'un mode de paiement||
+|La liste des modes de paiement|H|
+|L'ajout d'un mode de paiement|H|
+|L'édition d'un mode de paiement|H|
 |||
 |**La gestion des réservations**||
 |||
-|La liste des réservations||
-|La recherche d'une réservation||
-|L'ajout d'une réservation||
-|L'édition d'une réservation||
+|La liste des réservations|H|
+|La recherche d'une réservation|M|
+|L'ajout d'une réservation|H|
+|L'édition d'une réservation|H|
 |||
 |**La gestion des documents**||
 |||
-|La liste des documents||
-|La recherche d'un document||
-|L'ajout d'un document||
-|L'édition d'un document||
+|La liste des documents|M|
+|La recherche d'un document|M|
+|L'ajout d'un document|M|
+|L'édition d'un document|M|
+|||
+|**La gestion des tickets**||
+|||
+|La liste des tickets|M|
+|La résolution d'un ticket|M|
+|||
+|**La gestion des newsletters**||
+|||
+|La liste des newsletters|B|
+|La création d'une newsletter|B|
 
 ## Le traîtement des données
 
@@ -459,3 +469,61 @@ L'administrateur peut donc enregistrer un exposant manuellement avec :
 **Page** : admin/documents-form.js
 
 ?
+
+## La gestion des tickets
+
+**Rôles** : Trésorier, Administrateur
+
+### La liste des tickets
+
+**Page** : admin/tickets.js
+
+?
+
+### La résolution d'un ticket
+
+**Page** : admin/tickets-read.js
+
+?
+
+## La gestion des newsletters
+
+**Rôle** : Administrateur
+
+### La liste des newsletters
+
+**Page** : admin/newsletters.js
+
+?
+
+### La création d'une newsletter
+
+**Page** : admin/newsletters-form.js
+
+?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
