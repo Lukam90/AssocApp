@@ -9,22 +9,15 @@ erDiagram
         label varchar
         is_active boolean
         is_member boolean
-        is_notified boolean
         is_optin boolean
         role label
-    }
-
-    Notification {
-        id int
-        content text
-        send_at date
     }
 
     Newsletter {
         id int
         object varchar
         content text
-        is_published boolean
+        status varchar
         send_at date
     }
 
@@ -69,7 +62,6 @@ erDiagram
         comment text
     }
 
-    User o{ -- || Notification : "reçoit"
     User o{ -- }| Newsletter : "envoie"
     User o{ -- o| Ticket : "crée"
     User || -- }o Mode : "paie avec"
