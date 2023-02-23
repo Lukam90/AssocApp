@@ -481,14 +481,30 @@ L'administrateur peut donc enregistrer un exposant manuellement avec :
 |**is_optin**|l'exposant est inscrit à la newsletter de l'association|booléen|"non" par défaut|
 |**role**|le rôle de l'utilisateur ("Exposant", "Trésorier", "Administrateur")|chaîne (20)|"Exposant" par défaut|
 
-**Message - Les messages**
+**Newsletter - Les newsletters**
 
 |||||
 |-|-|-|-|
-|**id**|l'identifiant du message|entier|clé primaire|
-|**object**|objet du message|chaîne (255)|requis|
-|**content**|contenu textuel du message|texte|requis|
-|**is_newsletter**|envoi groupé ou newsletter|booléen|"non" par défaut|
+|**id**|l'identifiant de la newsletter|entier|clé primaire|
+|**object**|le titre de la newsletter|chaîne (255)|requis|
+|**content**|le contenu de la newsletter|texte|requis|
+|**status**|le statut de publication de la newsletter ("Brouillon", "Envoyé")|chaîne (15)|"Brouillon" par défaut|
+|**send_at**|la date d'envoi de la newsletter|date|déterminé lors de l'envoi|
+
+**Ticket - Les tickets**
+
+|||||
+|-|-|-|-|
+|**id**|l'identifiant du ticket|entier|clé primaire|
+|full_name|le nom complet (prénom et nom de famille) de l'auteur du ticket|chaîne (100)|requis, indiqué si l'utilisateur est connecté|
+|label|le libellé de l'auteur du ticket|chaîne (255)|optionnel, indiqué si l'utilisateur est connecté|
+|email|l'adresse e-mail de l'auteur du ticket|chaîne (100)|optionnel, indiqué si l'utilisateur est connecté|
+|phone|le numéro de téléphone de l'auteur du ticket|chaîne (20)|optionnel, indiqué si l'utilisateur est connecté|
+|type|le type de ticket ("Question", "Suggestion")|chaîne (15)|"Question" par défaut|
+|object|le titre du ticket|chaîne (255)|requis|
+|content|le contenu textuel du ticket|texte|requis|
+|created_at|la date de création du ticket|date|déterminé lors de la création|
+|status|le status du ticket ("Demande", "Résolu")|chaîne (10)|"Demande" par défaut|
 
 **Mode - Les modes de paiement**
 
@@ -530,11 +546,17 @@ L'administrateur peut donc enregistrer un exposant manuellement avec :
 
 ### Les cardinalités
 
-**User (0,n) - Message (1,n)**
+**User (0,n) - Newsletter (1,n)**
 
-Un utilisateur peut envoyer plusieurs messages à un autre utilisateur. (0,n)
+Un utilisateur peut envoyer plusieurs newsletters. (0,n)
 
-Un message est reçu par au moins un utilisateur. (1,n)
+Une newsletter est envoyée à au moins un utilisateur. (1,n)
+
+**User (0,n) - Ticket (0,1)**
+
+Un utilisateur peut créer plusieurs tickets. (0,n)
+
+Un ticket peut être lié à un utilisateur inscrit. (0,1)
 
 **User (1,1) - Mode (0,n)**
 
