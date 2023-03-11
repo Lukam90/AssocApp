@@ -1,3 +1,7 @@
+[Retour au sommaire](README.md)
+
+***
+
 # Le traîtement des données
 
 Le traîtement des données doit respecter la norme RGPD (Réglement Général de la Protection des Données).

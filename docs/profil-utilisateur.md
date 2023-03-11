@@ -1,3 +1,7 @@
+[Retour au sommaire](README.md)
+
+***
+
 # Le profil d'un utilisateur
 
 **Rôles** : Tous (Connecté)<br />

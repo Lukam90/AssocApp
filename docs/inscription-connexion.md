@@ -1,3 +1,7 @@
+[Retour au sommaire](README.md)
+
+***
+
 # L'inscription et la connexion
 
 ## L'inscription d'un utilisateur

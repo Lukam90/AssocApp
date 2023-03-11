@@ -1,3 +1,7 @@
+[Retour au sommaire](README.md)
+
+***
+
 # La gestion des modes de paiement
 
 **Rôle** : Administrateur

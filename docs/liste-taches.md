@@ -1,3 +1,7 @@
+[Retour au sommaire](README.md)
+
+***
+
 # La liste des tâches
 
 Les priorités sont définies comme suit :

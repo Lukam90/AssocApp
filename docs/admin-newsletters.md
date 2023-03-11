@@ -1,3 +1,7 @@
+[Retour au sommaire](README.md)
+
+***
+
 # La gestion des newsletters
 
 **Rôle** : Administrateur
