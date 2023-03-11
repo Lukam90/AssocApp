@@ -16,13 +16,13 @@
 
 ### MPD -  Modèle Physique de Données
 
-- **newsletter** (<u>id</u>, object, content, is_send, send_at, <u>#user_id</u>)
-- **user** (<u>id</u>, email, password, first_name, last_name, label, picture, phone, is_active, is_member, is_optin, role)
-- **user_event** (<u>#user_id, #event_id</u>)
-- **event** (<u>id</u>, planned_at, title, picture, content, num_available)
-- **reservation** (<u>id</u>, status, paid_at, total, comment, <u>#event_id</u>, <u>#mode_id</u>)
-- **mode** (<u>id</u>, label)
-- **table** (<u>id</u>, pos_x, pos_y, comment, <u>#reservation_id</u>)
+- newsletter (**id**, object, content, is_send, send_at, **#user_id**)
+- user (**id**, email, password, first_name, last_name, label, picture, phone, is_active, is_member, is_optin, role)
+- user_event (**#user_id, #event_id**)
+- event (**id**, planned_at, title, picture, content, num_available)
+- reservation (**id**, status, paid_at, total, comment, **#event_id**, **#mode_id**)
+- mode (**id**, label)
+- table (**id**, pos_x, pos_y, comment, **#reservation_id**)
 
 ## Les entités
 
