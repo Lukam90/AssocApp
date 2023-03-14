@@ -21,9 +21,9 @@
 - user (**id**, email, password, first_name, last_name, label, picture, phone, is_active, is_member, is_optin, role)
 - user_event (**#user_id, #event_id**)
 - event (**id**, planned_at, title, picture, content, min_price, num_available)
-- reservation (**id**, status, paid_at, total, comment, **#event_id**, **#mode_id**)
+- reservation (**id**, status, paid_at, total, comments, **#event_id**, **#mode_id**)
 - mode (**id**, label)
-- table (**id**, price, pos_x, pos_y, comment, **#reservation_id**)
+- table (**id**, price, pos_x, pos_y, comments, **#reservation_id**)
 
 ## Les entités
 
@@ -81,7 +81,7 @@ nom|description|type|règle
 **status**|le statut de paiement ("A Payer", "Payé", "Annulé")|chaîne (20)|"A Payer" par défaut
 **paid_at**|la date de paiement (JJ/MM/AAAA)|date|requis si statut "Payé"
 **total**|la somme totale réglée pour les tables (en €)|décimal (3,2)|0 par défaut
-**comment**|les commentaires de la réservation|texte|optionnel
+**comments**|les commentaires de la réservation|texte|optionnel
 
 ### Table - Les tables
 
@@ -91,7 +91,7 @@ nom|description|type|règle
 **price**|le prix individuel d'une table|entier (3)|prix de base pour un événement par défaut
 **pos_x**|la position en abscisses (X) de la table|entier (3)|0 par défaut
 **pos_y**|la position en ordonnées (Y) de la table|entier (3)|0 par défaut
-**comment**|les commentaires d'une table (ex : "situé près de la porte de sortie")|texte|optionnel
+**comments**|les commentaires d'une table (ex : "situé près de la porte de sortie")|texte|optionnel
 
 ## Les cardinalités
 

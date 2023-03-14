@@ -1,7 +1,7 @@
-status;paid_at;total;event_id;mode_id;comment
-Payé;01/03/2023;60;1;1;une table offerte (membre)
-Payé;02/03/2023;40;1;2;
-A Payer;;80;1;3;
-Annulé;03/03/2023;60;1;1;
-Payé;04/03/2023;50;1;2;
-Payé;05/03/2023;40;1;3;
+status;paid_at;event_id;mode_id;comment
+Payé;01/03/2023;1;1;une table offerte (membre)
+Payé;02/03/2023;1;2;
+A Payer;;1;3;
+Annulé;03/03/2023;1;1;
+Payé;04/03/2023;1;2;
+Payé;05/03/2023;1;3;
