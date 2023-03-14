@@ -1,0 +1,12 @@
+email;first_name;last_name;label;role
+contact@admin.fr;Lucien;HAMM;AACCP;Administrateur
+reservations@admin.fr;Jean;DUPONT;;Trésorier
+l.roman@test.com;Louis;ROMAN;Louis La Brocante;Exposant
+g.delajungle@test.com;Georges;DELAJUNGLE;;Exposant
+b.duval@test.com;Bernadette;DUVAL;Association Cartophile de Haguenau;Exposant
+f.molas@jdg.fr;Frédéric;MOLAS;Joueur du Grenier;Exposant
+d.goodenough@jdg.fr;David;GOODENOUGH;;Exposant
+p.richard@test.com;Pierre;RICHARD;La Boutique de Pierrot;Exposant
+g.bonnet@test.com;Gilbert;BONNET;Gilbert Philatélie;Exposant
+j.bond@test.com;James;BOND;Tableaux 007;Exposant
+m.simon@test.com;Marc;SIMON;Cartes Postales Magazine;Exposant
