@@ -27,6 +27,16 @@ L'utilisateur peut changer ses informations personnelles de base :
   - case à cocher (optin)
   - décoché par défaut
 
+```sql
+UPDATE user
+SET first_name = :first_name,
+	last_name = :last_name,
+	phone = :phone,
+	label = :label,
+	optin = :optin
+WHERE id = :id
+```
+
 ## Onglet "Identifiants de Connexion"
 
 L'utilisateur peut changer son adresse e-mail au besoin.
@@ -37,13 +47,32 @@ Il peut aussi changer son mot de passe en indiquant :
 - son **nouveau mot de passe**
 - la **confirmation du nouveau mot de passe**
 
+```sql
+UPDATE user
+SET password = :password
+```
+
 ## Onglet "Réservation"
 
 Un utilisateur peut consulter l'état de sa réservation pour le dernier événement.
 
 Il y retrouve :
 
-- l'**année du dernier événement**
-- l'**intitulé du dernier événement**
-- le **statut de paiement**
-- la **date de paiement**
+|||
+|-|-|
+la **date du dernier événement**;e.planned_at
+l'**intitulé du dernier événement**;e.title
+le **statut de paiement**;r.status
+la **date de paiement**;r.paid_at
+
+```sql
+SELECT e.planned_at, e.title,
+	   r.status, r.paid_at
+FROM event e
+INNER JOIN reservation r
+ON e.id = r.event_id
+INNER JOIN user_event inter
+ON e.id = inter.event_id
+INNER JOIN user
+ON inter.user_id = u.id
+```
