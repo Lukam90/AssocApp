@@ -24,12 +24,25 @@ Les utilisateurs sont listés sous forme de tableau avec :
 
 L'ordre est croissant et basé sur l'ID par défaut.
 
+```sql
+SELECT u.id, u.first_name, u.last_name, u.label, u.email, u.phone, u.role, u.is_active, u.is_member, u.is_optin
+FROM user u
+```
+
 ## La recherche d'un utilisateur
 
 **Rôles** : Administrateur, Trésorier<br />
 **Page** : admin/users.js
 
 On peut rechercher un utilisateur avec son prénom, son nom et son libellé.
+
+```sql
+SELECT u.id, u.first_name, u.last_name, u.label, u.email, u.phone, u.role, u.is_active, u.is_member, u.is_optin
+FROM user u
+WHERE u.first_name LIKE '%' . :first_name . '%'
+OR    u.last_name LIKE '%' . :last_name . '%'
+OR    u.label LIKE '%' . :label . '%'
+```
 
 ## L'inscription manuelle d'un utilisateur
 
@@ -57,8 +70,19 @@ L'administrateur peut donc enregistrer un exposant manuellement avec :
 - son **numéro de téléphone**
   - de 10 à 20 caractères numériques, + inclus
   - optionnel
+- son **rôle**
+  - "Exposant" ou "Trésorier"
+- son **statut d'activation**
+  - case à cocher (oui / non)
+- son **statut de membre**
+  - case à cocher (oui / non)
 
 Un bouton "Ajouter un utilisateur" (bleu avec icône "+") est visible au dessus de la liste des utilisateurs.
+
+```sql
+INSERT INTO user (first_name, last_name, label, email, phone, role, is_active, is_member)
+VALUES (:first_name, :last_name, :label, :email, :phone, :role, :is_active, :is_member)
+```
 
 ## L'édition manuelle d'un utilisateur
 
@@ -66,3 +90,16 @@ Un bouton "Ajouter un utilisateur" (bleu avec icône "+") est visible au dessus 
 **Page** : admin/users-form.js
 
 On peut éditer les informations d'un utilisateur suivant le modèle du formulaire d'ajout.
+
+```sql
+UPDATE user (first_name, last_name, label, email, phone, role, is_active, is_member)
+SET first_name = :first_name, 
+    last_name = :last_name,
+    label = :label,
+    email = :email,
+    phone = :phone,
+    role = :role,
+    is_active = :is_active,
+    is_member = :is_member
+WHERE id = :id
+```
