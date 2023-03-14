@@ -20,10 +20,10 @@
 - newsletter_user (**#newsletter_id, #user_id**)
 - user (**id**, email, password, first_name, last_name, label, picture, phone, is_active, is_member, is_optin, role)
 - user_event (**#user_id, #event_id**)
-- event (**id**, planned_at, title, picture, content, num_available)
+- event (**id**, planned_at, title, picture, content, min_price, num_available)
 - reservation (**id**, status, paid_at, total, comment, **#event_id**, **#mode_id**)
 - mode (**id**, label)
-- table (**id**, pos_x, pos_y, comment, **#reservation_id**)
+- table (**id**, price, pos_x, pos_y, comment, **#reservation_id**)
 
 ## Les entités
 
@@ -70,6 +70,7 @@ nom|description|type|règle
 **title**|l'intitulé de l'événement|chaîne (255)|requis
 **picture**|l'image d'illustration de l'événement|blob|optionnel
 **content**|la description de l'événement|texte|requis
+**min_price**|le prix de base par table|entier (3)|requis
 **num_available**|le nombre de tables disponibles|entier (3)|requis
 
 ### Reservation - Les réservations
@@ -87,6 +88,7 @@ nom|description|type|règle
 nom|description|type|règle
 -|-|-|-
 **id**|l'identifiant de la table|entier|clé primaire
+**price**|le prix individuel d'une table|entier (3)|prix de base pour un événement par défaut
 **pos_x**|la position en abscisses (X) de la table|entier (3)|0 par défaut
 **pos_y**|la position en ordonnées (Y) de la table|entier (3)|0 par défaut
 **comment**|les commentaires d'une table (ex : "situé près de la porte de sortie")|texte|optionnel

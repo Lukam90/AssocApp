@@ -16,6 +16,7 @@ Les événements sont listés sous forme de tableau avec :
 |-|-|
 leur **id**|e.id
 leur **titre**|e.title
+leur **prix de base** par table|e.min_price
 leur **nombre de réservations**|count(r.id)
 leur **nombre de tables disponibles**|count(t.id)
 

@@ -63,16 +63,7 @@ sum(t.price) as total,
 m.label,
 r.paid_at
 r.comment
-INNER JOIN table
-ON table.reservation_id = reservation.id
-INNER JOIN mode
-ON reservation.mode_id = mode.id
-INNER JOIN event
-ON reservation.event_id = event.id
-INNER JOIN user_event
-ON event.id = user_event.event_id
-INNER JOIN user
-ON user_event.user_id = user.id
+(...)
 WHERE u.first_name LIKE '%' . :first_name . '%'
 OR    u.last_name LIKE '%' . :last_name . '%'
 OR    u.label LIKE '%' . :label . '%'
