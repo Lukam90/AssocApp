@@ -10,13 +10,14 @@
 
 ![MCD](./schemas/entities/MCD.png)
 
-### MCD -  Modèle Logique de Données
+### MLD -  Modèle Logique de Données
 
 ![MLD](./schemas/entities/MLD.png)
 
 ### MPD -  Modèle Physique de Données
 
-- newsletter (**id**, object, content, is_send, send_at, **#user_id**)
+- newsletter (**id**, object, target, content, is_send, send_at)
+- newsletter_user (**#newsletter_id, #user_id**)
 - user (**id**, email, password, first_name, last_name, label, picture, phone, is_active, is_member, is_optin, role)
 - user_event (**#user_id, #event_id**)
 - event (**id**, planned_at, title, picture, content, num_available)
@@ -47,6 +48,7 @@ nom|description|type|règle
 nom|description|type|règle
 -|-|-|-
 **id**|l'identifiant de la newsletter|entier|clé primaire
+**target**|la cible de la newsletter ("Général" ou "Membres")|chaîne (10)|"Général" par défaut
 **object**|le titre de la newsletter|chaîne (255)|requis
 **content**|le contenu de la newsletter|texte|requis
 **is_send**|la newsletter est envoyée|booléen|0 par défaut
