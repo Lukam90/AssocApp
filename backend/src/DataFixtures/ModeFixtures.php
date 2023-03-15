@@ -11,6 +11,7 @@ class ModeFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+        // label
         $modes = [
             new Mode("Espèces"), 
             new Mode("Chèque"), 
