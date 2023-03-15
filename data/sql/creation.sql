@@ -56,17 +56,17 @@ CREATE TABLE IF NOT EXISTS `user`
 );
 
 INSERT INTO user (email, password, role, first_name, last_name, label) VALUES
-('contact@admin.fr', 'password', 'Administrateur', 'Lucien', 'HAMM', 'AACCP'),
-('reservations@admin.fr', 'password', 'Trésorier', 'Jean', 'DUPONT', ''),
-('l.roman@test.com', 'password', 'Exposant', 'Louis', 'ROMAN', 'Louis La Brocante'),
-('g.delajungle@test.com', 'password', 'Exposant', 'Georges', 'DELAJUNGLE', ''),
-('b.duval@test.com', 'password', 'Exposant', 'Bernadette', 'DUVAL', 'Association Cartophile de Haguenau'),
-('f.molas@jdg.fr', 'password', 'Exposant', 'Frédéric', 'MOLAS', 'Joueur du Grenier'),
-('d.goodenough@jdg.fr', 'password', 'Exposant', 'David', 'GOODENOUGH', ''),
-('p.richard@test.com', 'password', 'Exposant', 'Pierre', 'RICHARD', 'La Boutique de Pierrot'),
-('g.bonnet@test.com', 'password', 'Exposant', 'Gilbert', 'BONNET', 'Gilbert Philatélie'),
-('j.bond@test.com', 'password', 'Exposant', 'James', 'BOND', 'Tableaux 007'),
-('m.simon@test.com', 'password', 'Exposant', 'Marc', 'SIMON', 'Cartes Postales Magazine');
+('contact@admin.fr', sha('Admin$007'), 'Administrateur', 'Lucien', 'HAMM', 'AACCP'),
+('reservations@admin.fr', sha('Secret@123'), 'Trésorier', 'Jean', 'DUPONT', ''),
+('l.roman@test.com', sha('broc@Secret123'), 'Exposant', 'Louis', 'ROMAN', 'Louis La Brocante'),
+('g.delajungle@test.com', sha('t@rzanJ456'), 'Exposant', 'Georges', 'DELAJUNGLE', ''),
+('b.duval@test.com', sha('bernA544$'), 'Exposant', 'Bernadette', 'DUVAL', 'Association Cartophile de Haguenau'),
+('f.molas@jdg.fr', sha('Ref$9876'), 'Exposant', 'Frédéric', 'MOLAS', 'Joueur du Grenier'),
+('d.goodenough@jdg.fr', sha('c@Pasimal123'), 'Exposant', 'David', 'GOODENOUGH', ''),
+('p.richard@test.com', sha('Oh1gag$123'), 'Exposant', 'Pierre', 'RICHARD', 'La Boutique de Pierrot'),
+('g.bonnet@test.com', sha('Gil$Pass042'), 'Exposant', 'Gilbert', 'BONNET', 'Gilbert Philatélie'),
+('j.bond@test.com', sha('jPass$007'), 'Exposant', 'James', 'BOND', 'Tableaux 007'),
+('m.simon@test.com', sha('Sim$ity754'), 'Exposant', 'Marc', 'SIMON', 'Cartes Postales Magazine');
 
 -- Les événements (event)
 
