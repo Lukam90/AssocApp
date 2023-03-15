@@ -2,12 +2,12 @@ DROP TABLE IF EXISTS `table`;
 DROP TABLE IF EXISTS reservation;
 DROP TABLE IF EXISTS mode;
 
+DROP TABLE IF EXISTS newsletter_user;
+DROP TABLE IF EXISTS user_event;
+
 DROP TABLE IF EXISTS `event`;
 DROP TABLE IF EXISTS `user`;
 DROP TABLE IF EXISTS newsletter;
-
-DROP TABLE IF EXISTS newsletter_user;
-DROP TABLE IF EXISTS user_event;
 
 -- Les modes de paiement (mode)
 
@@ -51,7 +51,8 @@ CREATE TABLE IF NOT EXISTS `user`
     is_active BOOLEAN NOT NULL DEFAULT 0,
     is_member BOOLEAN NOT NULL DEFAULT 0,
     is_optin BOOLEAN NOT NULL DEFAULT 0,
-    role VARCHAR(20) NOT NULL DEFAULT 'Exposant'
+    role VARCHAR(20) NOT NULL DEFAULT 'Exposant',
+    UNIQUE(email)
 );
 
 INSERT INTO user (email, password, role, first_name, last_name, label) VALUES
@@ -95,6 +96,7 @@ CREATE TABLE IF NOT EXISTS reservation
     event_id INT NOT NULL,
     FOREIGN KEY (mode_id) REFERENCES mode (id),
     FOREIGN KEY (event_id) REFERENCES event (id)
+    ON DELETE CASCADE
 );
 
 INSERT INTO reservation (status, paid_at, comments, event_id, mode_id) VALUES
@@ -116,6 +118,7 @@ CREATE TABLE IF NOT EXISTS `table`
     comments TEXT,
     reservation_id INT NOT NULL,
     FOREIGN KEY (reservation_id) REFERENCES reservation (id)
+    ON DELETE CASCADE
 );
 
 INSERT INTO `table` (reservation_id, price, pos_x, pos_y, comments) VALUES
