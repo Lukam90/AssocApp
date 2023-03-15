@@ -1,4 +1,4 @@
-reservation_id;price;pos_x;pos_y;comment
+reservation_id;price;pos_x;pos_y;comments
 1;30;0;0;
 1;30;0;1;
 1;30;1;0;

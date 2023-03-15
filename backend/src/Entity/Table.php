@@ -27,6 +27,18 @@ class Table
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $comments = null;
 
+    public $reservation_id; // ?
+
+    // reservation_id, price, pos_x, pos_y, comments
+    public function __construct($reservation_id, $price, $pos_x, $pos_y, $comments = "")
+    {
+        $this->reservation_id = $reservation_id;
+        $this->price = $price;
+        $this->pos_x = $pos_x;
+        $this->pos_y = $pos_y;
+        $this->comments = $comments;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

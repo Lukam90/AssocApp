@@ -48,6 +48,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $is_optin = null;
 
+    public function __construct($email, $role, $first_name, $last_name, $label = "")
+    {
+        $this->email = $email;
+        $this->roles = [$role];
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
+        $this->label = $label;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
