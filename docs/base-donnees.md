@@ -20,12 +20,23 @@
 - newsletter_user (**#newsletter_id, #user_id**)
 - user (**id**, email, password, first_name, last_name, label, picture, phone, is_active, is_member, is_optin, role)
 - user_event (**#user_id, #event_id**)
-- event (**id**, planned_at, title, picture, content, min_price, num_available)
-- reservation (**id**, status, paid_at, total, comments, **#event_id**, **#mode_id**)
+- event (**id**, title, planned_at, picture, content, min_price, num_available)
+- reservation (**id**, status, paid_at, comments, **#event_id**, **#mode_id**)
 - mode (**id**, label)
 - table (**id**, price, pos_x, pos_y, comments, **#reservation_id**)
 
 ## Les entités
+
+### Newsletter - Les newsletters
+
+nom|description|type|règle
+-|-|-|-
+**id**|l'identifiant de la newsletter|entier|clé primaire
+**object**|le titre de la newsletter|chaîne (255)|requis
+**target**|la cible de la newsletter ("Général" ou "Membres")|chaîne (10)|"Général" par défaut
+**content**|le contenu de la newsletter|texte|requis
+**is_send**|la newsletter est envoyée|booléen|0 par défaut
+**send_at**|la date d'envoi de la newsletter|date|déterminé lors de l'envoi
 
 ### User - Les utilisateurs
 
@@ -37,41 +48,25 @@ nom|description|type|règle
 **first_name**|le prénom de l'utilisateur|chaîne (50)|requis
 **last_name**|le nom de famille de l'utilisateur|chaîne (50)|requis
 **label**|le libellé de l'utilisateur|chaîne (255)|optionnel
+**picture**|la photo ou l'avatar de l'utilisateur|blob|optionnel
 **phone**|le numéro de téléphone de l'utilisateur|chaîne (20)|optionnel
 **is_active**|le compte de l'utilisateur est activé|booléen|0 par défaut
 **is_member**|l'utilisateur est un membre de l'association|booléen|0 par défaut
 **is_optin**|l'utilisateur est inscrit à la newsletter de l'association|booléen|0 par défaut
 **role**|le rôle de l'utilisateur ("Exposant", "Trésorier", "Administrateur")|chaîne (20)|"Exposant" par défaut
 
-### Newsletter - Les newsletters
-
-nom|description|type|règle
--|-|-|-
-**id**|l'identifiant de la newsletter|entier|clé primaire
-**target**|la cible de la newsletter ("Général" ou "Membres")|chaîne (10)|"Général" par défaut
-**object**|le titre de la newsletter|chaîne (255)|requis
-**content**|le contenu de la newsletter|texte|requis
-**is_send**|la newsletter est envoyée|booléen|0 par défaut
-**send_at**|la date d'envoi de la newsletter|date|déterminé lors de l'envoi
-
-### Mode - Les modes de paiement
-
-nom|description|type|règle
--|-|-|-
-**id**|l'identifiant du mode de paiement|entier|clé primaire
-**label**|libellé du mode de paiement|chaîne (50)|requis
-
 ### Event - Les événements
 
 nom|description|type|règle
 -|-|-|-
 **id**|l'identifiant de l'événement|entier|clé primaire
-**planned_at**|la date prévue de l'événement (JJ/MM/AAAA)|date|requis
 **title**|l'intitulé de l'événement|chaîne (255)|requis
+**planned_at**|la date prévue de l'événement (JJ/MM/AAAA)|date|requis
 **picture**|l'image d'illustration de l'événement|blob|optionnel
 **content**|la description de l'événement|texte|requis
-**min_price**|le prix de base par table|entier (3)|requis
-**num_available**|le nombre de tables disponibles|entier (3)|requis
+**is_published**|l'événement est annoncé sur le site|booléen|0 par défaut
+**min_price**|le prix de base par table|décimal (5,2)|0 par défaut
+**num_available**|le nombre de tables disponibles|entier (3)|0 par défaut
 
 ### Reservation - Les réservations
 
@@ -79,19 +74,25 @@ nom|description|type|règle
 -|-|-|-
 **id**|l'identifiant de la réservation|entier|clé primaire
 **status**|le statut de paiement ("A Payer", "Payé", "Annulé")|chaîne (20)|"A Payer" par défaut
-**paid_at**|la date de paiement (JJ/MM/AAAA)|date|requis si statut "Payé"
-**total**|la somme totale réglée pour les tables (en €)|décimal (3,2)|0 par défaut
+**paid_at**|la date de paiement (JJ/MM/AAAA)|date|date du jour par défaut
 **comments**|les commentaires de la réservation|texte|optionnel
+
+### Mode - Les modes de paiement
+
+nom|description|type|règle
+-|-|-|-
+**id**|l'identifiant du mode de paiement|entier|clé primaire
+**label**|le libellé du mode de paiement|chaîne (50)|requis
 
 ### Table - Les tables
 
 nom|description|type|règle
 -|-|-|-
 **id**|l'identifiant de la table|entier|clé primaire
-**price**|le prix individuel d'une table|entier (3)|prix de base pour un événement par défaut
+**price**|le prix individuel d'une table|décimal (5,2)|prix de base pour un événement par défaut
 **pos_x**|la position en abscisses (X) de la table|entier (3)|0 par défaut
 **pos_y**|la position en ordonnées (Y) de la table|entier (3)|0 par défaut
-**comments**|les commentaires d'une table (ex : "situé près de la porte de sortie")|texte|optionnel
+**comments**|les commentaires d'une table|texte|optionnel
 
 ## Les cardinalités
 
