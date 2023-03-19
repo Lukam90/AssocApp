@@ -12,11 +12,13 @@
 
 Les newsletters sont listées sous forme de tableau avec :
 
-- l'**id**
-- l'**objet**
-- la **cible** ("Général" ou "Membres")
-- le **statut d'envoi** (case cochée ou non)
-- la **date d'envoi** (si envoyé)
+|<br />||
+|-|-|
+l'**id**|n.id
+l'**objet**|n.object
+la **cible** ("Général" ou "Membres")|n.target
+le **statut d'envoi** (case cochée ou non)|n.is_send
+la **date d'envoi** (si envoyé)|n.send_at
 
 ```sql
 SELECT * FROM newsletter
@@ -71,5 +73,16 @@ SET object = :object,
     content = :content, 
     is_send = :is_send, 
     send_at = :send_at
+WHERE id = :id
+```
+
+## La suppression d'une newsletter
+
+**Page** : admin/newsletters-delete.js
+
+Une fenêtre modale s'affiche pour confirmer la suppression d'une newsletter.
+
+```sql
+DELETE FROM newsletter
 WHERE id = :id
 ```

@@ -17,17 +17,20 @@ Les événements sont listés sous forme de tableau avec :
 leur **id**|e.id
 leur **titre**|e.title
 leur **prix de base** par table|e.min_price
+leur **statut de publication** (casé cochée ou non)|e.is_published
 leur **nombre de réservations**|count(r.id)
 leur **nombre de tables disponibles**|count(t.id)
+un **bouton d'édition** (crayon en vert)|
+un **bouton de suppression** (croix en rouge)
 
 ```sql
 SELECT e.id, e.title,
 count(r.id) AS num_reservations,
-count(t.id) AS num_tables,
+count(t.id) AS num_tables
 FROM event e
-INNER JOIN r
+INNER JOIN reservation r
 ON e.id = r.event_id
-INNER JOIN t
+INNER JOIN `table` t
 ON t.reservation_id = r.id
 WHERE t.reservation_id = :reservation_id
 ```
@@ -47,7 +50,7 @@ son **année**|year(e.planned_at)
 SELECT e.title, year(e.planned_at) as event_year
 FROM event e
 WHERE e.title LIKE '%' . :title . '%'
-OR    event_year = :year
+OR    year(e.planned_at) = :year
 ```
 
 ## L'ajout d'un événement
@@ -90,4 +93,17 @@ SET title = :title,
 	picture = :picture, 
 	content = :content, 
 	num_available = :num_available
+```
+
+## La suppression d'un événement
+
+**Page** : admin/form-events.js
+
+Une fenêtre modale s'affiche pour confirmer la suppression d'un événement.
+
+La suppression d'un événement entraîne la suppression de toutes ses réservations.
+
+```sql
+DELETE FROM event
+WHERE id = :id
 ```

@@ -23,28 +23,28 @@ le **nombre de tables** réservées|COUNT(t.id)
 la **somme totale** réglée|SUM(t.price)
 le **mode de paiement**|m.label
 la **date de paiement**|r.paid_at
-les **commentaires**|r.comments
+les **commentaires** (icône "bulle" et texte au survol)|r.comments
 
 ```sql
-SELECT reservation.id, 
-user.first_name, user.last_name, user.label, 
-reservation.status,
-count (table.id) as num_tables,
-sum(table.price) as total,
-mode.label,
-reservation.paid_at
-reservation.comment
-FROM reservation
-INNER JOIN table
-ON table.reservation_id = reservation.id
-INNER JOIN mode
-ON reservation.mode_id = mode.id
-INNER JOIN event
-ON reservation.event_id = event.id
-INNER JOIN user_event
-ON event.id = user_event.event_id
-INNER JOIN user
-ON user_event.user_id = user.id
+SELECT r.id, 
+u.first_name, u.last_name, u.label, 
+r.status,
+count(t.id) as num_tables,
+sum(t.price) as total,
+m.label,
+r.paid_at,
+r.comments
+FROM reservation r
+INNER JOIN `table` t
+ON t.reservation_id = r.id
+INNER JOIN mode m
+ON r.mode_id = m.id
+INNER JOIN `event` e
+ON r.event_id = e.id
+INNER JOIN user_event ue
+ON e.id = ue.event_id
+INNER JOIN user u
+ON ue.user_id = u.id
 ```
 
 ## La recherche d'une réservation
@@ -58,7 +58,7 @@ On peut rechercher une réservation avec :
 SELECT r.id, 
 u.first_name, u.last_name, u.label, 
 r.status,
-count (t.id) as num_tables,
+count(t.id) as num_tables,
 sum(t.price) as total,
 m.label,
 r.paid_at
