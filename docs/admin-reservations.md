@@ -10,7 +10,7 @@
 
 **Page** : admin/reservations.js
 
-Les réservations sont listées sous forme de tableau avec :
+Les réservations liées à un événement sont listées sous forme de tableau avec :
 
 |<br />||
 |-|-|
@@ -19,33 +19,11 @@ le **prénom** de l'exposant|u.first_name
 le **nom** de l'exposant|u.last_name
 le **libellé** de l'exposant|u.label
 le **statut** ("A Payer", "Payé", "Annulé")|r.status
-le **nombre de tables** réservées|COUNT(t.id)
-la **somme totale** réglée|SUM(t.price)
+le **nombre de tables** réservées (si payé)|COUNT(t.id)
+la **somme totale** réglée (si payé)|SUM(t.price)
 le **mode de paiement**|m.label
-la **date de paiement**|r.paid_at
+la **date de paiement** (si payé ou annulé)|r.paid_at
 les **commentaires** (icône "bulle" et texte au survol)|r.comments
-
-```sql
-SELECT r.id, 
-u.first_name, u.last_name, u.label, 
-r.status,
-count(t.id) as num_tables,
-sum(t.price) as total,
-m.label,
-r.paid_at,
-r.comments
-FROM reservation r
-INNER JOIN `table` t
-ON t.reservation_id = r.id
-INNER JOIN mode m
-ON r.mode_id = m.id
-INNER JOIN `event` e
-ON r.event_id = e.id
-INNER JOIN user_event ue
-ON e.id = ue.event_id
-INNER JOIN user u
-ON ue.user_id = u.id
-```
 
 ## La recherche d'une réservation
 
@@ -53,22 +31,6 @@ On peut rechercher une réservation avec :
 
 - le **prénom**, le **nom** et le **libellé** de l'exposant
 - la **date** de l'événement
-
-```sql
-SELECT r.id, 
-u.first_name, u.last_name, u.label, 
-r.status,
-count(t.id) as num_tables,
-sum(t.price) as total,
-m.label,
-r.paid_at
-r.comment
-(...)
-WHERE u.first_name LIKE '%' . :first_name . '%'
-OR    u.last_name LIKE '%' . :last_name . '%'
-OR    u.label LIKE '%' . :label . '%'
-OR    r.paid_at >= :paid_at
-```
 
 ## L'ajout d'une réservation
 
@@ -85,11 +47,6 @@ Une nouvelle réservation est définie par :
 - sa **date de paiement** (si le statut est "Payé")
 - ses **commentaires** (optionnel)
 
-```sql
-INSERT INTO reservation (status, paid_at, comment, user_id, event_id, mode_id)
-VALUES (:status, :paid_at, :comment, :user_id, :event_id, :mode_id)
-```
-
 ## L'édition d'une réservation
 
 **Page** : admin/reservations-form.js
@@ -98,13 +55,15 @@ On peut éditer une réservation avec les informations basées sur le formulaire
 
 L'exposant et l'événement concernés restent inchangés.
 
+## La suppression d'une réservation
+
+**Page** : admin/reservations-delete.js
+
+Une fenêtre modale s'affiche pour confirmer la suppression d'une réservation.
+
+La suppression d'une réservation entraîne la suppression de toutes ses tables.
+
 ```sql
-UPDATE reservation 
-SET status = :status,
-    paid_at = :paid_at, 
-    comment = :comment, 
-    user_id = :user_id, 
-    event_id = :event_id, 
-    mode_id = :mode_id
+DELETE FROM réservation
 WHERE id = :id
 ```

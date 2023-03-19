@@ -12,28 +12,14 @@
 
 Les événements sont listés sous forme de tableau avec :
 
-|||
-|-|-|
-leur **id**|e.id
-leur **titre**|e.title
-leur **prix de base** par table|e.min_price
-leur **statut de publication** (casé cochée ou non)|e.is_published
-leur **nombre de réservations**|count(r.id)
-leur **nombre de tables disponibles**|count(t.id)
-un **bouton d'édition** (crayon en vert)|
-un **bouton de suppression** (croix en rouge)
-
-```sql
-SELECT e.id, e.title,
-count(r.id) AS num_reservations,
-count(t.id) AS num_tables
-FROM event e
-INNER JOIN reservation r
-ON e.id = r.event_id
-INNER JOIN `table` t
-ON t.reservation_id = r.id
-WHERE t.reservation_id = :reservation_id
-```
+- leur **id**
+- leur **titre**
+- leur **prix de base** par table
+- leur **statut de publication** (casé cochée ou non)
+- leur **nombre de réservations**
+- leur **nombre de tables disponibles**
+- un **bouton d'édition** (crayon en vert)
+- un **bouton de suppression** (croix en rouge)
 
 ## La recherche d'un événement
 
@@ -41,17 +27,8 @@ WHERE t.reservation_id = :reservation_id
 
 On peut rechercher un événement avec :
 
-|||
-|-|-|
-son **titre**|e.title
-son **année**|year(e.planned_at)
-
-```sql
-SELECT e.title, year(e.planned_at) as event_year
-FROM event e
-WHERE e.title LIKE '%' . :title . '%'
-OR    year(e.planned_at) = :year
-```
+- son **titre**
+- son **année**
 
 ## L'ajout d'un événement
 
@@ -59,41 +36,17 @@ OR    year(e.planned_at) = :year
 
 On peut ajouter un événement avec :
 
-- son **titre**
-  - entre 2 et 255 caractères
-  - requis
-- sa **date prévue**
-  - **ex:** 7 mai 2023
-  - requis
-- son **image d'illustration**
-  - **ex:** affiche du salon annuel prévu
-  - optionnel
-- sa **description**
-  - texte converti en HTML
-  - requis
-- son **nombre de tables disponibles**
-  - entier, entre 0 et 999
-  - 0 par défaut
-
-```sql
-INSERT INTO event (title, planned_at, picture, content, num_available)
-VALUES (:title, :planned_at, :picture, :content, :num_available)
-```
+- son **titre** (requis, entre 2 et 255 caractères)
+- sa **date prévue** (requis, **ex:** 7 mai 2023)
+- son **image d'illustration** (optionnel, **ex:** affiche du salon annuel prévu)
+- sa **description** (requis, texte converti en HTML)
+- son **nombre de tables disponibles** (entier, entre 0 et 999)
 
 ## L'édition d'un événement
 
 **Page** : admin/form-events.js
 
-On peut éditer les informations d'un événement dans la continuité du formulaire de création.
-
-```sql
-UPDATE event
-SET title = :title, 
-  	planned_at = :planned_at, 
-	picture = :picture, 
-	content = :content, 
-	num_available = :num_available
-```
+On peut éditer les informations d'un événement sur la base du formulaire de création.
 
 ## La suppression d'un événement
 
@@ -102,8 +55,3 @@ SET title = :title,
 Une fenêtre modale s'affiche pour confirmer la suppression d'un événement.
 
 La suppression d'un événement entraîne la suppression de toutes ses réservations.
-
-```sql
-DELETE FROM event
-WHERE id = :id
-```
