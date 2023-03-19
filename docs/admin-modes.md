@@ -13,28 +13,20 @@ Les modes de paiement sont listés sous forme de tableau avec :
 - l'**id**
 - le **libellé**
 
-```sql
-SELECT * FROM mode
-```
-
-## L'ajout des modes de paiement
+## L'ajout d'un mode de paiement
 
 **Page** : admin/modes-form.js
 
 On peut ajouter un mode de paiement défini par un libellé.
 
-```sql
-INSERT INTO mode VALUES(:label)
-```
-
-## L'édition des modes de paiement
+## L'édition d'un mode de paiement
 
 **Page** : admin/modes-form.js
 
 On peut éditer un mode de paiement avec son libellé.
 
-```sql
-UPDATE mode
-SET label = :label
-WHERE mode_id = :id
-```
+## La suppression d'un mode de paiement
+
+**Page** : admin/modes-delete.js
+
+Une fenêtre modale s'affiche pour confirmer la suppression d'un mode de paiement.

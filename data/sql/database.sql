@@ -76,6 +76,7 @@ CREATE TABLE IF NOT EXISTS `event`
     title VARCHAR(255) NOT NULL,
     planned_at DATE NOT NULL,
     content TEXT NOT NULL,
+    is_published BOOLEAN NOT NULL DEFAULT 0,
     picture BLOB,
     min_price DECIMAL(5,2),
     num_available INT(3)

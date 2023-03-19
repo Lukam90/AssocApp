@@ -1,3 +1,5 @@
+-- Stats générales
+
 select count(id) from `user`;
 select count(id) from `newsletter`;
 select count(id) from `event`;

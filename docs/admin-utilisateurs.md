@@ -13,21 +13,15 @@ Les utilisateurs sont listés sous forme de tableau avec :
 
 - leur **id** (**ex:** #5)
 - leur **prénom et nom** (**ex:** Jean DUPONT)
-- leur **libellé** (optionnel, **ex:** Jean Philatélie)
+- leur **libellé** (**ex:** Jean Philatélie)
 - leur **adresse e-mail** (**ex:** jean.dupont@testmail.com)
-- leur **numéro de téléphone** (optionnel)
+- leur **numéro de téléphone**
 - leur **rôle** ("Exposant" en noir, "Trésorier" en vert, "Administrateur" en rouge)
 - leur **statut d'activation** (case cochée ou non)
 - leur **statut de membre de l'association** (case cochée ou non)
 - leur **statut d'inscription à la newsletter** (case cochée ou non)
-- le **bouton d'édition** des informations de l'utilisateur (crayon en vert)
-
-L'ordre est croissant et basé sur l'ID par défaut.
-
-```sql
-SELECT u.id, u.first_name, u.last_name, u.label, u.email, u.phone, u.role, u.is_active, u.is_member, u.is_optin
-FROM user u
-```
+- un **bouton d'édition** (crayon en vert, visible par l'administrateur)
+- un **bouton de suppression** (croix en rouge, visible par l'administrateur)
 
 ## La recherche d'un utilisateur
 
@@ -35,14 +29,6 @@ FROM user u
 **Page** : admin/users.js
 
 On peut rechercher un utilisateur avec son prénom, son nom et son libellé.
-
-```sql
-SELECT u.id, u.first_name, u.last_name, u.label, u.email, u.phone, u.role, u.is_active, u.is_member, u.is_optin
-FROM user u
-WHERE u.first_name LIKE '%' . :first_name . '%'
-OR    u.last_name LIKE '%' . :last_name . '%'
-OR    u.label LIKE '%' . :label . '%'
-```
 
 ## L'inscription manuelle d'un utilisateur
 
@@ -55,41 +41,23 @@ Certains refusent d'inscrire des informations personnelles sensibles (adresse e-
 
 L'administrateur peut donc enregistrer un exposant manuellement avec :
 
-- son **prénom**
-  - de 2 et 50 caractères alphabétiques, accents et - inclus
-  - requis
-- son **nom de famille**
-  - de 2 et 50 caractères alphabétiques, accents et - inclus
-  - requis
-- son **libellé de stand**
-  - de 2 à 255 caractères
-  - optionnel
-- son **adresse e-mail**
-  - format e-mail (ou généré aléatoirement en **@aaccp.fr**)
-  - requis
-- son **numéro de téléphone**
-  - de 10 à 20 caractères numériques, + inclus
-  - optionnel
-- son **rôle**
-  - "Exposant" ou "Trésorier"
-- son **statut d'activation**
-  - case à cocher (oui / non)
-- son **statut de membre**
-  - case à cocher (oui / non)
+- son **prénom** (requis, de 2 et 50 caractères alphabétiques, accents et - inclus)
+- son **nom de famille** (requis, de 2 et 50 caractères alphabétiques, accents et - inclus)
+- son **libellé de stand** (optionnel, de 2 à 255 caractères)
+- son **adresse e-mail** (requis, format e-mail et nom en **xxx@aaccp.fr** par convention)
+- son **numéro de téléphone** (optionnel, de 10 à 20 caractères numériques, + inclus)
+- son **rôle** ("Exposant" ou "Trésorier")
+- son **statut d'activation** (case à cocher)
+- son **statut de membre** (case à cocher)
 
-Un bouton "Ajouter un utilisateur" (bleu avec icône "+") est visible au dessus de la liste des utilisateurs.
-
-```sql
-INSERT INTO user (first_name, last_name, label, email, phone, role, is_active, is_member)
-VALUES (:first_name, :last_name, :label, :email, :phone, :role, :is_active, :is_member)
-```
+Un bouton "Ajouter un utilisateur" est visible au dessus de la liste des utilisateurs.
 
 ## L'édition manuelle d'un utilisateur
 
 **Rôle** : Administrateur<br />
 **Page** : admin/users-form.js
 
-On peut éditer les informations d'un utilisateur suivant le modèle du formulaire d'ajout.
+On peut éditer les informations d'un utilisateur sur la base du formulaire d'ajout.
 
 ```sql
 UPDATE user (first_name, last_name, label, email, phone, role, is_active, is_member)
@@ -101,5 +69,17 @@ SET first_name = :first_name,
     role = :role,
     is_active = :is_active,
     is_member = :is_member
+WHERE id = :id
+```
+
+## La suppression d'un utilisateur
+
+**Rôle** : Administrateur<br />
+**Page** : admin/users-delete.js
+
+Une fenêtre modale s'affiche pour confirmer la suppression d'un utilisateur.
+
+```sql
+DELETE FROM user
 WHERE id = :id
 ```
