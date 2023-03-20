@@ -11,31 +11,21 @@
 
 Un exposant peut s'inscrire avec :
 
-- son **adresse e-mail**
-  - e-mail
-  - requis
-- son **mot de passe**
-  - entre 8 et 32 caractères
-  - au moins une minuscule (a-z, ç)
-  - au moins une majuscule (A-Z)
-  - au moins un chiffre (0-9)
-  - au moins un caractère spécial (@, $)
-  - requis
-- son **prénom**
-  - de 2 à 50 caractères alphabétiques, - inclus
-  - requis
-- son **nom de famille**
-  - de 2 à 50 caractères alphabétiques, - inclus
-  - requis
-- son **numéro de téléphone**
-  - de 10 à 20 caractères numériques, + inclus
-  - optionnel
-- son **libellé de stand**
-  - de 2 à 255 caractères
-  - optionnel
-- son **inscription à la newsletter**
-  - case à cocher (optin)
-  - décoché par défaut
+- son **adresse e-mail** (requis)
+- son **mot de passe** (requis)
+- son **prénom** (requis, de 2 à 50 caractères alphabétiques, - et accents inclus)
+- son **nom de famille** (requis, de 2 à 50 caractères alphabétiques, - et accents inclus)
+- son **numéro de téléphone** (optionnel, de 10 à 20 caractères numériques, + inclus)
+- son **libellé de stand** (optionnel, de 2 à 255 caractères)
+- son **inscription à la newsletter** (case à cocher (optin))
+
+Un mot de passe valide comporte :
+
+- entre 8 et 32 caractères
+- au moins une minuscule (a-z)
+- au moins une majuscule (A-Z)
+- au moins un chiffre (0-9)
+- au moins un caractère spécial (@, $)
 
 ## La connexion d'un utilisateur
 
@@ -85,14 +75,6 @@ Sinon, un message d'erreur indique l'inexistence de l'adresse e-mail.
 Un lien du mail de réinitialisation du mot de passe redirige l'utilisateur vers une page dédiée.
 
 L'utilisateur doit renseigner son nouveau mot de passe et le confirmer.
-
-Le mot de passe doit comporter :
-
-- entre 8 et 32 caractères
-- au moins une minuscule (a-z)
-- au moins une majuscule (A-Z)
-- au moins un chiffre (0-9)
-- au moins un caractère spécial
 
 Un message confirme la réinitialisation du mot de passe et redirige l'utilisateur sur la page de connexion.
 

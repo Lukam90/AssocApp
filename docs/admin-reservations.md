@@ -12,18 +12,16 @@
 
 Les réservations liées à un événement sont listées sous forme de tableau avec :
 
-|<br />||
-|-|-|
-l'**id**|r.id
-le **prénom** de l'exposant|u.first_name
-le **nom** de l'exposant|u.last_name
-le **libellé** de l'exposant|u.label
-le **statut** ("A Payer", "Payé", "Annulé")|r.status
-le **nombre de tables** réservées (si payé)|COUNT(t.id)
-la **somme totale** réglée (si payé)|SUM(t.price)
-le **mode de paiement**|m.label
-la **date de paiement** (si payé ou annulé)|r.paid_at
-les **commentaires** (icône "bulle" et texte au survol)|r.comments
+- l'**id**
+- le **prénom** de l'exposant
+- le **nom** de l'exposant
+- le **libellé** de l'exposant
+- le **statut** ("A Payer", "Payé", "Annulé")
+- le **nombre de tables** réservées
+- la **somme totale** réglée
+- le **mode de paiement**
+- la **date de paiement** (si payé ou annulé)
+- les **commentaires** (icône "bulle" et texte au survol)
 
 ## La recherche d'une réservation
 
@@ -62,8 +60,3 @@ L'exposant et l'événement concernés restent inchangés.
 Une fenêtre modale s'affiche pour confirmer la suppression d'une réservation.
 
 La suppression d'une réservation entraîne la suppression de toutes ses tables.
-
-```sql
-DELETE FROM réservation
-WHERE id = :id
-```

@@ -41,6 +41,20 @@ AND r.id = 1
 AND r.status = 'Payé'
 GROUP BY r.id
 
+-- Réservation d'un exposant (!)
+
+SELECT e.title, e.planned_at, r.status, r.paid_at
+FROM reservation r
+INNER JOIN event e
+ON r.event_id = e.id
+INNER JOIN user_event ue
+ON ue.event_id = e.id
+INNER JOIN user u
+ON ue.user_id = u.id
+WHERE u.id = 1
+AND e.id = 1
+AND r.status = 'Payé'
+
 -- Ajout d'une réservation
 
 INSERT INTO reservation (status, paid_at, comment, user_id, event_id, mode_id)
