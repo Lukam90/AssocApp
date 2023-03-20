@@ -19,9 +19,8 @@
 - newsletter (**id**, object, target, content, is_send, send_at)
 - newsletter_user (**#newsletter_id, #user_id**)
 - user (**id**, email, password, first_name, last_name, label, picture, phone, is_active, is_member, is_optin, role)
-- user_event (**#user_id, #event_id**)
 - event (**id**, title, planned_at, picture, content, min_price, num_available)
-- reservation (**id**, status, paid_at, comments, **#event_id**, **#mode_id**)
+- reservation (**id**, status, paid_at, comments, **#event_id**, **#user_id**, **#mode_id**)
 - mode (**id**, label)
 - table (**id**, price, pos_x, pos_y, comments, **#reservation_id**)
 
@@ -65,7 +64,7 @@ nom|description|type|règle
 **picture**|l'image d'illustration de l'événement|blob|optionnel
 **content**|la description de l'événement|texte|requis
 **is_published**|l'événement est annoncé sur le site|booléen|0 par défaut
-**min_price**|le prix de base par table|décimal (5,2)|0 par défaut
+**min_price**|le prix de base par table (en €)|décimal (5,2)|0 par défaut
 **num_available**|le nombre de tables disponibles|entier (3)|0 par défaut
 
 ### Reservation - Les réservations
@@ -76,6 +75,8 @@ nom|description|type|règle
 **status**|le statut de paiement ("A Payer", "Payé", "Annulé")|chaîne (20)|"A Payer" par défaut
 **paid_at**|la date de paiement (JJ/MM/AAAA)|date|date du jour par défaut
 **comments**|les commentaires de la réservation|texte|optionnel
+**number**|le nombre de tables de la réservation|entier(2)|calculé lors de la définition des tables
+**total**|la somme totale réglée de la réservation (en €)|décimal (5,2)|calculé lors de la définition des tables
 
 ### Mode - Les modes de paiement
 
@@ -102,11 +103,11 @@ Un utilisateur peut envoyer plusieurs newsletters. (**0,n**)
 
 Une newsletter est envoyée à au moins un utilisateur. (**1,n**)
 
-### User (0,n) - Event (0,n)
+### User (0,n) - Reservation (1,1)
 
-Un utilisateur peut s'inscrire à plusieurs événements. (**0,n**)
+Un utilisateur peut faire plusieurs réservations. (**0,n**)
 
-Un événement peut accueillir plusieurs exposants. (**0,n**)
+Une réservation concerne un seul utilisateur. (**1,1**)
 
 ### Mode (0,n) - (1,1) Reservation
 
