@@ -11,6 +11,8 @@ DROP TABLE IF EXISTS newsletter;
 
 -- Les modes de paiement (mode)
 
+DROP TABLE IF EXISTS mode;
+
 CREATE TABLE IF NOT EXISTS mode
 (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -21,6 +23,8 @@ INSERT INTO mode (label) VALUES
 ('Espèces'), ('Chèque'), ('Carte Bancaire');
 
 -- Les newsletters (newsletter)
+
+DROP TABLE IF EXISTS newsletter;
 
 CREATE TABLE IF NOT EXISTS newsletter
 (
@@ -38,6 +42,8 @@ INSERT INTO newsletter (object, target, content, is_send, send_at) VALUES
 ('Repas de Noël du comité', 'Membres', 'Lorem ipsum...', 1, '2023-11-25');
 
 -- Les utilisateurs (user)
+
+DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE IF NOT EXISTS `user`
 (
@@ -70,6 +76,8 @@ INSERT INTO user (email, password, role, first_name, last_name, label) VALUES
 
 -- Les événements (event)
 
+DROP TABLE IF EXISTS `event`;
+
 CREATE TABLE IF NOT EXISTS `event`
 (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -87,17 +95,20 @@ INSERT INTO event (title, planned_at, content, min_price, num_available) VALUES
 
 -- Les réservations (reservation)
 
+DROP TABLE IF EXISTS reservation;
+
 CREATE TABLE IF NOT EXISTS reservation
 (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     status VARCHAR(20) NOT NULL DEFAULT 'A Payer',
     paid_at DATE,
     comments TEXT,
+    number INTEGER,
+    total DECIMAL(5,2),
     mode_id INT NOT NULL,
     event_id INT NOT NULL,
     FOREIGN KEY (mode_id) REFERENCES mode (id),
-    FOREIGN KEY (event_id) REFERENCES event (id)
-    ON DELETE CASCADE
+    FOREIGN KEY (event_id) REFERENCES event (id) ON DELETE CASCADE
 );
 
 INSERT INTO reservation (status, paid_at, comments, event_id, mode_id) VALUES
@@ -110,6 +121,8 @@ INSERT INTO reservation (status, paid_at, comments, event_id, mode_id) VALUES
 
 -- Les tables (table)
 
+DROP TABLE IF EXISTS `table`;
+
 CREATE TABLE IF NOT EXISTS `table`
 (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -118,8 +131,7 @@ CREATE TABLE IF NOT EXISTS `table`
     pos_y INT(3) NOT NULL DEFAULT 0,
     comments TEXT,
     reservation_id INT NOT NULL,
-    FOREIGN KEY (reservation_id) REFERENCES reservation (id)
-    ON DELETE CASCADE
+    FOREIGN KEY (reservation_id) REFERENCES reservation (id) ON DELETE CASCADE
 );
 
 INSERT INTO `table` (reservation_id, price, pos_x, pos_y, comments) VALUES
@@ -133,12 +145,15 @@ INSERT INTO `table` (reservation_id, price, pos_x, pos_y, comments) VALUES
 
 -- La table intermédiaire newsletter_user
 
+DROP TABLE IF EXISTS newsletter_user;
+
 CREATE TABLE IF NOT EXISTS newsletter_user
 (
     newsletter_id INT NOT NULL,
     user_id INT NOT NULL,
-    FOREIGN KEY (newsletter_id) REFERENCES newsletter (id),
-    FOREIGN KEY (user_id) REFERENCES user (id)
+    FOREIGN KEY (newsletter_id) REFERENCES newsletter (id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE,
+    PRIMARY KEY (newsletter_id, user_id)
 );
 
 INSERT INTO newsletter_user (newsletter_id, user_id) VALUES
@@ -150,12 +165,15 @@ INSERT INTO newsletter_user (newsletter_id, user_id) VALUES
 
 -- La table intermédiaire user_event
 
+DROP TABLE IF EXISTS user_event;
+
 CREATE TABLE IF NOT EXISTS user_event
 (
     user_id INT NOT NULL,
     event_id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES user (id),
-    FOREIGN KEY (event_id) REFERENCES event (id)
+    FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE,
+    FOREIGN KEY (event_id) REFERENCES event (id) ON DELETE CASCADE,
+    PRIMARY KEY (user_id, event_id)
 );
 
 INSERT INTO user_event (event_id, user_id) VALUES
