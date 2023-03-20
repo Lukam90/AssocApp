@@ -6,11 +6,11 @@
 
 Les utilisateurs sont définis en 3 rôles :
 
-- **exposant** (par défaut)
-- **trésorier**
-- **administrateur** (unique)
+- l'**exposant** (par défaut)
+- le **trésorier**
+- l'**administrateur** (unique)
 
-L'administrateur détient l'ensemble des droits pour la gestion des données (utilisateurs, messages, modes de paiement, documents, événements, tables, réservations).
+L'administrateur détient l'ensemble des droits pour la gestion des données.
 
 Le trésorerier peut gérer l'ensemble des réservations et des tables.
 
