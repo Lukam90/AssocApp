@@ -42,7 +42,7 @@ nom|description|type|règle
 nom|description|type|règle
 -|-|-|-
 **id**|l'identifiant de l'utilisateur|entier|clé primaire
-**email**|l'adresse e-mail de l'utilisateur|chaîne (255)|requis
+**email**|l'adresse e-mail de l'utilisateur|chaîne (255)|requis, unique
 **password**|le mot de passe de l'utilisateur|chaîne (255)|requis
 **first_name**|le prénom de l'utilisateur|chaîne (50)|requis
 **last_name**|le nom de famille de l'utilisateur|chaîne (50)|requis
@@ -59,7 +59,7 @@ nom|description|type|règle
 nom|description|type|règle
 -|-|-|-
 **id**|l'identifiant de l'événement|entier|clé primaire
-**title**|l'intitulé de l'événement|chaîne (255)|requis
+**title**|l'intitulé de l'événement|chaîne (255)|requis, unique
 **planned_at**|la date prévue de l'événement (JJ/MM/AAAA)|date|requis
 **picture**|l'image d'illustration de l'événement|blob|optionnel
 **content**|la description de l'événement|texte|requis
@@ -75,8 +75,8 @@ nom|description|type|règle
 **status**|le statut de paiement ("A Payer", "Payé", "Annulé")|chaîne (20)|"A Payer" par défaut
 **paid_at**|la date de paiement (JJ/MM/AAAA)|date|date du jour par défaut
 **comments**|les commentaires de la réservation|texte|optionnel
-**number**|le nombre de tables de la réservation|entier(2)|calculé lors de la définition des tables
-**total**|la somme totale réglée de la réservation (en €)|décimal (5,2)|calculé lors de la définition des tables
+**number**|le nombre de tables de la réservation (de 1 à 12)|entier(2)|calculé lors de la définition des tables
+**total**|la somme totale réglée de la réservation (en €)|décimal (6,2)|calculé lors de la définition des tables
 
 ### Mode - Les modes de paiement
 

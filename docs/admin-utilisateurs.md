@@ -43,8 +43,8 @@ L'administrateur peut donc enregistrer un exposant manuellement avec :
 
 - son **prénom** (requis, de 2 et 50 caractères alphabétiques, accents et - inclus)
 - son **nom de famille** (requis, de 2 et 50 caractères alphabétiques, accents et - inclus)
-- son **libellé de stand** (optionnel, de 2 à 255 caractères)
-- son **adresse e-mail** (requis, format e-mail et nom en **xxx@aaccp.fr** par convention)
+- son **libellé de stand** (optionnel, unique et de 2 à 255 caractères)
+- son **adresse e-mail** (requis, unique, format e-mail et nom en **xxx@aaccp.fr** par convention)
 - son **numéro de téléphone** (optionnel, de 10 à 20 caractères numériques, + inclus)
 - son **rôle** ("Exposant" ou "Trésorier")
 - son **statut d'activation** (case à cocher)

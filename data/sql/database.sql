@@ -5,8 +5,7 @@ DROP TABLE IF EXISTS mode;
 CREATE TABLE IF NOT EXISTS mode
 (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    label VARCHAR(50),
-    UNIQUE(label)
+    label VARCHAR(50) UNIQUE NOT NULL
 );
 
 INSERT INTO mode (label) VALUES
@@ -38,17 +37,16 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user`
 (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    label VARCHAR(255),
+    label VARCHAR(255) UNIQUE,
     phone VARCHAR(20),
     is_active BOOLEAN NOT NULL DEFAULT 0,
     is_member BOOLEAN NOT NULL DEFAULT 0,
     is_optin BOOLEAN NOT NULL DEFAULT 0,
-    role VARCHAR(20) NOT NULL DEFAULT 'Exposant',
-    UNIQUE(email)
+    role VARCHAR(20) NOT NULL DEFAULT 'Exposant'
 );
 
 INSERT INTO user (email, password, role, first_name, last_name, label) VALUES
@@ -91,13 +89,15 @@ DROP TABLE IF EXISTS `event`;
 CREATE TABLE IF NOT EXISTS `event`
 (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    title VARCHAR(255) NOT NULL,
+    title VARCHAR(255) UNIQUE NOT NULL,
     planned_at DATE NOT NULL,
     content TEXT NOT NULL,
     is_published BOOLEAN NOT NULL DEFAULT 0,
     picture BLOB,
-    min_price DECIMAL(5,2),
-    num_available INTEGER(3)
+    min_price DECIMAL(5,2) NOT NULL
+    CHECK (min_price >= 0 AND min_price <= 999),
+    num_available INTEGER(3) NOT NULL
+    CHECK (min_price >= 0 AND min_price <= 999)
 );
 
 INSERT INTO event (title, planned_at, content, min_price, num_available) VALUES 
@@ -110,11 +110,14 @@ DROP TABLE IF EXISTS reservation;
 CREATE TABLE IF NOT EXISTS reservation
 (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    status VARCHAR(20) NOT NULL DEFAULT 'A Payer',
+    status VARCHAR(20) NOT NULL DEFAULT 'A Payer'
+    CHECK (status IN ('A Payer', 'Payé', 'Annulé')),
     paid_at DATE,
     comments TEXT,
-    number INTEGER,
-    total DECIMAL(5,2),
+    number INTEGER DEFAULT 1
+    CHECK (number >= 1 AND number <= 12),
+    total DECIMAL(6,2) DEFAULT 0
+    CHECK (total >= 0 AND total <= 9999)
     mode_id INTEGER NOT NULL,
     event_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
@@ -138,30 +141,14 @@ DROP TABLE IF EXISTS `table`;
 CREATE TABLE IF NOT EXISTS `table`
 (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    price DECIMAL(5,2) NOT NULL DEFAULT 0,
+    price DECIMAL(5,2) NOT NULL DEFAULT 0
+    CHECK (price >= 0 AND price <= 999),
     pos_x INTEGER(3) NOT NULL DEFAULT 0,
     pos_y INTEGER(3) NOT NULL DEFAULT 0,
     comments TEXT,
     reservation_id INTEGER NOT NULL,
     FOREIGN KEY (reservation_id) REFERENCES reservation (id) ON DELETE CASCADE
 );
-
--- MAJ automatique du prix d'une table d'une réservation
-
-DROP TRIGGER IF EXISTS before_insert_table_price_on_reservation;
-
-CREATE TRIGGER IF NOT EXISTS before_insert_table_price_on_reservation
-BEFORE INSERT ON `table` 
-FOR EACH ROW
-    UPDATE `table` 
-    SET price = (
-        SELECT e.min_price
-        FROM `table` t
-        INNER JOIN reservation r ON t.reservation_id = r.id
-        INNER JOIN event e ON r.event_id = e.id
-        WHERE e.id = r.event_id
-    )
-    WHERE id = NEW.reservation_id;
 
 -- MAJs automatiques du nombre de tables d'une réservation
 

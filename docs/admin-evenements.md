@@ -40,6 +40,7 @@ On peut ajouter un événement avec :
 - sa **date prévue** (requis, **ex:** 7 mai 2023)
 - son **image d'illustration** (optionnel, **ex:** affiche du salon annuel prévu)
 - sa **description** (requis, texte converti en HTML)
+- son **prix de base** pour chaque table (en €, entre 0 et 999)
 - son **nombre de tables disponibles** (entier, entre 0 et 999)
 
 ## L'édition d'un événement
