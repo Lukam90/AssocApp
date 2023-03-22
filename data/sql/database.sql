@@ -1,19 +1,27 @@
--- Les modes de paiement (mode)
+-- Script BDD
 
-DROP TABLE IF EXISTS mode;
+DROP TABLE IF EXISTS `newsletter_user`;
+DROP TABLE IF EXISTS `newsletter`;
+
+DROP TABLE IF EXISTS `table`;
+DROP TABLE IF EXISTS `reservation`;
+DROP TABLE IF EXISTS `mode`;
+DROP TABLE IF EXISTS `event`;
+DROP TABLE IF EXISTS `user`;
+
+-- Les modes de paiement (mode)
 
 CREATE TABLE IF NOT EXISTS mode
 (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    label VARCHAR(50) UNIQUE NOT NULL
+    label VARCHAR(50) UNIQUE NOT NULL,
+    INDEX (label)
 );
 
 INSERT INTO mode (label) VALUES
 ('Espèces'), ('Chèque'), ('Carte Bancaire');
 
 -- Les newsletters (newsletter)
-
-DROP TABLE IF EXISTS newsletter;
 
 CREATE TABLE IF NOT EXISTS newsletter
 (
@@ -22,7 +30,8 @@ CREATE TABLE IF NOT EXISTS newsletter
     target VARCHAR(10) NOT NULL DEFAULT 'Général',
     content VARCHAR(255),
     is_send BOOLEAN NOT NULL DEFAULT 0,
-    send_at DATE NOT NULL DEFAULT NOW()
+    send_at DATE NOT NULL DEFAULT NOW(),
+    INDEX (object)
 );
 
 INSERT INTO newsletter (object, target, content, is_send, send_at) VALUES 
@@ -32,8 +41,6 @@ INSERT INTO newsletter (object, target, content, is_send, send_at) VALUES
 
 -- Les utilisateurs (user)
 
-DROP TABLE IF EXISTS `user`;
-
 CREATE TABLE IF NOT EXISTS `user`
 (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -41,12 +48,16 @@ CREATE TABLE IF NOT EXISTS `user`
     password VARCHAR(255) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    label VARCHAR(255) UNIQUE,
+    label VARCHAR(255),
     phone VARCHAR(20),
     is_active BOOLEAN NOT NULL DEFAULT 0,
     is_member BOOLEAN NOT NULL DEFAULT 0,
     is_optin BOOLEAN NOT NULL DEFAULT 0,
     role VARCHAR(20) NOT NULL DEFAULT 'Exposant'
+    CHECK (role in ('Exposant', 'Trésorier', 'Administrateur')),
+    INDEX(first_name),
+    INDEX(last_name),
+    INDEX(label)
 );
 
 INSERT INTO user (email, password, role, first_name, last_name, label) VALUES
@@ -63,8 +74,6 @@ INSERT INTO user (email, password, role, first_name, last_name, label) VALUES
 ('m.simon@test.com', sha('Sim$ity754'), 'Exposant', 'Marc', 'SIMON', 'Cartes Postales Magazine');
 
 -- La table intermédiaire newsletter_user
-
-DROP TABLE IF EXISTS newsletter_user;
 
 CREATE TABLE IF NOT EXISTS newsletter_user
 (
@@ -84,8 +93,6 @@ INSERT INTO newsletter_user (newsletter_id, user_id) VALUES
 
 -- Les événements (event)
 
-DROP TABLE IF EXISTS `event`;
-
 CREATE TABLE IF NOT EXISTS `event`
 (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -97,15 +104,14 @@ CREATE TABLE IF NOT EXISTS `event`
     min_price DECIMAL(5,2) NOT NULL
     CHECK (min_price >= 0 AND min_price <= 999),
     num_available INTEGER(3) NOT NULL
-    CHECK (min_price >= 0 AND min_price <= 999)
+    CHECK (min_price >= 0 AND min_price <= 999),
+    INDEX(title)
 );
 
 INSERT INTO event (title, planned_at, content, min_price, num_available) VALUES 
 ('43ème Foire Alsacienne de la Carte Postale et du Vieux Papier de Collection et Salon des Collectionneurs', '2023-05-07', 'Lorem ipsum...', 30.00, 300);
 
 -- Les réservations (reservation)
-
-DROP TABLE IF EXISTS reservation;
 
 CREATE TABLE IF NOT EXISTS reservation
 (
@@ -117,7 +123,7 @@ CREATE TABLE IF NOT EXISTS reservation
     number INTEGER DEFAULT 1
     CHECK (number >= 1 AND number <= 12),
     total DECIMAL(6,2) DEFAULT 0
-    CHECK (total >= 0 AND total <= 9999)
+    CHECK (total >= 0 AND total <= 9999),
     mode_id INTEGER NOT NULL,
     event_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
@@ -135,8 +141,6 @@ INSERT INTO reservation (status, paid_at, comments, event_id, user_id, mode_id) 
 ('Payé', '2023-03-05', '', 1, 6, 3);
 
 -- Les tables (table)
-
-DROP TABLE IF EXISTS `table`;
 
 CREATE TABLE IF NOT EXISTS `table`
 (
