@@ -18,39 +18,88 @@ Les newsletters sont listées sous forme de tableau avec :
 - le **statut d'envoi** (case cochée ou non)
 - la **date d'envoi** (si envoyé)
 
+## Le tri des newsletters
+
+**Page** : admin/newsletters.js
+
+Les newsletters sont listées par leur ID dans l'ordre croissant par défaut.
+
+L'administrateur peut trier les newsletters par ordre alphabétique (croissant ou décroissant) selon :
+
+- leur **objet**
+- leur **date d'envoi**
+
+## Le filtre des newsletters
+
+**Page** : admin/newsletters.js
+
+L'administrateur peut filtrer les newsletters selon :
+
+- la **cible**
+- le **statut d'envoi**
+- une **date de début** et une **date de fin**
+
+## La pagination des newsletters
+
+**Page** : admin/newsletters.js
+
+La liste affiche 20 newsletters par page.
+
+L'administrateur peut choisir une limite d'affichage de 5, 10, 20, 50 ou 100.
+
 ## La recherche d'une newsletter
 
-On peut rechercher une newsletter avec :
+**Page** : admin/newsletters.js
 
-- son **objet**
-- sa **cible**
-- son **statut d'envoi**
-- sa **date d'envoi**
+L'administrateur peut rechercher une newsletter avec son objet.
 
 ## La création d'une newsletter
 
 **Page** : admin/newsletters-form.js
 
-Une nouvelle newsletter comporte :
+L'administrateur peut créer une nouvelle newsletter avec :
 
 - son **objet**
 - sa **cible**
 - son **contenu textuel** (converti en HTML)
-- son **statut d'envoi** (case à cocher)
-- sa **date d'envoi** (actuelle ou différée)
+- sa **date d'envoi** (actuelle par défaut)
+
+Un message confirme l'ajout d'une nouvelle newsletter.
+
+Sinon, un message d'erreur s'affiche.
 
 ## L'envoi d'une newsletter
 
+**Page** : admin/newsletters-form.js
+
 L'envoi d'une newsletter est seulement possible avec au moins un utilisateur inscrit (optin).
+
+Si la cible est "Général", la newsletter est envoyée à l'ensemble des utilisateurs inscrits.
+
+Sinon, la newsletter est envoyée aux utilisateurs inscrits et membres de l'association AACCP.
+
+Un message confirme l'envoi de la newsletter.
+
+Sinon, un message d'erreur s'affiche.
 
 ## L'édition d'une newsletter
 
 **Page** : admin/newsletters-form.js
 
-On peut éditer une newsletter avec ses informations basées sur le formulaire de création.
+L'administrateur peut éditer une newsletter avec ses informations basées sur le formulaire de création.
+
+Un message confirme l'édition de la newsletter.
+
+Sinon, un message d'erreur s'affiche.
 
 ## La suppression d'une newsletter
 
 **Page** : admin/newsletters-delete.js
 
-Une fenêtre modale s'affiche pour confirmer la suppression d'une newsletter.
+L'administrateur peut supprimer une newsletter.
+
+Une fenêtre modale s'affiche pour confirmer la suppression.
+
+Un message confirme la suppression de la newsletter.
+
+Sinon, un message d'erreur s'affiche.

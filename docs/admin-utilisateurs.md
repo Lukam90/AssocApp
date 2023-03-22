@@ -58,7 +58,11 @@ L'administrateur et le trésorier peuvent choisir une limite d'affichage de 5, 1
 
 **Page** : admin/users.js
 
-L'administrateur et le trésorier peuvent rechercher un utilisateur avec son prénom, son nom et son libellé.
+L'administrateur et le trésorier peuvent rechercher un utilisateur avec :
+
+- son **prénom**
+- son **nom**
+- son **libellé**
 
 ## L'inscription manuelle d'un utilisateur
 
