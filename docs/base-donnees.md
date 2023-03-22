@@ -24,6 +24,10 @@
 - mode (**id**, label)
 - table (**id**, price, pos_x, pos_y, comments, **#reservation_id**)
 
+### Modèle relationnel (PHPMyAdmin)
+
+![relations](./schemas/entities/relations.png)
+
 ## Les entités
 
 ### Newsletter - Les newsletters
