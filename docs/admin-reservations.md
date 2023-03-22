@@ -10,9 +10,10 @@
 
 **Page** : admin/reservations.js
 
-Les réservations liées à un événement sont listées sous forme de tableau avec :
+Les réservations sont listées sous forme de tableau avec :
 
 - l'**id**
+- la **date prévue** de l'événement concerné
 - le **prénom** de l'exposant
 - le **nom** de l'exposant
 - le **libellé** de l'exposant
@@ -23,9 +24,39 @@ Les réservations liées à un événement sont listées sous forme de tableau a
 - la **date de paiement** (si payé ou annulé)
 - les **commentaires** (icône "bulle" et texte au survol)
 
+## Le tri des réservations
 
+**Page** : admin/reservations.js
+
+Les réservations sont listées par leur ID dans l'ordre croissant par défaut.
+
+L'administrateur et le trésorier peuvent trier les réservations par ordre alphabétique (croissant ou décroissant) selon :
+
+- le **prénom** d'un exposant
+- le **nom** d'un exposant
+- le **libellé** d'un exposant
+
+## Le filtre des réservations
+
+**Page** : admin/reservations.js
+
+L'administrateur et le trésorier peuvent filtrer les réservations selon :
+
+- l'**année** de l'événement prévu
+- le **statut de paiement**
+- le **mode de paiement**
+
+## La pagination des réservations
+
+**Page** : admin/reservations.js
+
+La liste affiche 20 réservations par page.
+
+L'administrateur et le trésorier peuvent choisir une limite d'affichage de 5, 10, 20, 50 ou 100.
 
 ## La recherche d'une réservation
+
+**Page** : admin/reservations.js
 
 L'administrateur et le trésorier peuvent rechercher une réservation avec :
 
@@ -36,29 +67,47 @@ L'administrateur et le trésorier peuvent rechercher une réservation avec :
 
 **Page** : admin/reservations-form.js
 
-Une nouvelle réservation est définie par :
+L'administrateur et le trésorier peuvent ajouter une nouvelle réservation avec :
 
-- son **exposant** (prénom, nom et libellé)
 - son **événement**
+- son **exposant** (prénom, nom et libellé)
+- son **mode de paiement**
 - son **statut** ("A Payer", "Payé", "Annulé")
 - sa **liste de tables** (de 1 à 12)
-- sa **somme totale** réglée
-- son **mode de paiement**
-- sa **date de paiement** (si le statut est "Payé")
+- sa **somme totale** réglée (calculé automatiquement)
+- sa **date de paiement** (requis si le statut est "Payé" ou "Annulé")
 - ses **commentaires** (optionnel)
+
+Un message confirme l'ajout d'une nouvelle réservation.
+
+Sinon, un message d'erreur s'affiche.
+
+Si la réservation est en statut "Payé", l'exposant est notifié par e-mail.
 
 ## L'édition d'une réservation
 
 **Page** : admin/reservations-form.js
 
-On peut éditer une réservation avec les informations basées sur le formulaire d'ajout.
+L'administrateur et le trésorier peuvent éditer une réservation avec les informations basées sur le formulaire d'ajout.
 
 L'exposant et l'événement concernés restent inchangés.
+
+Un message confirme l'édition de la réservation.
+
+Sinon, un message d'erreur s'affiche.
+
+Si la réservation change de statut, l'exposant est notifié par e-mail.
 
 ## La suppression d'une réservation
 
 **Page** : admin/reservations-delete.js
 
-Une fenêtre modale s'affiche pour confirmer la suppression d'une réservation.
+L'administrateur et le trésorier peuvent supprimer une réservation.
+
+Une fenêtre modale s'affiche pour confirmer la suppression.
+
+Un message confirme la suppression de la réservation.
+
+Sinon, un message d'erreur s'affiche.
 
 La suppression d'une réservation entraîne la suppression de toutes ses tables.
