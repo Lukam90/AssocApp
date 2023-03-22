@@ -23,9 +23,11 @@ Les réservations liées à un événement sont listées sous forme de tableau a
 - la **date de paiement** (si payé ou annulé)
 - les **commentaires** (icône "bulle" et texte au survol)
 
+
+
 ## La recherche d'une réservation
 
-On peut rechercher une réservation avec :
+L'administrateur et le trésorier peuvent rechercher une réservation avec :
 
 - le **prénom**, le **nom** et le **libellé** de l'exposant
 - la **date** de l'événement

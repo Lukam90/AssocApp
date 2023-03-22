@@ -52,7 +52,7 @@ L'administrateur et le trésorier peuvent filtrer les utilisateurs selon :
 
 La liste affiche 20 utilisateurs par page.
 
-L'administrateur et le trésorier peuvent choisir une limite d'affichage à 5, 10, 20, 50 ou 100.
+L'administrateur et le trésorier peuvent choisir une limite d'affichage de 5, 10, 20, 50 ou 100.
 
 ## La recherche d'un utilisateur
 
@@ -83,7 +83,9 @@ Un bouton d'ajout (+ en bleu) se trouve au-dessus de la liste.
 
 Un message confirme l'ajout d'un nouvel utilisateur.
 
-Un message d'erreur s'affiche sinon.
+Sinon, un message d'erreur s'affiche.
+
+Si activé, le nouvel utilisateur est notifié par e-mail avec un mot de passe généré aléatoirement.
 
 ## L'édition manuelle d'un utilisateur
 
@@ -93,7 +95,7 @@ L'administrateur peut éditer les informations d'un utilisateur sur la base du f
 
 Un message confirme l'édition de l'utilisateur.
 
-Un message d'erreur s'affiche sinon.
+Sinon, un message d'erreur s'affiche.
 
 ## La suppression d'un utilisateur
 
@@ -105,4 +107,6 @@ Une fenêtre modale s'affiche pour confirmer la suppression.
 
 Un message confirme la suppression de l'utilisateur.
 
-Un message d'erreur s'affiche sinon.
+Sinon, un message d'erreur s'affiche.
+
+La suppression d'un utilisateur entraîne la suppression de toutes ses réservations et des tables liées.

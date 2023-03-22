@@ -21,11 +21,27 @@ Les événements sont listés sous forme de tableau avec :
 - un **bouton d'édition** (crayon en vert)
 - un **bouton de suppression** (croix en rouge)
 
+## Le tri des événements
+
+**Page** : admin/events.js
+
+Les événements sont listés par leur ID dans l'ordre croissant par défaut.
+
+L'administrateur peut trier les événements par ordre alphabétique (croissant ou décroissant) selon leur titre.
+
+## La pagination des événements
+
+**Page** : admin/users.js
+
+La liste affiche 20 événements par page.
+
+L'administrateur peut choisir une limite d'affichage de 5, 10, 20, 50 ou 100.
+
 ## La recherche d'un événement
 
 **Page** : admin/events.js
 
-On peut rechercher un événement avec :
+L'administrateur peut rechercher un événement avec :
 
 - son **titre**
 - son **année**
@@ -34,7 +50,7 @@ On peut rechercher un événement avec :
 
 **Page** : admin/form-events.js
 
-On peut ajouter un événement avec :
+L'administrateur peut ajouter un événement avec :
 
 - son **titre** (requis, entre 2 et 255 caractères)
 - sa **date prévue** (requis, **ex:** 7 mai 2023)
@@ -42,6 +58,11 @@ On peut ajouter un événement avec :
 - sa **description** (requis, texte converti en HTML)
 - son **prix de base** pour chaque table (en €, entre 0 et 999)
 - son **nombre de tables disponibles** (entier, entre 0 et 999)
+- son **statut de publication** (case à cocher)
+
+Un message confirme l'ajout du nouvel événement.
+
+Sinon, un message d'erreur s'affiche.
 
 ## L'édition d'un événement
 
@@ -49,10 +70,20 @@ On peut ajouter un événement avec :
 
 On peut éditer les informations d'un événement sur la base du formulaire de création.
 
+Un message confirme l'édition de l'événement.
+
+Sinon, un message d'erreur s'affiche.
+
 ## La suppression d'un événement
 
 **Page** : admin/form-events.js
 
-Une fenêtre modale s'affiche pour confirmer la suppression d'un événement.
+L'administrateur peut supprimer un événement.
 
-La suppression d'un événement entraîne la suppression de toutes ses réservations.
+Une fenêtre modale s'affiche pour confirmer la suppression.
+
+La suppression d'un événement entraîne la suppression de toutes ses réservations et des tables liées.
+
+Un message confirme la suppression de l'événement.
+
+Sinon, un message d'erreur s'affiche.

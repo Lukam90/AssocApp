@@ -50,19 +50,26 @@ Les états d'avancement sont définis comme suit :
 ||**La gestion des événements**|
 |<br>||
 |H|La liste des événements|
+|B|Le tri des événements|
+|B|La pagination des événements|
 |B|La recherche d'un événement|
 |H|L'ajout d'un événement|
 |H|L'édition d'un événement|
+|H|La suppression d'un événement|
 |<br>||
 ||**La gestion des modes de paiement**|
 |<br>||
 |H|La liste des modes de paiement|
 |H|L'ajout d'un mode de paiement|
 |H|L'édition d'un mode de paiement|
+|H|La suppression d'un mode de paiement|
 |<br>||
 ||**La gestion des réservations**|
 |<br>||
 |H|La liste des réservations|
+|M|Le tri des réservations|
+|M|Le filtre des réservations|
+|M|La pagination des réservations|
 |M|La recherche d'une réservation|
 |H|L'ajout d'une réservation|
 |H|L'édition d'une réservation|
@@ -70,8 +77,6 @@ Les états d'avancement sont définis comme suit :
 ||**La gestion des tables**|
 |<br>||
 |H|La liste des tables|
-|M|Le tri des tables|
-|M|La recherche d'une table|
 |H|L'ajout d'une table|
 |M|L'édition d'une table|
 |M|La suppression d'une table|
@@ -80,6 +85,8 @@ Les états d'avancement sont définis comme suit :
 |<br>||
 |B|La liste des newsletters|
 |B|Le tri des newsletters|
+|B|Le filtre des newsletters|
+|B|La pagination des newsletters|
 |B|La recherche d'une newsletter|
 |B|La création d'une newsletter|
 |B|L'édition d'une newsletter|
