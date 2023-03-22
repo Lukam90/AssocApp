@@ -8,6 +8,7 @@
 - [La liste des tâches](liste-taches.md)
 - [L'inscription et la connexion](inscription-connexion.md)
 - [Le profil d'un utilisateur](profil-utilisateur.md)
+- [Le formulaire de contact](formulaire-contact.md)
 - [Le panneau d'administration](admin-panneau.md)
 - [La gestion des utilisateurs](admin-utilisateurs.md)
 - [La gestion des modes de paiement](admin-modes.md)
