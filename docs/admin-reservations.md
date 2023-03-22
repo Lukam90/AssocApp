@@ -73,10 +73,12 @@ L'administrateur et le trésorier peuvent ajouter une nouvelle réservation avec
 - son **exposant** (prénom, nom et libellé)
 - son **mode de paiement**
 - son **statut** ("A Payer", "Payé", "Annulé")
-- sa **liste de tables** (de 1 à 12)
+- sa **liste de tables** (de 1 à 12, sur une page dédiée)
 - sa **somme totale** réglée (calculé automatiquement)
 - sa **date de paiement** (requis si le statut est "Payé" ou "Annulé")
 - ses **commentaires** (optionnel)
+
+L'ajout d'une nouvelle réservation est seulement possible à partir d'une table définie.
 
 Un message confirme l'ajout d'une nouvelle réservation.
 
