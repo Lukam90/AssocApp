@@ -4,7 +4,8 @@
 
 # Le formulaire de contact
 
-**Rôles** : Invité, Exposant, Trésorier
+**Rôles** : Invité, Exposant, Trésorier<br>
+**Page** : contact.js
 
 Un utilisateur peut contacter l'administrateur pour une question générale ou une suggestion.
 
