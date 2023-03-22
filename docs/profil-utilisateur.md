@@ -33,8 +33,8 @@ Un utilisateur peut consulter l'état de sa réservation pour le prochain évén
 
 Il y retrouve :
 
-- l'**intitulé de l'événement annuel**
-- la **date de l'événement annuel**
+- l'**intitulé du prochain événement**
+- la **date du prochain événement**
 - le **mode de paiement**
 - le **statut de paiement**
 - la **date de paiement** (si payé ou annulé)

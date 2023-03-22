@@ -22,12 +22,11 @@ Les états d'avancement sont définis comme suit :
 |-|-|
 ||**L'inscription et la connexion**|
 |<br>||
-|M|L'inscription d'un utilisateur|
-|M|La connexion d'un utilisateur|
-|M|La déconnexion d'un utilisateur|
-|H|L'inscription manuelle d'un utilisateur|
+|H|L'inscription d'un utilisateur|
+|H|La connexion d'un utilisateur|
+|H|La déconnexion d'un utilisateur|
+|M|L'oubli de mot de passe|
 |B|La réinitialisation du mot de passe|
-|B|La page de réinitialisation du mot de passe|
 |<br>||
 ||**Le profil d'un utilisateur**|
 |<br>||
@@ -38,9 +37,13 @@ Les états d'avancement sont définis comme suit :
 ||**La gestion des utilisateurs**|
 |<br>||
 |H|La liste des utilisateurs|
+|M|Le tri des utilisateurs|
+|M|Le filtre des utilisateurs|
+|M|La pagination des utilisateurs|
 |M|La recherche d'un utilisateur|
 |H|L'inscription manuelle d'un utilisateur|
 |H|L'édition manuelle d'un utilisateur|
+|H|La suppression d'un utilisateur|
 |<br>||
 ||**La gestion des événements**|
 |<br>||
