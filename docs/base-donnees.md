@@ -19,8 +19,8 @@
 - newsletter (**id**, object, target, content, is_send, send_at)
 - newsletter_user (**#newsletter_id, #user_id**)
 - user (**id**, email, password, first_name, last_name, label, picture, phone, is_active, is_member, is_optin, role)
-- event (**id**, title, planned_at, picture, content, min_price, num_available)
-- reservation (**id**, status, paid_at, comments, **#event_id**, **#user_id**, **#mode_id**)
+- event (**id**, title, planned_at, picture, content, is_published, min_price, num_available)
+- reservation (**id**, status, paid_at, comments, number, total, **#event_id**, **#user_id**, **#mode_id**)
 - mode (**id**, label)
 - table (**id**, price, pos_x, pos_y, comments, **#reservation_id**)
 

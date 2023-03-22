@@ -5,7 +5,8 @@ DROP TABLE IF EXISTS mode;
 CREATE TABLE IF NOT EXISTS mode
 (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    label VARCHAR(50)
+    label VARCHAR(50),
+    UNIQUE(label)
 );
 
 INSERT INTO mode (label) VALUES
@@ -62,6 +63,26 @@ INSERT INTO user (email, password, role, first_name, last_name, label) VALUES
 ('g.bonnet@test.com', sha('Gil$Pass042'), 'Exposant', 'Gilbert', 'BONNET', 'Gilbert Philatélie'),
 ('j.bond@test.com', sha('jPass$007'), 'Exposant', 'James', 'BOND', 'Tableaux 007'),
 ('m.simon@test.com', sha('Sim$ity754'), 'Exposant', 'Marc', 'SIMON', 'Cartes Postales Magazine');
+
+-- La table intermédiaire newsletter_user
+
+DROP TABLE IF EXISTS newsletter_user;
+
+CREATE TABLE IF NOT EXISTS newsletter_user
+(
+    newsletter_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (newsletter_id) REFERENCES newsletter (id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE,
+    PRIMARY KEY (newsletter_id, user_id)
+);
+
+INSERT INTO newsletter_user (newsletter_id, user_id) VALUES
+(1,1), (1,2), (1,4),
+(1,5), (1,6), (1,7),
+(1,9), (1,10), (1,11),
+(2,1), (2,4),
+(2,5), (2,6);
 
 -- Les événements (event)
 
@@ -125,6 +146,85 @@ CREATE TABLE IF NOT EXISTS `table`
     FOREIGN KEY (reservation_id) REFERENCES reservation (id) ON DELETE CASCADE
 );
 
+-- MAJ automatique du prix d'une table d'une réservation
+
+DROP TRIGGER IF EXISTS before_insert_table_price_on_reservation;
+
+CREATE TRIGGER IF NOT EXISTS before_insert_table_price_on_reservation
+BEFORE INSERT ON `table` 
+FOR EACH ROW
+    UPDATE `table` 
+    SET price = (
+        SELECT e.min_price
+        FROM `table` t
+        INNER JOIN reservation r ON t.reservation_id = r.id
+        INNER JOIN event e ON r.event_id = e.id
+        WHERE e.id = r.event_id
+    )
+    WHERE id = NEW.reservation_id;
+
+-- MAJs automatiques du nombre de tables d'une réservation
+
+-- Après insertion d'une table
+
+DROP TRIGGER IF EXISTS after_insert_tables_number_on_reservation;
+
+CREATE TRIGGER IF NOT EXISTS after_insert_tables_number_on_reservation
+AFTER INSERT ON `table` 
+FOR EACH ROW
+    UPDATE reservation
+    SET number = (
+        SELECT COUNT(t.id)
+        FROM `table` t
+    )
+    WHERE id = NEW.reservation_id;
+
+-- Après suppression d'une table
+
+DROP TRIGGER IF EXISTS after_delete_tables_number_on_reservation;
+
+CREATE TRIGGER after_delete_tables_number_on_reservation
+AFTER DELETE ON `table`
+FOR EACH ROW
+    UPDATE reservation
+    SET number = (
+        SELECT COUNT(t.id)
+        FROM `table` t
+    )
+    WHERE id = OLD.reservation_id;
+
+-- MAJs automatiques du prix total d'une réservation
+
+-- Après insertion d'une table
+
+DROP TRIGGER IF EXISTS after_insert_tables_total_on_reservation;
+
+CREATE TRIGGER IF NOT EXISTS after_insert_tables_total_on_reservation
+AFTER INSERT ON `table` 
+FOR EACH ROW
+    UPDATE reservation
+    SET total = (
+        SELECT SUM(t.price)
+        FROM `table` t
+    )
+    WHERE id = NEW.reservation_id;
+
+-- Après suppression d'une table
+
+DROP TRIGGER IF EXISTS after_delete_tables_total_on_reservation;
+
+CREATE TRIGGER IF NOT EXISTS after_delete_tables_total_on_reservation
+AFTER INSERT ON `table` 
+FOR EACH ROW
+    UPDATE reservation
+    SET total = (
+        SELECT SUM(t.price)
+        FROM `table` t
+    )
+    WHERE id = NEW.reservation_id;
+
+-- Ajout de tables
+
 INSERT INTO `table` (reservation_id, price, pos_x, pos_y, comments) VALUES
 (1, 30, 0, 0, ''),
 (1, 30, 0, 1, ''),
@@ -133,23 +233,3 @@ INSERT INTO `table` (reservation_id, price, pos_x, pos_y, comments) VALUES
 (2, 30, 1, 2, 'près de la portie de sortie'),
 (2, 30, 2, 1, ''),
 (2, 0, 2, 2, 'table offerte (membre)');
-
--- La table intermédiaire newsletter_user
-
-DROP TABLE IF EXISTS newsletter_user;
-
-CREATE TABLE IF NOT EXISTS newsletter_user
-(
-    newsletter_id INTEGER NOT NULL,
-    user_id INTEGER NOT NULL,
-    FOREIGN KEY (newsletter_id) REFERENCES newsletter (id) ON DELETE CASCADE,
-    FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE,
-    PRIMARY KEY (newsletter_id, user_id)
-);
-
-INSERT INTO newsletter_user (newsletter_id, user_id) VALUES
-(1,1), (1,2), (1,4),
-(1,5), (1,6), (1,7),
-(1,9), (1,10), (1,11),
-(2,1), (2,4),
-(2,5), (2,6);

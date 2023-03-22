@@ -1,4 +1,4 @@
--- Réservations d'un événement donné (ex : 1)
+-- Réservations d'un événement donné
 
 SELECT r.id, r.status, r.paid_at, r.comments
 FROM reservation r
@@ -6,41 +6,16 @@ INNER JOIN event e
 ON r.event_id = e.id
 WHERE e.id = 1;
 
--- Réservations d'un événement donné (ex : 1) + mode de paiement
+-- Réservation d'un exposant
 
-SELECT r.id, r.status, m.label, r.paid_at, r.comments
-FROM reservation r
-INNER JOIN event e
-ON r.event_id = e.id
-INNER JOIN mode m
-ON r.mode_id = m.id
-WHERE e.id = 1;
-
--- Réservation (ex : 1) + stats tables
-
-SELECT r.id, r.status, count(t.id) as num_tables, sum(t.price) as total, m.label, r.paid_at, r.comments
+SELECT r.id, u.first_name, u.last_name, u.label, r.status, count(t.id) as num_tables, sum(t.price) as total, m.label, r.paid_at, r.comments
 FROM reservation r
 INNER JOIN event e ON r.event_id = e.id
+INNER JOIN user u ON r.user_id = u.id
 INNER JOIN mode m ON r.mode_id = m.id
-INNER JOIN `table` t ON t.reservation_id = r.id
-WHERE e.id = 1 AND r.id = 1
+INNER JOIN `table` t on t.reservation_id = r.id
+WHERE e.id = 1 AND u.id = 1
 GROUP BY r.id;
-
--- Réservation d'un exposant (!)
-
-SELECT r.id, e.title, e.planned_at, u.first_name, u.last_name, u.label, r.status, r.paid_at
-FROM reservation r
-INNER JOIN event e ON r.event_id = e.id
-INNER JOIN user_event ue ON ue.event_id = e.id
-INNER JOIN user u ON ue.user_id = u.id
-WHERE e.id = 1 AND u.id = 1;
-
-SELECT r.id, e.title, e.planned_at, u.first_name, u.last_name, u.label, r.status, r.paid_at
-FROM user_event ue
-INNER JOIN user u ON ue.user_id = u.id
-INNER JOIN event e ON ue.event_id = e.id
-INNER JOIN reservation r ON r.event_id = e.id
-WHERE e.id = 1 AND u.id = 1;
 
 -- Ajout d'une réservation
 
