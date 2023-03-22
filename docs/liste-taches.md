@@ -32,7 +32,9 @@ Les états d'avancement sont définis comme suit :
 |<br>||
 |M|Onglet "Informations Personnelles"|
 |B|Onglet "Identifiants de Connexion"|
-|M|"Onglet "Réservation"|
+||Onglet "Réservation"|
+|M|L'état de la dernière réservation|
+|M|L'annulation de la dernière réservation|
 |<br>||
 ||**La gestion des utilisateurs**|
 |<br>||

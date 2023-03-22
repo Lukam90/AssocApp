@@ -81,11 +81,19 @@ L'administrateur peut donc enregistrer un exposant manuellement avec :
 
 Un bouton d'ajout (+ en bleu) se trouve au-dessus de la liste.
 
+Un message confirme l'ajout d'un nouvel utilisateur.
+
+Un message d'erreur s'affiche sinon.
+
 ## L'édition manuelle d'un utilisateur
 
 **Page** : admin/users-form.js
 
 L'administrateur peut éditer les informations d'un utilisateur sur la base du formulaire d'ajout.
+
+Un message confirme l'édition de l'utilisateur.
+
+Un message d'erreur s'affiche sinon.
 
 ## La suppression d'un utilisateur
 
@@ -94,3 +102,7 @@ L'administrateur peut éditer les informations d'un utilisateur sur la base du f
 L'administrateur peut supprimer un utilisateur.
 
 Une fenêtre modale s'affiche pour confirmer la suppression.
+
+Un message confirme la suppression de l'utilisateur.
+
+Un message d'erreur s'affiche sinon.

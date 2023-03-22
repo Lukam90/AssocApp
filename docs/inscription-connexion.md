@@ -27,6 +27,12 @@ Un mot de passe valide comporte :
 - au moins **un chiffre** (0-9)
 - au moins **un caractère spécial** (@, $, #, !)
 
+Un message confirme l'inscription du nouvel utilisateur.
+
+Le nouvel utilisateur est redirigé vers la page de connexion.
+
+Sinon, un message d'erreur s'affiche.
+
 ## La connexion d'un utilisateur
 
 **Rôle** : Invité<br />
@@ -37,14 +43,14 @@ Un utilisateur inscrit est invité à se connecter avec :
 - son **adresse e-mail**
 - son **mot de passe**
 
+Un message confirme la connexion d'un utilisateur.
+
 Un message d'erreur s'affiche si :
 
 - l'adresse e-mail ou le mot de passe n'est pas renseigné
 - l'adresse e-mail est introuvable
 - l'adresse e-mail existe déjà
 - le mot de passe est incorrect
-
-Un message confirme la connexion d'un utilisateur.
 
 ## La déconnexion d'un utilisateur
 
@@ -64,9 +70,9 @@ Un utilisateur peut demander la réinitialisation du mot de passe pour se connec
 
 Lorsque l'utilisateur clique sur le lien de réinitialisation du mot de passe, une fenêtre modale s'affiche avec une adresse e-mail à renseigner.
 
-Si l'adresse e-mail existe, l'utilisateur reçoit un e-mail de réinitialisation du mot de passe.
+Si l'adresse e-mail existe, un message confirme la demande de nouveau mot de passe.
 
-Sinon, un message d'erreur indique l'inexistence de l'adresse e-mail.
+Sinon, un message d'erreur s'affiche.
 
 ## La réinitialisation du mot de passe
 

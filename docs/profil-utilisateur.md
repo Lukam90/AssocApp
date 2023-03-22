@@ -17,6 +17,10 @@ L'utilisateur peut changer ses informations personnelles de base :
 - son **libellé de stand** (optionnel, de 2 à 255 caractères)
 - son **inscription à la newsletter** (case à cocher (optin))
 
+Un message confirme la mise à jour des informations.
+
+Sinon, un message d'erreur s'affiche.
+
 ## Onglet "Identifiants de Connexion"
 
 L'utilisateur peut changer son adresse e-mail au besoin.
@@ -27,9 +31,15 @@ Il peut aussi changer son mot de passe en indiquant :
 - son **nouveau mot de passe**
 - la **confirmation du nouveau mot de passe**
 
+Un message confirme la mise à jour du mot de passe.
+
+Sinon, un message d'erreur s'affiche.
+
 ## Onglet "Réservation"
 
-Un utilisateur peut consulter l'état de sa réservation pour le prochain événement annoncé.
+### L'état de la dernière réservation
+
+L'utilisateur peut consulter l'état de sa réservation pour le prochain événement annoncé.
 
 Il y retrouve :
 
@@ -40,3 +50,15 @@ Il y retrouve :
 - la **date de paiement** (si payé ou annulé)
 - le **nombre de tables réservées**
 - la **somme totale réglée**
+
+### L'annulation de la dernière réservation
+
+L'utilisateur peut annuler sa dernière réservation.
+
+Une fenêtre modale s'affiche pour confirmer l'annulation, avec un motif optionnel.
+
+Un message confirme l'annulation de la réservation.
+
+L'administrateur et le trésorier sont notifiés par e-mail.
+
+Sinon, un message d'erreur s'affiche.
