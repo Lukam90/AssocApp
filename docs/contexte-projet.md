@@ -1,7 +1,3 @@
-[Retour au sommaire](README.md)
-
-***
-
 # Le contexte du projet
 
 Chaque année, l'AACCP (Association Alsacienne des Collectionneurs de Cartes Postales) organise un salon multicollections chaque premier dimanche de mai à Huttendorf.
@@ -22,4 +18,8 @@ En effet, tous les exposants n'ont pas d'accès à Internet, la maîtrise de l'o
 
 La réservation est ensuite validée selon le statut de paiement et le nombre de tables disponibles.
 
-Les exposants peuvent aussi s'inscrire à la newsletter de l'association. 
+Les exposants peuvent aussi s'inscrire à la newsletter de l'association.
+
+La durée globale de développement du projet est estimée à 6 mois en tenant compte de l'ensemble des fonctionnalités, de la complexité et des besoins à venir.
+
+Les principales fonctionnalités sont classées avec leurs priorités (Basse, Moyenne, Haute) :
