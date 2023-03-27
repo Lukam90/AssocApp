@@ -24,6 +24,8 @@ Les réservations sont listées sous forme de tableau avec :
 - la **date de paiement** (si payé ou annulé)
 - les **commentaires** (icône "bulle" et texte au survol)
 
+Sinon, un message indique l'absence de réservations.
+
 ## Le tri des réservations
 
 **Page** : admin/reservations.js

@@ -15,6 +15,8 @@ Les modes de paiement sont listés sous forme de tableau avec :
 - un **bouton d'édition** (crayon en vert)
 - un **bouton de suppression** (croix en rouge)
 
+Sinon, un message indique l'absence de modes de paiement.
+
 ## L'ajout d'un mode de paiement
 
 **Page** : admin/modes-form.js

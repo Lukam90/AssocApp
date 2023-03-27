@@ -17,6 +17,8 @@ Les tables d'une réservation sont listées sous forme de tableau avec :
 - leur **prix**
 - leurs **commentaires**
 
+Sinon, un message indique l'absence de tables.
+
 ## L'ajout d'une table
 
 **Page** : admin/tables-form.js

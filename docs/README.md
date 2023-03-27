@@ -6,6 +6,7 @@
 - [Les rôles des utilisateurs](roles-utilisateur.md)
 - [La base de données](base-donnees.md)
 - [La liste des tâches](liste-taches.md)
+- [La page d'accueil](page-accueil.md)
 - [L'inscription et la connexion](inscription-connexion.md)
 - [Le profil d'un utilisateur](profil-utilisateur.md)
 - [Le formulaire de contact](formulaire-contact.md)

@@ -18,6 +18,8 @@ Les newsletters sont listées sous forme de tableau avec :
 - le **statut d'envoi** (case cochée ou non)
 - la **date d'envoi** (si envoyé)
 
+Sinon, un message indique l'absence de newsletters.
+
 ## Le tri des newsletters
 
 **Page** : admin/newsletters.js

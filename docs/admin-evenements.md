@@ -21,6 +21,8 @@ Les événements sont listés sous forme de tableau avec :
 - un **bouton d'édition** (crayon en vert)
 - un **bouton de suppression** (croix en rouge)
 
+Sinon, un message indique l'absence d'événements.
+
 ## Le tri des événements
 
 **Page** : admin/events.js
