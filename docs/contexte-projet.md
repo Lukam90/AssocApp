@@ -23,3 +23,5 @@ Les exposants peuvent aussi s'inscrire à la newsletter de l'association.
 La durée globale de développement du projet est estimée à 6 mois en tenant compte de l'ensemble des fonctionnalités, de la complexité et des besoins à venir.
 
 Les principales fonctionnalités sont classées avec leurs priorités (Basse, Moyenne, Haute) :
+
+%ordre-taches.csv
