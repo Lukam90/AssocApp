@@ -53,3 +53,25 @@ Le trésorier est notifié par e-mail avec :
 Un message confirme l'enregistrement de la nouvelle réservation.
 
 Sinon, un message d'erreur s'affiche.
+
+## L'inscription à la newsletter
+
+Un formulaire d'inscription à la newsletter de l'association se trouve en bas du prochain événement annoncé.
+
+Le formulaire est visible si l'utilisateur est connecté et n'est pas encore inscrit à la newsletter.
+
+Si aucun événement n'est publié, le formulaire s'affiche à la manière d'une landing page.
+
+Un message indique l'envoi d'un lien de confirmation d'inscription à la newsletter.
+
+Sinon, un message d'erreur s'affiche.
+
+## La confirmation d'inscription à la newsletter
+
+L'utilisateur reçoit un e-mail et confirme son inscription avec un lien dédié.
+
+L'utilisateur est redirigé vers la page d'accueil.
+
+Un message confirme l'inscription à la newsletter.
+
+Sinon, un message d'erreur s'affiche.

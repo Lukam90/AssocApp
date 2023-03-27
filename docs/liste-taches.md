@@ -20,6 +20,13 @@ Les états d'avancement sont définis comme suit :
 
 |<br>||
 |-|-|
+||**La page d'accueil**|
+|<br>||
+|H|L'annonce du prochain événement|
+|H|La réservation de tables|
+|B|L'inscription à la newsletter|
+|B|La confirmation d'inscription à la newsletter|
+|<br>||
 ||**L'inscription et la connexion**|
 |<br>||
 |H|L'inscription d'un utilisateur|

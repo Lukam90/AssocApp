@@ -51,6 +51,7 @@ Un message d'erreur s'affiche si :
 - l'adresse e-mail est introuvable
 - l'adresse e-mail existe déjà
 - le mot de passe est incorrect
+- le compte de l'utilisateur n'est pas activé
 
 ## La déconnexion d'un utilisateur
 

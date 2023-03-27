@@ -21,3 +21,5 @@ Le trésorier et l'administrateur peuvent aussi inscrire l'exposant manuellement
 En effet, tous les exposants n'ont pas d'accès à Internet, la maîtrise de l'outil informatique ou le souhait de fournir des informations personnelles sensibles (adresse e-mail, numéro de téléphone).
 
 La réservation est ensuite validée selon le statut de paiement et le nombre de tables disponibles.
+
+Les exposants peuvent aussi s'inscrire à la newsletter de l'association. 
