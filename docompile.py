@@ -20,14 +20,41 @@ def add_table(filename, num_cols):
             row_cells = table.add_row().cells
 
             for index in range(0, num_cols):
-                row_cells[index].text = cols[index]
+                col = cols[index]
+                row = row_cells[index]
+
+                row.text = col
 
     file.close()
 
-def add_content(filename):
+def add_content(line, style = "Normal"):
     global document
 
-    with open(f"docs/{filename}", "r") as file:
+    if "*" in line:
+        words = line.split(" ")
+
+        p = document.add_paragraph(style = style)
+
+        for word in words:
+            word += " "
+
+            if word[0:2] == "**":
+                word = word.replace("**", "")
+
+                p.add_run(word).bold = True
+            elif word[0] == "*":
+                word = word.replace("*", "")
+
+                p.add_run(word).italic = True
+            else:
+                p.add_run(word)
+    else:
+        document.add_paragraph(line, style = style)
+
+def add_part(filename):
+    global document
+
+    with open(f"docs/parts/{filename}", "r") as file:
         for line in file:
             line = line.strip()
 
@@ -49,7 +76,7 @@ def add_content(filename):
                 elif first == "-":
                     line = line.replace("- ", "")
 
-                    document.add_paragraph(line, style = "List Bullet")
+                    add_content(line, style = "List Bullet")
                 elif first == "%":
                     line = line.replace("%", "")
 
@@ -62,26 +89,7 @@ def add_content(filename):
 
                     document.add_paragraph()
                 else:
-                    if "*" in line:
-                        words = line.split(" ")
-
-                        p = document.add_paragraph()
-
-                        for word in words:
-                            word += " "
-
-                            if word[0:2] == "**":
-                                word = word.replace("**", "")
-
-                                p.add_run(word).bold = True
-                            elif word[0] == "*":
-                                word = word.replace("*", "")
-
-                                p.add_run(word).italic = True
-                            else:
-                                p.add_run(word)
-                    else:
-                        document.add_paragraph(line)
+                    add_content(line)
 
         document.add_page_break()
 
@@ -92,18 +100,20 @@ document = Document()
 
 # Set font
 style = document.styles["Normal"]
-style.font.name = "Calibri"
+font = style.font
+
+font.name = "Calibri"
 
 # Add parts
 #files = ["EN-resume.md", "context-projet.md"]
 
-add_content("_test.md")
-#add_content("EN-resume.md")
-#add_content("expression-besoins.md")
-#add_content("base-donnees.md")
+add_part("_test.md")
+#add_part("EN-resume.md")
+#add_part("expression-besoins.md")
+add_part("base-donnees.md")
 
-#add_content("spe-fonctionnelles.md")
-#add_content("base-donnees.md")
+#add_part("spe-fonctionnelles.md")
+#add_part("base-donnees.md")
 
 # Compilation
 document.save("compilation.docx")
