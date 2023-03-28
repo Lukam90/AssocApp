@@ -2,8 +2,7 @@
 #expression-besoins
 #base-donnees
 
-spe-fonctionnelles
-#_test
+#spe-fonctionnelles
 #traitement-donnees
 #roles-utilisateur
 #page-accueil
@@ -13,12 +12,12 @@ spe-fonctionnelles
 #admin-panneau
 #admin-utilisateurs
 #admin-modes
-admin-evenements
+#admin-evenements
 #admin-reservations
 #admin-tables
 #admin-newsletters
 
 #environnement-tech
-#realisation-projet
+realisation-projet
 #veille-securite
 #situation-recherche
