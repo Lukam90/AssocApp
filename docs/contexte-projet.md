@@ -1,5 +1,7 @@
 # Le contexte du projet
 
+## titre 2
+
 Chaque année, l'AACCP (Association Alsacienne des Collectionneurs de Cartes Postales) organise un salon multicollections chaque premier dimanche de mai à Huttendorf.
 
 Le projet se résume en un système de réservations de tables d'un exposant à l'occasion d'un salon annuel, tout en étant rattaché au nouveau site de l'association.
@@ -24,4 +26,4 @@ La durée globale de développement du projet est estimée à 6 mois en tenant c
 
 Les principales fonctionnalités sont classées avec leurs priorités (Basse, Moyenne, Haute) :
 
-%ordre-taches.csv
+%ordre-taches.csv%2

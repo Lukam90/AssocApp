@@ -1,27 +1,32 @@
-from docx import Document, Table
+from docx import Document
+from docx.table import Table
 #from docx.shared import Cm
 
 headings = { "#" : 1, "##" : 2, "###" : 3 }
 
-def add_table(filename):
+def add_table(filename, num_cols):
     global document
 
-    table = Table()
+    table = document.add_table(rows = 1, cols = num_cols)
+    table.style = "Table Grid"
 
-    with open(f"table/{filename}", "r") as file:
+    with open(f"docs/tables/{filename}", "r") as file:
         for line in file:
             line = line.strip()
 
-            table.add_row()
-
             cols = line.split(";")
 
-            for col in cols:
-                table.add_column(col)
+            index = 0
+
+            #for col in cols:
+            row_cells = table.add_row().cells
+
+            for index in range(0, num_cols):
+                row_cells[index].text = cols[index]
 
         #num_cols = len(cols)
 
-    document.add_table(table)
+    #document.add_table(table)
 
     file.close()
 
@@ -47,7 +52,14 @@ def add_content(filename):
                     document.add_heading(line, level)
                     document.add_paragraph()
                 elif first == "%":
-                    pass
+                    parts = line.split("%")
+
+                    filename = parts[1]
+                    num_cols = int(parts[2])
+
+                    print("table : " + filename)
+
+                    add_table(filename, num_cols)
                 else:
                     document.add_paragraph(line)
 
@@ -63,7 +75,7 @@ style = document.styles["Normal"]
 style.font.name = "Calibri"
 
 # Add paragraphs
-add_content("EN-resume.md")
+#add_content("EN-resume.md")
 add_content("contexte-projet.md")
 
 # Compilation
