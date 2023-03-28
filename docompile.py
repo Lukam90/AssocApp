@@ -3,7 +3,9 @@
 import re
 
 from docx import Document
-#from docx.shared import Cm
+from docx.shared import Cm
+
+# Doc Table
 
 def add_table(filename, num_cols):
     global document
@@ -26,6 +28,15 @@ def add_table(filename, num_cols):
                 row.text = col
 
     file.close()
+
+# Doc Image
+
+def add_image(filename):
+    global document
+
+    document.add_picture(f"docs/{filename}", width = Cm(15))
+
+# Doc Textual Content
 
 def add_content(line, style = "Normal"):
     global document
@@ -51,6 +62,8 @@ def add_content(line, style = "Normal"):
     else:
         document.add_paragraph(line, style = style)
 
+# Doc Part
+
 def add_part(filename):
     global document
 
@@ -64,9 +77,9 @@ def add_part(filename):
                 if first == "#":
                     parts = line.split(" ")
 
-                    if line[0:3] == "###":  level = 3
-                    elif line[0:2] == "##": level = 2
-                    else:   level = 1
+                    level = 1
+
+                    if line[0:2] == "##": level = 2
 
                     line = re.sub("#\s?", "", line)
 
@@ -88,6 +101,15 @@ def add_part(filename):
                     add_table(filename, num_cols)
 
                     document.add_paragraph()
+                elif first == "*":
+                    line = line.replace("*", "")
+
+                    p = document.add_paragraph()
+                    p.add_run(line).bold = True
+                elif first == "!":
+                    filename = line[1:].replace("\"", "")
+                    
+                    add_image(filename)
                 else:
                     add_content(line)
 
@@ -107,7 +129,7 @@ font.name = "Calibri"
 # Add parts
 #files = ["EN-resume.md", "context-projet.md"]
 
-add_part("_test.md")
+#add_part("_test.md")
 #add_part("EN-resume.md")
 #add_part("expression-besoins.md")
 add_part("base-donnees.md")
