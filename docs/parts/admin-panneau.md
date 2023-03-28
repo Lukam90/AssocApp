@@ -1,10 +1,4 @@
-[Retour au sommaire](README.md)
-
-***
-
-# Le panneau d'administration
-
-**Rôles** : Administrateur, Trésorier
+## Le panneau d'administration
 
 Le panneau d'administration affiche des statistiques sous forme de cartes en colonnes avec :
 
