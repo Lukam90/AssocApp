@@ -1,8 +1,4 @@
-[Retour au sommaire](README.md)
-
-***
-
-# Le traîtement des données
+## Le traîtement des données
 
 Le traîtement des données doit respecter la norme RGPD (Réglement Général de la Protection des Données).
 
@@ -29,12 +25,9 @@ Il est donc nécessaire de :
 - respecter le droit des membres concernant la collecte de leurs données, leur modification, leur suppression et leur oubli
 - s’assurer que les sous-traitants respectent la norme RGPD
 
-
 La gestion des données se déroule en 4 actions selon le modèle CRUD :
 
-
-- **C**reate (créer)
-- **R**ead (lire)
-- **U**pdate (éditer)
-- **D**elete (supprimer)
-
+- Create (créer)
+- Read (lire)
+- Update (éditer)
+- Delete (supprimer)

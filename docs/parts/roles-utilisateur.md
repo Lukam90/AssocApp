@@ -1,8 +1,4 @@
-[Retour au sommaire](README.md)
-
-***
-
-# Les rôles des utilisateurs
+## Les rôles des utilisateurs
 
 Les utilisateurs sont définis en 3 rôles :
 

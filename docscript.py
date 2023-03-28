@@ -10,6 +10,13 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 document = Document()
 
+# Set Font & Style
+
+style = document.styles["Normal"]
+
+font = style.font
+font.name = "Calibri"
+
 # Doc Table
 
 def add_table(filename, num_cols):
@@ -46,27 +53,7 @@ def add_image(filename):
 def add_content(line, style = "Normal"):
     global document
 
-    if "*" in line:
-        words = line.split(" ")
-
-        p = document.add_paragraph(style = style)
-
-        for word in words:
-            word += " "
-
-            if word[0:2] == "**":
-                word = word.replace("**", "")
-
-                p.add_run(word).bold = True
-            elif word[0] == "*":
-                word = word.replace("*", "")
-
-                p.add_run(word).italic = True
-            else:
-                p.add_run(word)
-    else:
-        p = document.add_paragraph(line, style = style)
-    
+    p = document.add_paragraph(line, style = style)
     p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
 # Doc Part
@@ -120,13 +107,13 @@ def add_part(filename):
                 else:
                     add_content(line)
 
-        document.add_page_break()
+        #document.add_page_break()
 
         file.close()
 
 # Compile Parts
 
-def compile():
+def compile_parts():
     with open("docs/parts.txt", "r") as file:
         for line in file:
             line = line.strip()
@@ -134,4 +121,10 @@ def compile():
             if len(line) > 0 and line[0] != "#":
                 filename = line + ".md"
 
+                add_part(filename)
+
         file.close()
+
+    document.save("compilation.docx")
+
+    print("Compilation du dossier effectuée")

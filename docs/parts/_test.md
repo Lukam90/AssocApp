@@ -10,6 +10,8 @@ Lorem ipsum dolor sit **amet** consectetur **adipisicing** elit. Quae officia, a
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam magni quo excepturi magnam consectetur illo facere totam ea accusantium odio. Rem delectus neque beatae tempora consequuntur quos hic incidunt. Itaque beatae deserunt ullam dicta amet laborum atque explicabo consequatur error cum incidunt porro, et fugit nesciunt pariatur distinctio totam ea.
 
+un **texte** en gras (et **des** parenthèses)
+
 - un **gras** un
 - deux **gras**
 - trois **gras**
