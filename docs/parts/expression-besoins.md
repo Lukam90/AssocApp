@@ -1,6 +1,4 @@
-# Le contexte du projet
-
-## titre 2
+# Expression des besoins
 
 Chaque année, l'AACCP (Association Alsacienne des Collectionneurs de Cartes Postales) organise un salon multicollections chaque premier dimanche de mai à Huttendorf.
 

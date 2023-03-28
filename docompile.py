@@ -3,12 +3,7 @@
 import re
 
 from docx import Document
-from docx.table import Table
 #from docx.shared import Cm
-
-headings = { "#" : 1, "##" : 2, "###" : 3 }
-
-bold = "\33[1m"
 
 def add_table(filename, num_cols):
     global document
@@ -22,9 +17,6 @@ def add_table(filename, num_cols):
 
             cols = line.split(";")
 
-            index = 0
-
-            #for col in cols:
             row_cells = table.add_row().cells
 
             for index in range(0, num_cols):
@@ -45,8 +37,9 @@ def add_content(filename):
                 if first == "#":
                     parts = line.split(" ")
 
-                    heading = parts[0]
-                    level = headings[heading]
+                    if line[0:3] == "###":  level = 3
+                    elif line[0:2] == "##": level = 2
+                    else:   level = 1
 
                     line = re.sub("#\s?", "", line)
 
@@ -106,7 +99,11 @@ style.font.name = "Calibri"
 
 add_content("_test.md")
 #add_content("EN-resume.md")
-#add_content("contexte-projet.md")
+#add_content("expression-besoins.md")
+#add_content("base-donnees.md")
+
+#add_content("spe-fonctionnelles.md")
+#add_content("base-donnees.md")
 
 # Compilation
 document.save("compilation.docx")

@@ -1,8 +1,4 @@
-[Retour au sommaire](README.md)
-
-***
-
-# L'environnement technique
+# Spécifications techniques du projet
 
 **API Platform**
 
