@@ -26,4 +26,8 @@ La durée globale de développement du projet est estimée à 6 mois en tenant c
 
 Les principales fonctionnalités sont classées avec leurs priorités (Basse, Moyenne, Haute) :
 
-%ordre-taches.csv%2
+%liste-taches.csv;2
+
+L'ordre des tâches est défini comme suit :
+
+%ordre-taches.csv;2

@@ -3,27 +3,20 @@ H;L'annonce du prochain événement
 H;La réservation de tables
 B;L'inscription à la newsletter
 B;La confirmation d'inscription à la newsletter
-\n;
 3;{L'inscription et la connexion}
-\n;
 H;L'inscription d'un utilisateur
 H;La connexion d'un utilisateur
 H;La déconnexion d'un utilisateur
 M;L'oubli de mot de passe
 B;La réinitialisation du mot de passe
-\n;
 8;{Le profil d'un utilisateur}
-\n;
 M;Onglet "Informations Personnelles"
 B;Onglet "Identifiants de Connexion"
 ;Onglet "Réservation"
 M;L'état de la dernière réservation
 M;L'annulation de la dernière réservation
-\n;
-M;**Le formulaire de contact}
-\n;
+M;{Le formulaire de contact}
 2;{La gestion des utilisateurs}
-\n;
 H;La liste des utilisateurs
 M;Le tri des utilisateurs
 M;Le filtre des utilisateurs
@@ -32,9 +25,7 @@ M;La recherche d'un utilisateur
 H;L'inscription manuelle d'un utilisateur
 H;L'édition manuelle d'un utilisateur
 H;La suppression d'un utilisateur
-\n;
 4;{La gestion des événements}
-\n;
 H;La liste des événements
 B;Le tri des événements
 B;La pagination des événements
@@ -42,16 +33,12 @@ B;La recherche d'un événement
 H;L'ajout d'un événement
 H;L'édition d'un événement
 H;La suppression d'un événement
-\n;
 5;{La gestion des modes de paiement}
-\n;
 H;La liste des modes de paiement
 H;L'ajout d'un mode de paiement
 H;L'édition d'un mode de paiement
 H;La suppression d'un mode de paiement
-\n;
 6;{La gestion des réservations}
-\n;
 H;La liste des réservations
 M;Le tri des réservations
 M;Le filtre des réservations
@@ -59,16 +46,12 @@ M;La pagination des réservations
 M;La recherche d'une réservation
 H;L'ajout d'une réservation
 H;L'édition d'une réservation
-\n;
 7;{La gestion des tables}
-\n;
 H;La liste des tables
 H;L'ajout d'une table
 M;L'édition d'une table
 M;La suppression d'une table
-\n;
 9;{La gestion des newsletters}
-\n;
 B;La liste des newsletters
 B;Le tri des newsletters
 B;Le filtre des newsletters

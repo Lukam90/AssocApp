@@ -1,8 +1,14 @@
+#coding: utf8
+
+import re
+
 from docx import Document
 from docx.table import Table
 #from docx.shared import Cm
 
 headings = { "#" : 1, "##" : 2, "###" : 3 }
+
+bold = "\33[1m"
 
 def add_table(filename, num_cols):
     global document
@@ -24,10 +30,6 @@ def add_table(filename, num_cols):
             for index in range(0, num_cols):
                 row_cells[index].text = cols[index]
 
-        #num_cols = len(cols)
-
-    #document.add_table(table)
-
     file.close()
 
 def add_content(filename):
@@ -46,22 +48,41 @@ def add_content(filename):
                     heading = parts[0]
                     level = headings[heading]
 
-                    line = line.replace("# ", "")
-                    line = line.replace("#", "")
+                    line = re.sub("#\s?", "", line)
 
                     document.add_heading(line, level)
+
                     document.add_paragraph()
+                elif first == "-":
+                    line = line.replace("- ", "")
+
+                    document.add_paragraph(line, style = "List Bullet")
                 elif first == "%":
-                    parts = line.split("%")
+                    line = line.replace("%", "")
 
-                    filename = parts[1]
-                    num_cols = int(parts[2])
+                    parts = line.split(";")
 
-                    print("table : " + filename)
+                    filename = parts[0]
+                    num_cols = int(parts[1])
 
                     add_table(filename, num_cols)
+
+                    document.add_paragraph()
                 else:
-                    document.add_paragraph(line)
+                    if "**" in line:
+                        words = line.split(" ")
+
+                        p = document.add_paragraph()
+
+                        for word in words:
+                            if word[0] == "{":
+                                word = word.replace("}", "")
+
+                                p.add_run(word[1:] + " ").bold = True
+                            else:
+                                p.add_run(word + " ")
+                    else:
+                        document.add_paragraph(line)
 
         document.add_page_break()
 
@@ -74,9 +95,14 @@ document = Document()
 style = document.styles["Normal"]
 style.font.name = "Calibri"
 
-# Add paragraphs
+# Add parts
+#files = ["EN-resume.md", "context-projet.md"]
+
+add_content("_test.md")
 #add_content("EN-resume.md")
-add_content("contexte-projet.md")
+#add_content("contexte-projet.md")
 
 # Compilation
 document.save("compilation.docx")
+
+print("Compilation du dossier effectuée")
