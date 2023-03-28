@@ -2,7 +2,7 @@
 
 ## Un sous-titre
 
-Lorem **ipsum** dolor sit amet consectetur adipisicing elit. Similique obcaecati earum repellat deserunt asperiores recusandae cum fugit quia repellendus nemo.
+Lorem **ipsum** dolor sit amet *consectetur* adipisicing elit. *Similique* obcaecati earum repellat deserunt asperiores recusandae cum fugit quia repellendus nemo.
 
 Lorem ipsum dolor sit **amet** consectetur **adipisicing** elit. Quae officia, asperiores possimus nobis illum accusantium!
 

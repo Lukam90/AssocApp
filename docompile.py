@@ -69,18 +69,24 @@ def add_content(filename):
 
                     document.add_paragraph()
                 else:
-                    if "**" in line:
+                    if "*" in line:
                         words = line.split(" ")
 
                         p = document.add_paragraph()
 
                         for word in words:
-                            if word[0] == "{":
-                                word = word.replace("}", "")
+                            word += " "
 
-                                p.add_run(word[1:] + " ").bold = True
+                            if word[0:2] == "**":
+                                word = word.replace("**", "")
+
+                                p.add_run(word).bold = True
+                            elif word[0] == "*":
+                                word = word.replace("*", "")
+
+                                p.add_run(word).italic = True
                             else:
-                                p.add_run(word + " ")
+                                p.add_run(word)
                     else:
                         document.add_paragraph(line)
 
