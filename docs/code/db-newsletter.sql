@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS newsletter
+(
+    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    object VARCHAR(255),
+    target VARCHAR(10) NOT NULL DEFAULT 'Général',
+    content VARCHAR(255),
+    is_send BOOLEAN NOT NULL DEFAULT 0,
+    send_at DATE NOT NULL DEFAULT NOW(),
+    INDEX (object)
+);

@@ -1,5 +1,10 @@
 # La réalisation du projet
 
+## La création des tables
+
+La table des 
+
+=db-newsletter.sql
 
 
 
@@ -47,10 +52,8 @@
 
 
 
-
-
-
-
+Script création BDD
+Script gestion des utilisateurs
 
 
 

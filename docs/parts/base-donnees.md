@@ -2,15 +2,15 @@
 
 ## Les schémas
 
-**MCD -  Modèle Conceptuel de Données
+**MCD -  Modèle Conceptuel de Données**
 
-!"./schemas/entities/MCD.png"
+![](/docs/schemas/entities/MCD.png)
 
-**MLD -  Modèle Logique de Données
+**MLD -  Modèle Logique de Données**
 
-!"./schemas/entities/MLD.png"
+![](/docs/schemas/entities/MLD.png)
 
-**MPD -  Modèle Physique de Données
+**MPD -  Modèle Physique de Données**
 
 - newsletter (id, object, target, content, is_send, send_at)
 - newsletter_user (#newsletter_id, #user_id)
@@ -22,7 +22,7 @@
 
 **Modèle relationnel (PHPMyAdmin)**
 
-!"./schemas/entities/relations.png"
+![](/docs/schemas/entities/relations.png)
 
 ## Les entités
 
