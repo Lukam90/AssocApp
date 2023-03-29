@@ -13,8 +13,8 @@ OR    u.label LIKE '%' . :label . '%'
 
 -- Ajout d'un utilisateur
 
-INSERT INTO user (first_name, last_name, label, email, phone, role, is_active, is_member)
-VALUES (:first_name, :last_name, :label, :email, :phone, :role, :is_active, :is_member)
+INSERT INTO user (first_name, last_name, label, email, password, phone, role, is_active, is_member)
+VALUES (:first_name, :last_name, :label, :email, SHA(password), :phone, :role, :is_active, :is_member)
 
 -- Edition d'un utilisateur
 
