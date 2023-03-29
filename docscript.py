@@ -6,9 +6,38 @@ from docx import Document
 from docx.shared import Cm
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
+# Doc Textual Content
+
+def add_content(line, style = "Normal"):
+    global document
+
+    words = line.split(" ")
+
+    p = document.add_paragraph(style = style)
+    p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+
+    #print(words)
+
+    for word in words:
+        word += " "
+
+        if (word[0:2] == "**"):
+            word = word.replace("**", "")
+
+            p.add_run(word).bold = True
+        else:
+            p.add_run(word)
+
+# Doc Image
+
+def add_image(filename):
+    global document
+
+    document.add_picture(filename, width = Cm(15))
+
 # Doc Table
 
-def add_table(filename, num_cols):
+def add_table(num_cols):
     global document
 
     table = document.add_table(rows = 1, cols = num_cols)
@@ -29,38 +58,6 @@ def add_table(filename, num_cols):
                 row.text = col
 
     file.close()
-
-# Doc Image
-
-def add_image(filename):
-    global document
-
-    document.add_picture(f"docs/{filename}", width = Cm(15))
-
-# Doc Textual Content
-
-def add_content(line, style = "Normal"):
-    global document
-
-    words = re.split("\s", line)
-
-    p = document.add_paragraph(style = style)
-    p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-
-    #print(words)
-
-    for word in words:
-        word += " "
-
-        if (word[0:2] == "**"):
-            word = word.replace("**", "")
-
-            p.add_run(word).bold = True
-        else:
-            p.add_run(word)
-
-    #p = document.add_paragraph(line, style = style)
-    #p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
 # Doc Part
 
@@ -90,15 +87,10 @@ def add_part(filename):
                     line = line.replace("- ", "")
 
                     add_content(line, style = "List Bullet")
-                elif first == "%":
-                    line = line.replace("%", "")
+                elif first == "|":
+                    num_cols = line.count("|")
 
-                    parts = line.split(";")
-
-                    filename = parts[0]
-                    num_cols = int(parts[1])
-
-                    add_table(filename, num_cols)
+                    add_table(num_cols)
 
                     document.add_paragraph()
                 elif first == "*":
@@ -107,13 +99,11 @@ def add_part(filename):
                     p = document.add_paragraph()
                     p.add_run(line).bold = True
                 elif first == "!":
-                    filename = line[1:].replace("\"", "")
-                    
+                    filename = re.sub("(\!|\[|\]|\(|\))", "", line)
+
                     add_image(filename)
                 else:
                     add_content(line)
-
-        #document.add_page_break()
 
         file.close()
 
@@ -141,6 +131,7 @@ font.name = "Calibri"
 
 # Compilation
 
+convert_md("_test.md")
 #convert_md("EN-resume.md")
-convert_md("expression-besoins.md")
+#convert_md("expression-besoins.md")
 #convert_md("environnement-tech.md")
