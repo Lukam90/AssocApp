@@ -98,3 +98,9 @@ x
 
 
 
+Description de la veille, effectuée par le candidat durant le projet, sur les vulnérabilités de sécurité
+
+
+La description de la veille sur les vulnérabilités de sécurité est liée à l’une des compétences « Développer la partie front-end d’une interface utilisateur web », « Développer la partie back-end d’une interface utilisateur web », « Développer des composants d’accès aux données », « Développer des composants dans le langage d’une base de données », « Développer des composants métier » ou « Développer une application mobile ». Cette veille est effectuée dans le cadre du projet en entreprise 
+
+Dans le cas de la veille sur les vulnérabilités, le candidat indique comment il a effectué la veille : les sites et les mots clés utilisés. Il indique les vulnérabilités trouvées et éventuellement les failles potentielles corrigées. 
