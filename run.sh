@@ -1,3 +1,3 @@
-python3 docompile.py
+python3 docscript.py
 
 sh _copy.sh
