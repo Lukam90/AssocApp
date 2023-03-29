@@ -26,7 +26,7 @@ GROUP BY r.id;
 
 ## La nouvelle solution
 
-La nouvelle solution dispense d'une jointure, de fonctions d'agrégation et de l'instruction GROUP BY :
+La nouvelle solution dispense d'une jointure, de fonctions d'agrégation et de l'instruction **GROUP BY** :
 
 ```sql
 SELECT r.id, u.first_name, u.last_name, u.label, r.status, number, total, m.label, r.paid_at, r.comments
@@ -116,83 +116,10 @@ Je me suis aussi basé sur les sources suivantes :
 - la vidéo **Apprendre et maitriser SQL : Les triggers** de la chaîne de Grafikart
 - le site de référence **sql.sh**
 
+Je me suis ensuite posé la question de l'adaptation de ces triggers SQL dans Symfony avec l'ORM Doctrine.
 
+Je me suis donc basé sur la documentation officielle de Symfony avec les mots-clés **doctrine triggers** et **sql triggers**. 
 
+Les **événements Doctrine**, dont les **lifecycle events**, s'en rapprochent au mieux.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-**
-
-Description d’une situation de travail ayant nécessité une recherche et effectuée par le candidat durant le projet à partir de sites anglophones
-
-La description de la situation de travail, ayant nécessité une recherche basée sur un ou des sites francophones ou anglophones, concerne un problème technique ou une nouvelle fonctionnalité à mettre en oeuvre, dans le cadre du projet en entreprise. Elle est liée à l’une des compétences du titre. 
-
-Dans le cas de la recherche de solution, basée sur un ou des sites anglophones, à un problème technique ou une nouvelle fonctionnalité à mettre en oeuvre, le candidat décrit le besoin d’information, et indique comment il a effectué la recherche : les mots clés de recherche utilisés et la liste des sites retournés. Il précise les critères de sélection du (ou des) site(s). Il indique la solution trouvée et si elle a pu être mise en oeuvre
+(https://symfony.com/doc/current/doctrine/events.html)
