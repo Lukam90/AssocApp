@@ -9,8 +9,6 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 # Doc Textual Content
 
 def add_content(line, style = "Normal"):
-    global document
-
     words = line.split(" ")
 
     p = document.add_paragraph(style = style)
@@ -30,39 +28,75 @@ def add_content(line, style = "Normal"):
 
 # Doc Image
 
-def add_image(filename):
-    global document
+def add_image(line):
+    filename = re.sub("(\!|\[|\]|\(|\))", "", line)
 
     document.add_picture(filename, width = Cm(15))
 
 # Doc Table
 
-def add_table(num_cols):
-    global document
+def add_table(line):
+    line = "|"
+
+    num_cols = line.count("|")
 
     table = document.add_table(rows = 1, cols = num_cols)
     table.style = "Table Grid"
 
-    with open(f"docs/tables/{filename}", "r") as file:
-        for line in file:
-            line = line.strip()
+    return table
 
-            cols = line.split(";")
+# Table Row
 
-            row_cells = table.add_row().cells
+def add_row(table, line):
+    if line[0] == "|":
+        cols = line.split("|")
 
-            for index in range(0, num_cols):
-                col = cols[index]
-                row = row_cells[index]
+        line = re.sub("(^\|)|(\|$)", "", line)
 
-                row.text = col
+        row_cells = table.add_row().cells
 
-    file.close()
+        num_cols = len(cols)
+
+        for index in range(0, num_cols):
+            col = cols[index]
+            row = row_cells[index]
+
+            row.text = col
+    else:
+        document.add_paragraph()
+
+# Heading Title
+
+def add_heading_title(line):
+    level = 1
+
+    if line[0:2] == "##": level = 2
+
+    line = re.sub("#\s?", "", line)
+
+    document.add_heading(line, level)
+
+    document.add_paragraph()
+
+# Bold Title
+
+def add_bold_title(line):
+    line = line.replace("*", "")
+
+    p = document.add_paragraph()
+    p.add_run(line).bold = True
+
+# List Bullet
+
+def add_list_bullet(line):
+    line = line.replace("- ", "")
+
+    add_content(line, style = "List Bullet")
 
 # Doc Part
 
 def add_part(filename):
-    global document
+    table = None
 
     with open(f"docs/parts/{filename}", "r") as file:
         for line in file:
@@ -72,36 +106,18 @@ def add_part(filename):
                 first = line[0]
 
                 if first == "#":
-                    parts = line.split(" ")
-
-                    level = 1
-
-                    if line[0:2] == "##": level = 2
-
-                    line = re.sub("#\s?", "", line)
-
-                    document.add_heading(line, level)
-
-                    document.add_paragraph()
+                    add_heading_title(line)
                 elif first == "-":
-                    line = line.replace("- ", "")
-
-                    add_content(line, style = "List Bullet")
+                    add_list_bullet(line)
                 elif first == "|":
-                    num_cols = line.count("|")
-
-                    add_table(num_cols)
-
-                    document.add_paragraph()
+                    if table:
+                        add_row(table, line)
+                    else:
+                        table = add_table(line)
                 elif first == "*":
-                    line = line.replace("*", "")
-
-                    p = document.add_paragraph()
-                    p.add_run(line).bold = True
+                    add_bold_title(line)
                 elif first == "!":
-                    filename = re.sub("(\!|\[|\]|\(|\))", "", line)
-
-                    add_image(filename)
+                    add_image(line)
                 else:
                     add_content(line)
 
