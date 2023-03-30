@@ -1,5 +1,9 @@
 # un titre
 
+## Une image
+
+![](/docs/schemas/entities/MCD.png)
+
 ## Des portions de code
 
 **La table des newsletters**
@@ -28,10 +32,6 @@ CREATE TABLE IF NOT EXISTS newsletter_user (
     PRIMARY KEY (newsletter_id, user_id)
 );
 ```
-
-## Une image
-
-![](./docs/schemas/entities/MCD.png)
 
 ## Des tableaux
 

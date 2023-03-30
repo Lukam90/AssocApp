@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `user`
     last_name VARCHAR(50) NOT NULL,
     label VARCHAR(255),
     phone VARCHAR(20),
+    picture BLOB,
     is_active BOOLEAN NOT NULL DEFAULT 0,
     is_member BOOLEAN NOT NULL DEFAULT 0,
     is_optin BOOLEAN NOT NULL DEFAULT 0,

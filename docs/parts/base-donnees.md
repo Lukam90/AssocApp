@@ -4,11 +4,11 @@
 
 **MCD -  Modèle Conceptuel de Données**
 
-![](./docs/schemas/entities/MCD.png)
+![](/docs/schemas/entities/MCD.png)
 
 **MLD -  Modèle Logique de Données**
 
-![](./docs/schemas/entities/MLD.png)
+![](/docs/schemas/entities/MLD.png)
 
 **MPD -  Modèle Physique de Données**
 
@@ -22,7 +22,7 @@
 
 **Modèle relationnel (PHPMyAdmin)**
 
-![](./docs/schemas/entities/relations.png)
+![](/docs/schemas/entities/relations.png)
 
 ## Les entités
 

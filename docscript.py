@@ -39,7 +39,7 @@ def add_list_bullet(line):
 # Image
 
 def add_image(line):
-    filename = re.sub("(\!|\[|\]|\(|\))", "", line)
+    filename = "." + re.sub("(\!|\[|\]|\(|\))", "", line)
 
     document.add_picture(filename, width = Cm(15))
 
