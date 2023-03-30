@@ -134,8 +134,8 @@ FROM user u
 **Inscription d'un utilisateur**
 
 ```sql
-INSERT INTO user (first_name, last_name, label, email, password, phone)
-VALUES (:first_name, :last_name, :label, :email, :password, :phone)
+INSERT INTO user (first_name, last_name, label, email, password, phone, is_optin)
+VALUES (:first_name, :last_name, :label, :email, :password, :phone, :is_optin)
 ```
 
 **Edition manuelle d'un utilisateur (administration)**

@@ -14,6 +14,7 @@ Ses avantages sont :
 - l'outil de commande permettant de générer du code, comme les modèles liés à la base de données
 - les outils de sécurité avec un système d'authentification, une définition de rôles, de règles de validation des données et d'accès
 - l'authentification avec JWT (JSON Web Token)
+- le support de GraphQL
 
 **MySQL**
 
