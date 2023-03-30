@@ -11,6 +11,8 @@ Ses avantages sont :
 - l'extensibilité avec de nombreux moyens de configuration, dont la définition de modèles (ou objets métiers) pour les tables de la base de données
 - l'ORM (Object Relational Mapper) Doctrine permettant de faciliter l'interaction avec une base de données relationnelle
 - le format REST (Representational State Transfer) permettant la communication entre des applications
+- l'extension du format JSON
+- la documentation générée avec Open API
 - l'outil de commande permettant de générer du code, comme les modèles liés à la base de données
 - les outils de sécurité avec un système d'authentification, une définition de rôles, de règles de validation des données et d'accès
 - l'authentification avec JWT (JSON Web Token)
