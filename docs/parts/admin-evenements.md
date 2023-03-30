@@ -6,20 +6,24 @@ Les événements sont listés sous forme de tableau avec :
 
 - leur id
 - leur titre
-- leur prix de base par table
+- leur date prévue
 - leur statut de publication (casé cochée ou non)
+- leur prix de base par table
 - leur nombre de réservations
 - leur nombre de tables disponibles
 - un bouton d'édition (crayon en vert)
 - un bouton de suppression (croix en rouge)
 
-Sinon, un message indique l'absence d'événements.
+Sinon, un message indique l'absence d'événement.
 
 **Le tri des événements**
 
 Les événements sont listés par leur ID dans l'ordre croissant par défaut.
 
-L'administrateur peut trier les événements par ordre alphabétique (croissant ou décroissant) selon leur titre.
+L'administrateur peut trier les événements par ordre (dé)croissant selon :
+
+- leur titre
+- leur date prévue
 
 **La pagination des événements**
 
@@ -38,7 +42,7 @@ L'administrateur peut rechercher un événement avec :
 
 L'administrateur peut ajouter un événement avec :
 
-- son titre (requis, entre 2 et 255 caractères)
+- son titre (requis, de 2 à 255 caractères)
 - sa date prévue (requis, ex: 7 mai 2023)
 - son image d'illustration (optionnel, ex: affiche du salon annuel prévu)
 - sa description (requis, texte converti en HTML)
@@ -52,7 +56,7 @@ Sinon, un message d'erreur s'affiche.
 
 **L'édition d'un événement**
 
-On peut éditer les informations d'un événement sur la base du formulaire de création.
+L'administrateur peut éditer les informations d'un événement sur la base du formulaire de création.
 
 Un message confirme l'édition de l'événement.
 

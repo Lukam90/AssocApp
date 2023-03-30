@@ -9,11 +9,11 @@ Les modes de paiement sont listés sous forme de tableau avec :
 - un bouton d'édition (crayon en vert)
 - un bouton de suppression (croix en rouge)
 
-Sinon, un message indique l'absence de modes de paiement.
+Sinon, un message indique l'absence de mode de paiement.
 
 **L'ajout d'un mode de paiement**
 
-On peut ajouter un mode de paiement défini par un libellé.
+L'administrateur peut ajouter un mode de paiement défini par un libellé.
 
 Un bouton d'ajout (+ en bleu) se trouve au-dessus de la liste.
 
@@ -23,7 +23,7 @@ Sinon, un message d'erreur s'affiche.
 
 **L'édition d'un mode de paiement**
 
-On peut éditer un mode de paiement avec son libellé.
+L'administrateur peut éditer un mode de paiement avec son libellé.
 
 Un message confirme l'édition du mode de paiement.
 

@@ -9,7 +9,7 @@ Les tables d'une réservation sont listées sous forme de tableau avec :
 - leur prix
 - leurs commentaires
 
-Sinon, un message indique l'absence de tables.
+Sinon, un message indique l'absence de table.
 
 **L'ajout d'une table**
 
@@ -38,7 +38,7 @@ Sinon, un message d'erreur s'affiche.
 
 **La suppression d'une table**
 
-Si la réservation comporte au moins 2 tables, l'administrateur et le trésorier peuvent supprimer une des tables.
+Si la réservation comporte au moins deux tables, l'administrateur et le trésorier peuvent supprimer une des tables.
 
 Une fenêtre modale s'affiche pour confirmer la suppression.
 

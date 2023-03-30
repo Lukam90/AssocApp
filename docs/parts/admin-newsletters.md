@@ -10,13 +10,13 @@ Les newsletters sont listées sous forme de tableau avec :
 - le statut d'envoi (case cochée ou non)
 - la date d'envoi (si envoyé)
 
-Sinon, un message indique l'absence de newsletters.
+Sinon, un message indique l'absence de newsletter.
 
 **Le tri des newsletters**
 
 Les newsletters sont listées par leur ID dans l'ordre croissant par défaut.
 
-L'administrateur peut trier les newsletters par ordre alphabétique (croissant ou décroissant) selon :
+L'administrateur peut trier les newsletters par ordre (dé)croissant selon :
 
 - leur objet
 - leur date d'envoi
@@ -25,8 +25,8 @@ L'administrateur peut trier les newsletters par ordre alphabétique (croissant o
 
 L'administrateur peut filtrer les newsletters selon :
 
-- la cible
-- le statut d'envoi
+- la cible ("Général" ou "Membres")
+- le statut d'envoi (case à cocher)
 - une date de début et une date de fin
 
 **La pagination des newsletters**
@@ -44,7 +44,7 @@ L'administrateur peut rechercher une newsletter avec son objet.
 L'administrateur peut créer une nouvelle newsletter avec :
 
 - son objet
-- sa cible
+- sa cible ("Général" ou "Membres")
 - son contenu textuel (converti en HTML)
 - sa date d'envoi (actuelle par défaut)
 

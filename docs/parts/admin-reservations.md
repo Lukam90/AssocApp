@@ -16,7 +16,7 @@ Les réservations sont listées sous forme de tableau avec :
 - la date de paiement (si payé ou annulé)
 - les commentaires (icône "bulle" et texte au survol)
 
-Sinon, un message indique l'absence de réservations.
+Sinon, un message indique l'absence de réservation.
 
 **Les statistiques des réservations**
 
@@ -82,7 +82,7 @@ Si la réservation est en statut "Payé", l'exposant est notifié par e-mail.
 
 L'administrateur et le trésorier peuvent éditer une réservation avec les informations basées sur le formulaire d'ajout.
 
-L'exposant et l'événement concernés restent inchangés.
+L'exposant et l'événement sont fixes et indiqués.
 
 Un message confirme l'édition de la réservation.
 
