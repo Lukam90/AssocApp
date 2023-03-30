@@ -1,5 +1,36 @@
 # un titre
 
+## Des portions de code
+
+**La table des newsletters**
+
+```sql
+CREATE TABLE IF NOT EXISTS newsletter
+(
+    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    object VARCHAR(255),
+    target VARCHAR(10) NOT NULL DEFAULT 'Général',
+    content VARCHAR(255),
+    is_send BOOLEAN NOT NULL DEFAULT 0,
+    send_at DATE NOT NULL DEFAULT NOW(),
+    INDEX (object)
+);
+```
+
+**La table pivot des newsletters et des utilisateurs**
+
+```sql
+CREATE TABLE IF NOT EXISTS newsletter_user (
+    newsletter_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (newsletter_id) REFERENCES newsletter (id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE,
+    PRIMARY KEY (newsletter_id, user_id)
+);
+```
+
+## Des tableaux
+
 **Une liste de tâches**
 
 |||
