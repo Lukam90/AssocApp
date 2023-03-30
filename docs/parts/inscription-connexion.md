@@ -9,7 +9,7 @@ Un exposant peut s'inscrire avec :
 - son prénom (requis, de 2 à 50 caractères alphabétiques, - et accents inclus)
 - son nom de famille (requis, de 2 à 50 caractères alphabétiques, - et accents inclus)
 - son numéro de téléphone (optionnel, de 10 à 20 caractères numériques, + inclus)
-- son libellé de stand (optionnel, de 2 à 255 caractères)
+- son libellé de stand (optionnel, de 2 à 255 caractères si renseigné)
 - son inscription à la newsletter (case à cocher (optin))
 
 Un mot de passe valide comporte :
@@ -18,7 +18,7 @@ Un mot de passe valide comporte :
 - au moins une minuscule (a-z)
 - au moins une majuscule (A-Z)
 - au moins un chiffre (0-9)
-- au moins un caractère spécial (@, $, #, !)
+- au moins un caractère spécial (ex: @, $, #, !)
 
 Un message confirme l'inscription du nouvel utilisateur.
 
@@ -39,7 +39,6 @@ Un message d'erreur s'affiche si :
 
 - l'adresse e-mail ou le mot de passe n'est pas renseigné
 - l'adresse e-mail est introuvable
-- l'adresse e-mail existe déjà
 - le mot de passe est incorrect
 - le compte de l'utilisateur n'est pas activé
 

@@ -5,9 +5,9 @@
 Les utilisateurs sont listés sous forme de tableau avec :
 
 - leur id (ex: #5)
-- leur prénom et nom (ex: Jean DUPONT)
-- leur libellé (ex: Jean Philatélie)
-- leur adresse e-mail (ex: jean.dupont@testmail.com)
+- leur prénom et nom (ex: Jean-Michel DUPONT)
+- leur libellé (ex: Jean-Michel Philatélie)
+- leur adresse e-mail (ex: jean-michel.dupont@testmail.com)
 - leur numéro de téléphone
 - leur rôle ("Exposant" en noir, "Trésorier" en vert, "Administrateur" en rouge)
 - leur statut d'activation (case cochée ou non)
@@ -56,11 +56,11 @@ Certains refusent d'inscrire des informations personnelles sensibles (adresse e-
 
 L'administrateur peut donc enregistrer un exposant manuellement avec :
 
-- son prénom (requis, de 2 et 50 caractères alphabétiques, accents et - inclus)
-- son nom de famille (requis, de 2 et 50 caractères alphabétiques, accents et - inclus)
-- son libellé de stand (optionnel, de 2 à 255 caractères)
+- son prénom (requis, de 2 à 50 caractères alphabétiques, accents et - inclus)
+- son nom de famille (requis, de 2 à 50 caractères alphabétiques, accents et - inclus)
+- son libellé de stand (optionnel, de 2 à 255 caractères si renseigné)
 - son adresse e-mail (requis, unique, format e-mail et en xxx@aaccp.fr par convention)
-- son numéro de téléphone (optionnel, de 10 à 20 caractères numériques, + inclus)
+- son numéro de téléphone (optionnel, de 10 à 20 caractères numériques si renseigné, + inclus)
 - son rôle ("Exposant" ou "Trésorier")
 - son statut d'activation (case à cocher)
 - son statut de membre (case à cocher)
@@ -83,7 +83,7 @@ Sinon, un message d'erreur s'affiche.
 
 **La suppression d'un utilisateur**
 
-L'administrateur peut supprimer un utilisateur.
+L'administrateur peut supprimer un utilisateur autre que lui-même.
 
 Une fenêtre modale s'affiche pour confirmer la suppression.
 

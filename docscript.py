@@ -129,14 +129,21 @@ def add_part(filename):
 
         file.close()
 
-# Convert MD to Docx
+# Convert MD Files to Docx
 
-def convert_md(filename):
-    add_part(filename)
+def convert_md_files():
+    with open("docs/parts.txt", "r") as file:
+        for line in file:
+            line = line.strip()
 
-    filename = filename.replace(".md", "")
+            if line[0] != "#":
+                filename = line + ".md"
 
-    document.save(f"result/{filename}.docx")
+                add_part(filename)
+
+        file.close()
+
+    document.save("result/compilation.docx")
 
     print("Compilation du dossier effectuée")
 
@@ -153,11 +160,4 @@ font.name = "Calibri"
 
 # Compilation
 
-#convert_md("_test.md")
-#convert_md("EN-resume.md")
-#convert_md("expression-besoins.md")
-#convert_md("base-donnees.md")
-#convert_md("traitement-donnees.md")
-convert_md("roles-utilisateur.md")
-
-#convert_md("environnement-tech.md")
+convert_md_files()

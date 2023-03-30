@@ -16,8 +16,6 @@ Sinon, un message indique l'absence d'événement publié.
 
 **La réservation de tables**
 
-Rôle : Tous (Connecté)
-
 Le formulaire de réservation comporte :
 
 - le nombre de tables, de 1 à 12 (ou selon le nombre restant si N < 12)

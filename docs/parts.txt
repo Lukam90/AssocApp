@@ -1,12 +1,11 @@
 #EN-resume
 #expression-besoins
 #base-donnees
-
 #spe-fonctionnelles
-traitement-donnees
+#traitement-donnees
 #roles-utilisateur
 #page-accueil
-#inscription-connexion
+inscription-connexion
 #profil-utilisateur
 #formulaire-contact
 #admin-panneau
@@ -16,8 +15,7 @@ traitement-donnees
 #admin-reservations
 #admin-tables
 #admin-newsletters
-
 #environnement-tech
-realisation-projet
+#realisation-projet
 #veille-securite
 #situation-recherche

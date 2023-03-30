@@ -1,13 +1,16 @@
 ## Le profil d'un utilisateur
 
+L'utilisateur a accès à son seul profil pour des questions de confidentialité et de sécurité.
+
 **Onglet "Informations Personnelles"**
 
 L'utilisateur peut changer ses informations personnelles de base :
 
 - son prénom (requis, de 2 à 50 caractères alphabétiques, accents et - inclus)
 - son nom de famille (requis, de 2 à 50 caractères alphabétiques, accents et - inclus)
-- son numéro de téléphone (optionnel, de 10 à 20 caractères numériques, + inclus)
-- son libellé de stand (optionnel, de 2 à 255 caractères)
+- son numéro de téléphone (optionnel, de 10 à 20 caractères numériques si renseigné, + inclus)
+- son libellé de stand (optionnel, de 2 à 255 caractères si renseigné)
+- sa photo de profil (optionnel, fichier JPG ou PNG à télécharger)
 - son inscription à la newsletter (case à cocher (optin))
 
 Un message confirme la mise à jour des informations.
@@ -24,7 +27,7 @@ Il peut aussi changer son mot de passe en indiquant :
 - son nouveau mot de passe
 - la confirmation du nouveau mot de passe
 
-Un message confirme la mise à jour du mot de passe.
+Un message confirme la mise à jour des informations.
 
 Sinon, un message d'erreur s'affiche.
 
