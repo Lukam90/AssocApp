@@ -1,0 +1,36 @@
+Normal
+Header
+Footer
+Heading 1
+Heading 2
+Heading 3
+Heading 4
+Heading 5
+Heading 6
+Heading 7
+Heading 8
+Heading 9
+No Spacing
+Title
+Subtitle
+List Paragraph
+Body Text
+Body Text 2
+Body Text 3
+List
+List 2
+List 3
+List Bullet
+List Bullet 2
+List Bullet 3
+List Number
+List Number 2
+List Number 3
+List Continue
+List Continue 2
+List Continue 3
+macro
+Quote
+Caption
+Intense Quote
+TOC Heading

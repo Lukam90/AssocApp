@@ -5,6 +5,7 @@ import re
 from docx import Document
 from docx.shared import Cm, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.style import WD_STYLE_TYPE
 
 # Text
 
@@ -104,15 +105,10 @@ def add_row(table, line):
 def add_code(line):
     words = line.split(" ")
 
-    #print(words)
-
-    p = document.add_paragraph()
-    p.style.font.name = "FreeMono"
+    p = document.add_paragraph(style = "No Spacing")
 
     for word in words:
         word += " "
-
-        p.style.font.name = "FreeMono"
 
         run = p.add_run(word)
 
@@ -122,9 +118,6 @@ def add_code(line):
         else:   blue = 0
 
         font.color.rgb = RGBColor(0, 0, blue)
-        font.name = "FreeMono"
-
-    style = document.styles["Normal"]
 
 # Doc Parts
 
@@ -153,14 +146,10 @@ def add_part(filename):
                     else:
                         add_row(table, line)
                 elif first == "`":
-                    if re.match("`{3}sql", line):
-                        is_code = True
-                    else:
-                        is_code = False
+                    if re.match("`{3}sql", line):   is_code = True
+                    else:   is_code = False
 
-                    print("is_code " + str(is_code))
-
-                    line = re.sub("`.*", "", line)
+                    document.add_paragraph()
                 elif is_code:
                     add_code(line)
                 else:

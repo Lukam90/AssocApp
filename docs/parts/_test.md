@@ -29,6 +29,10 @@ CREATE TABLE IF NOT EXISTS newsletter_user (
 );
 ```
 
+## Une image
+
+![](./docs/schemas/entities/MCD.png)
+
 ## Des tableaux
 
 **Une liste de tâches**
@@ -75,7 +79,3 @@ Un exemple de table
 un paragraphe
 
 un **mot** en **gras**
-
-Une image
-
-![](./docs/schemas/entities/MCD.png)
