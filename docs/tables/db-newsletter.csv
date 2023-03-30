@@ -1,7 +1,0 @@
-nom;description;type;règle
-id;l'identifiant de la newsletter;entier;clé primaire
-object;le titre de la newsletter;chaîne (255);requis
-target;la cible de la newsletter ("Général" ou "Membres");chaîne (10);"Général" par défaut
-content;le contenu de la newsletter;texte;requis
-is_send;la newsletter est envoyée;booléen;0 par défaut
-send_at;la date d'envoi de la newsletter;date;déterminé lors de l'envoi

@@ -1,0 +1,11 @@
+|||||
+|-|-|-|-|
+|nom|description|type|règle|
+|id|l'identifiant de l'événement|entier|clé primaire|
+|title|l'intitulé de l'événement|chaîne (255)|requis, unique|
+|planned_at|la date prévue de l'événement (JJ/MM/AAAA)|date|requis|
+|picture|l'image d'illustration de l'événement|blob|optionnel|
+|content|la description de l'événement|texte|requis|
+|is_published|l'événement est annoncé sur le site|booléen|0 par défaut|
+|min_price|le prix de base par table (en €)|décimal (5,2)|0 par défaut|
+|num_available|le nombre de tables disponibles|entier (3)|0 par défaut|

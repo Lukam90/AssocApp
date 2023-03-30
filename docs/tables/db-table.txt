@@ -1,0 +1,8 @@
+|||||
+|-|-|-|-|
+|nom|description|type|règle|
+|id|l'identifiant de la table|entier|clé primaire|
+|price|le prix individuel d'une table|décimal (5,2)|prix de base pour un événement par défaut|
+|pos_x|la position en abscisses (X) de la table|entier (3)|0 par défaut|
+|pos_y|la position en ordonnées (Y) de la table|entier (3)|0 par défaut|
+|comments|les commentaires d'une table|texte|optionnel|

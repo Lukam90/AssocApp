@@ -72,7 +72,7 @@ def add_bold_title(line):
 def add_table(line):
     num_cols = line.count("|") - 1
 
-    table = document.add_table(rows = 1, cols = num_cols)
+    table = document.add_table(rows = 0, cols = num_cols)
     table.style = "Table Grid"
 
     return table
@@ -95,6 +95,8 @@ def add_row(table, line):
 
             row.text = col
     else:
+        table = None
+
         document.add_paragraph()
 
 # Doc Parts
@@ -151,7 +153,7 @@ font.name = "Calibri"
 
 # Compilation
 
-convert_md("_test.md")
+#convert_md("_test.md")
 #convert_md("EN-resume.md")
-#convert_md("expression-besoins.md")
+convert_md("expression-besoins.md")
 #convert_md("environnement-tech.md")

@@ -1,7 +1,0 @@
-nom;description;type;règle
-id;l'identifiant de la réservation;entier;clé primaire
-status;le statut de paiement ("A Payer", "Payé", "Annulé");chaîne (20);"A Payer" par défaut
-paid_at;la date de paiement (JJ/MM/AAAA);date;date du jour par défaut
-comments;les commentaires de la réservation;texte;optionnel
-number;le nombre de tables de la réservation (de 1 à 12);entier(2);calculé lors de la définition des tables
-total;la somme totale réglée de la réservation (en €);décimal (6,2);calculé lors de la définition des tables
