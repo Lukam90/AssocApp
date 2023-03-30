@@ -1,17 +1,5 @@
 # un titre
 
-## un sous-titre
-
-**un titre banal**
-
-un paragraphe
-
-un **mot** en **gras**
-
-Une image
-
-![](./docs/schemas/entities/MCD.png)
-
 Une liste de tâches
 
 |||
@@ -25,3 +13,15 @@ Une liste de tâches
 |7|La gestion des tables|
 |8|Le profil d'un utilisateur|
 |9|La gestion des newsletters|
+
+## un sous-titre
+
+**un titre banal**
+
+un paragraphe
+
+un **mot** en **gras**
+
+Une image
+
+![](./docs/schemas/entities/MCD.png)

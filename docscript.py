@@ -6,7 +6,9 @@ from docx import Document
 from docx.shared import Cm
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
-# Doc Textual Content
+# Text
+
+## Textual Content
 
 def add_content(line, style = "Normal"):
     words = line.split(" ")
@@ -26,32 +28,62 @@ def add_content(line, style = "Normal"):
         else:
             p.add_run(word)
 
-# Doc Image
+## List Bullet
+
+def add_list_bullet(line):
+    line = line.replace("- ", "")
+
+    add_content(line, style = "List Bullet")
+
+# Image
 
 def add_image(line):
     filename = re.sub("(\!|\[|\]|\(|\))", "", line)
 
     document.add_picture(filename, width = Cm(15))
 
-# Doc Table
+# Titles
+
+## Heading Title
+
+def add_heading_title(line):
+    level = 1
+
+    if line[0:2] == "##": level = 2
+
+    line = re.sub("#\s?", "", line)
+
+    document.add_heading(line, level)
+
+    document.add_paragraph()
+
+## Bold Title
+
+def add_bold_title(line):
+    line = line.replace("*", "")
+
+    p = document.add_paragraph()
+    p.add_run(line).bold = True
+
+# Table
+
+## Define Table
 
 def add_table(line):
-    line = "|"
-
-    num_cols = line.count("|")
+    num_cols = line.count("|") - 1
 
     table = document.add_table(rows = 1, cols = num_cols)
     table.style = "Table Grid"
 
     return table
 
-# Table Row
+## Add Row
 
 def add_row(table, line):
     if line[0] == "|":
-        cols = line.split("|")
-
         line = re.sub("(^\|)|(\|$)", "", line)
+
+        cols = line.split("|")
 
         row_cells = table.add_row().cells
 
@@ -65,35 +97,7 @@ def add_row(table, line):
     else:
         document.add_paragraph()
 
-# Heading Title
-
-def add_heading_title(line):
-    level = 1
-
-    if line[0:2] == "##": level = 2
-
-    line = re.sub("#\s?", "", line)
-
-    document.add_heading(line, level)
-
-    document.add_paragraph()
-
-# Bold Title
-
-def add_bold_title(line):
-    line = line.replace("*", "")
-
-    p = document.add_paragraph()
-    p.add_run(line).bold = True
-
-# List Bullet
-
-def add_list_bullet(line):
-    line = line.replace("- ", "")
-
-    add_content(line, style = "List Bullet")
-
-# Doc Part
+# Doc Parts
 
 def add_part(filename):
     table = None
