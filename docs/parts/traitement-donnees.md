@@ -27,7 +27,7 @@ Il est donc nécessaire de :
 
 La gestion des données se déroule en 4 actions selon le modèle CRUD :
 
-- Create (créer)
-- Read (lire)
-- Update (éditer)
-- Delete (supprimer)
+- **Create** (créer)
+- **Read** (lire)
+- **Update** (éditer)
+- **Delete** (supprimer)

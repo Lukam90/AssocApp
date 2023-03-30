@@ -3,7 +3,7 @@
 #base-donnees
 
 #spe-fonctionnelles
-#traitement-donnees
+traitement-donnees
 #roles-utilisateur
 #page-accueil
 #inscription-connexion

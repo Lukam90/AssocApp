@@ -12,7 +12,7 @@ Le trésorerier peut gérer l'ensemble des réservations et des tables.
 
 Chaque utilisateur inscrit et connecté peut :
 
-- consulter l'état de sa dernière réservation et ses messages
+- faire une demande de réservation, la consulter et l'annuler
 - modifier ses informations générales et ses identifiants
 
 Un utilisateur non connecté est un invité.
