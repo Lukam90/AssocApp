@@ -75,6 +75,8 @@ def add_table(line):
     table = document.add_table(rows = 0, cols = num_cols)
     table.style = "Table Grid"
 
+    document.add_paragraph()
+
     return table
 
 ## Add Row
@@ -95,8 +97,6 @@ def add_row(table, line):
 
             row.text = col
     else:
-        table = None
-
         document.add_paragraph()
 
 # Doc Parts
@@ -116,10 +116,10 @@ def add_part(filename):
                 elif first == "-":
                     add_list_bullet(line)
                 elif first == "|":
-                    if table:
-                        add_row(table, line)
-                    else:
+                    if re.match("^\|{3,5}$", line):
                         table = add_table(line)
+                    else:
+                        add_row(table, line)
                 elif first == "*":
                     add_bold_title(line)
                 elif first == "!":
@@ -153,7 +153,7 @@ font.name = "Calibri"
 
 # Compilation
 
-#convert_md("_test.md")
+convert_md("_test.md")
 #convert_md("EN-resume.md")
-convert_md("expression-besoins.md")
+#convert_md("expression-besoins.md")
 #convert_md("environnement-tech.md")
