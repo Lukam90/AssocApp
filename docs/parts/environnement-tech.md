@@ -1,60 +1,44 @@
 # Spécifications techniques du projet
 
-**API Platform**
+**Express**
 
-Il s'agit d'un framework back-end basé sur PHP et Symfony, et dédié à la configuration d'une API (Application Programming Interface).
+Il s'agit d'un framework back-end en JavaScript et basé sur NodeJS.
 
 Ses avantages sont :
 
-- l'utilisation de PHP, un langage back-end majoritaire pour les sites et applications web
-- le modèle SQL (Structured Query Language) privilégié pour les bases de données relationnelles, avec des exemples de paramètres de configuration pour SQLite, MySQL et PostgreSQL
-- l'extensibilité avec de nombreux moyens de configuration, dont la définition de modèles (ou objets métiers) pour les tables de la base de données
-- l'ORM (Object Relational Mapper) Doctrine permettant de faciliter l'interaction avec une base de données relationnelle
+- l'utilisation de JavaScript, un langage de programmation de référence pour la création d'applications web et d'APIs (Application Programming Interface)
+- une base commune pour le front-end et le back-end
+- la possibilité de choisir le modèle SQL (Structured Query Language) pour les bases de données relationnelles
+- un framework léger, performant et accessible
+- une liberté de structure du code
+- l'utilisation d'un ORM (Object Relational Mapper) permettant de faciliter l'interaction avec une base de données relationnelle
+- la possibilité d'utiliser un moteur de templates comme EJS pour les pages
 - le format REST (Representational State Transfer) permettant la communication entre des applications
-- l'extension du format JSON
-- la documentation générée avec Open API
-- l'outil de commande permettant de générer du code, comme les modèles liés à la base de données
-- les outils de sécurité avec un système d'authentification, une définition de rôles, de règles de validation des données et d'accès
-- l'authentification avec JWT (JSON Web Token)
-- le support de GraphQL
+- le gestionnaire de dépendances et utilitaire NPM (Node Package Manager)
 
 **MySQL**
 
-Il s'agit d'un SGBD (système de gestion de bases de données) permettant de stocker, de manipuler et de gérer des informations dans une base de données relationnelle.
+Il s'agit d'un SGBD (Système de Gestion de Bases de Données) permettant de stocker, de manipuler et de gérer des informations dans une base de données relationnelle.
 
 L'outil d'administration utilisé est PHPMyAdmin.
 
-**Composer**
-
-Il s'agit d'un gestionnaire de dépendances (ou packages) propre à PHP et à l'environnement de Symfony.
-
-**PHPUnit**
-
-Il s'agit du framework de référence pour les tests automatisés en PHP.
-
-**Heroku**
-
-Il s'agit de l'hébergeur utilisé pour le déploiement de l'application back-end basée sur API Platform.
-
-**React**
-
-Il s'agit d'une librairie de composants basée sur JavaScript et utilisée pour la partie front-end.
+L'ORM utilisé est Sequelize.
 
 **NPM**
 
 Il s'agit d'un gestionnaire de dépendances propre à NodeJS et à l'environnement de JavaScript.
 
+**Heroku**
+
+Il s'agit de l'hébergeur choisi pour le déploiement de l'application.
+
 **Jest**
 
-Il s'agit du framework de référence pour les tests automatisés en JavaScript.
+Il s'agit du framework de référence pour les tests automatisés en JavaScript et en NodeJS.
 
 **GitHub**
 
 Il s'agit d'un gestionnaire de versions incontournable parmi les outils DevOPS.
-
-**Netlify**
-
-Il s'agit de l'hébergeur utilisé pour le déploiement de l'application front-end basée sur React.
 
 **Maildev**
 
