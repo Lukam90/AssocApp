@@ -48,89 +48,14 @@ On peut ainsi définir un jeton CSRF automatiquement généré dans un formulair
 
 Dans le cas d'un système d'authentification classique, un nouvel utilisateur s'enregistre avec une adresse e-mail et un mot de passe.
 
+Le mot de passe en clair doit être haché avant d'être stocké en base de données.
 
+Un même mot de passe peut être réutilisé par un même utilisateur sur d'autres sites ou dans son entreprise.
 
+Des utilitaires comme **bcrypt** permettent de hacher un mot de passe nouveau ou redéfini :
 
+```js
+const hashedPassword = await bcrypt.hash(req.body.password, 10)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Description de la veille, effectuée par le candidat durant le projet, sur les vulnérabilités de sécurité
-
-
-La description de la veille sur les vulnérabilités de sécurité est liée à l’une des compétences « Développer la partie front-end d’une interface utilisateur web », « Développer la partie back-end d’une interface utilisateur web », « Développer des composants d’accès aux données », « Développer des composants dans le langage d’une base de données », « Développer des composants métier » ou « Développer une application mobile ». Cette veille est effectuée dans le cadre du projet en entreprise 
-
-Dans le cas de la veille sur les vulnérabilités, le candidat indique comment il a effectué la veille : les sites et les mots clés utilisés. Il indique les vulnérabilités trouvées et éventuellement les failles potentielles corrigées. 
+const user = { email: req.body.email, password: hashedPassword }
+```
