@@ -5,7 +5,8 @@ import re
 from docx import Document
 from docx.shared import Cm, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.enum.style import WD_STYLE_TYPE
+
+keywords = ["await", "const", "function", "return"]
 
 # Text
 
@@ -108,16 +109,15 @@ def add_code(line):
     p = document.add_paragraph(style = "No Spacing")
 
     for word in words:
-        word += " "
-
-        run = p.add_run(word)
+        run = p.add_run(word + " ")
 
         font = run.font
 
-        if re.match("^[A-Z]", word):    blue = 255
+        if word.isupper() or word in keywords:    blue = 255
         else:   blue = 0
 
         font.color.rgb = RGBColor(0, 0, blue)
+        font.name = "Liberation Mono"
 
 # Doc Parts
 
@@ -146,7 +146,7 @@ def add_part(filename):
                     else:
                         add_row(table, line)
                 elif first == "`":
-                    if re.match("`{3}sql", line):   is_code = True
+                    if re.match("`{3}(sql|js)", line):   is_code = True
                     else:   is_code = False
 
                     document.add_paragraph()
