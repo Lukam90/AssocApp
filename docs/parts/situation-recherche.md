@@ -116,10 +116,10 @@ Je me suis aussi basé sur les sources suivantes :
 - la vidéo **Apprendre et maitriser SQL : Les triggers** de la chaîne de Grafikart
 - le site de référence **sql.sh**
 
-Je me suis ensuite posé la question de l'adaptation de ces triggers SQL dans Symfony avec l'ORM Doctrine.
+Je me suis ensuite posé la question de l'adaptation de ces triggers SQL avec Express et l'ORM Sequelize.
 
-Je me suis donc basé sur la documentation officielle de Symfony avec les mots-clés **doctrine triggers** et **sql triggers**. 
+Je me suis donc basé sur la documentation officielle de Sequelize avec les mots-clés **triggers** et **events**. 
 
-Les **événements Doctrine**, dont les **lifecycle events**, s'en rapprochent au mieux.
+Les **hooks** (ou **lifecycle events**) s'en rapprochent au mieux.
 
-(https://symfony.com/doc/current/doctrine/events.html)
+(https://sequelize.org/docs/v6/other-topics/hooks/)
