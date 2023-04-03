@@ -1,6 +1,6 @@
-## Le traîtement des données
+## Le traitement des données
 
-Le traîtement des données doit respecter la norme RGPD (Réglement Général de la Protection des Données).
+Le traitement des données doit respecter la norme RGPD (Réglement Général de la Protection des Données).
 
 Cette norme a pour but de responsabiliser les organismes traitant des données personnelles.
 

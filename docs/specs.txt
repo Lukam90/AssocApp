@@ -1,0 +1,14 @@
+spe-fonctionnelles
+traitement-donnees
+roles-utilisateur
+page-accueil
+inscription-connexion
+profil-utilisateur
+formulaire-contact
+admin-panneau
+admin-utilisateurs
+admin-modes
+admin-evenements
+admin-reservations
+admin-tables
+admin-newsletters
