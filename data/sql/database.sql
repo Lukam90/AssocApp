@@ -19,31 +19,11 @@ CREATE TABLE IF NOT EXISTS mode
 INSERT INTO mode (label) VALUES
 ('Espèces'), ('Chèque'), ('Carte Bancaire');
 
--- Les newsletters (newsletter)
-
-CREATE TABLE IF NOT EXISTS newsletter
-(
-    newsletter_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    object VARCHAR(255),
-    target VARCHAR(10) NOT NULL DEFAULT 'Général',
-    content VARCHAR(255),
-    is_send BOOLEAN NOT NULL DEFAULT 0,
-    send_at DATE NOT NULL DEFAULT NOW(),
-    user_id INTEGER NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES user (user_id),
-    INDEX (object)
-);
-
-INSERT INTO newsletter (object, target, content, is_send, send_at) VALUES 
-('Annonce du prochain salon', 'Général', 'Lorem ipsum...', 1, '2023-03-15'),
-('Prochaine assemblée générale', 'Membres', 'Lorem ipsum...', 0, '2023-06-16'),
-('Repas de Noël du comité', 'Membres', 'Lorem ipsum...', 1, '2023-11-25');
-
 -- Les utilisateurs (user)
 
 CREATE TABLE IF NOT EXISTS `user`
 (
-    user_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
@@ -74,11 +54,31 @@ INSERT INTO user (email, password, role, first_name, last_name, label) VALUES
 ('j.bond@test.com', sha('jPass$007'), 'Exposant', 'James', 'BOND', 'Tableaux 007'),
 ('m.simon@test.com', sha('Sim$ity754'), 'Exposant', 'Marc', 'SIMON', 'Cartes Postales Magazine');
 
+-- Les newsletters (newsletter)
+
+CREATE TABLE IF NOT EXISTS newsletter
+(
+    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    object VARCHAR(255),
+    target VARCHAR(10) NOT NULL DEFAULT 'Général',
+    content VARCHAR(255),
+    is_send BOOLEAN NOT NULL DEFAULT 0,
+    send_at DATE NOT NULL DEFAULT NOW(),
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user (id),
+    INDEX (object)
+);
+
+INSERT INTO newsletter (user_id, object, target, content, is_send, send_at) VALUES 
+(1, 'Annonce du prochain salon', 'Général', 'Lorem ipsum...', 1, '2023-03-15'),
+(1, 'Prochaine assemblée générale', 'Membres', 'Lorem ipsum...', 0, '2023-06-16'),
+(1, 'Repas de Noël du comité', 'Membres', 'Lorem ipsum...', 1, '2023-11-25');
+
 -- Les événements (event)
 
 CREATE TABLE IF NOT EXISTS `event`
 (
-    event_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) UNIQUE NOT NULL,
     planned_at DATE NOT NULL,
     content TEXT NOT NULL,
@@ -98,7 +98,7 @@ INSERT INTO event (title, planned_at, content, min_price, num_available) VALUES
 
 CREATE TABLE IF NOT EXISTS reservation
 (
-    reservation_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     status VARCHAR(20) NOT NULL DEFAULT 'A Payer'
     CHECK (status IN ('A Payer', 'Payé', 'Annulé')),
     paid_at DATE,
@@ -127,7 +127,7 @@ INSERT INTO reservation (status, paid_at, comments, event_id, user_id, mode_id) 
 
 CREATE TABLE IF NOT EXISTS `table`
 (
-    table_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     price DECIMAL(5,2) NOT NULL DEFAULT 0
     CHECK (price >= 0 AND price <= 999),
     pos_x INTEGER(3) NOT NULL DEFAULT 0,
