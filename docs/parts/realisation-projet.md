@@ -13,6 +13,8 @@ CREATE TABLE IF NOT EXISTS newsletter
     content VARCHAR(255),
     is_send BOOLEAN NOT NULL DEFAULT 0,
     send_at DATE NOT NULL DEFAULT NOW(),
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user (id),
     INDEX (object)
 );
 ```

@@ -12,12 +12,12 @@
 
 **MPD -  Modèle Physique de Données**
 
-- newsletter ( **newsletter_id**, object, target, content, is_send, send_at, **#user_id**)
-- user ( **user_id**, email, password, first_name, last_name, label, picture, phone, is_active, is_member, is_optin, role)
-- event ( **event_id**, title, planned_at, picture, content, is_published, min_price, num_available)
-- reservation ( **reservation_id**, status, paid_at, comments, number, total, **#event_id**, **#user_id**, **#mode_id**)
-- mode ( **mode_id**, label)
-- table ( **table_id**, price, pos_x, pos_y, comments, **#reservation_id**)
+- newsletter ( **id**, object, target, content, is_send, send_at, **#user_id**)
+- user ( **id**, email, password, first_name, last_name, label, picture, phone, is_active, is_member, is_optin, role)
+- event ( **id**, title, planned_at, picture, content, is_published, min_price, num_available)
+- reservation ( **id**, status, paid_at, comments, number, total, **#event_id**, **#user_id**, **#mode_id**)
+- mode ( **id**, label)
+- table ( **id**, price, pos_x, pos_y, comments, **#reservation_id**)
 
 **Modèle relationnel (PHPMyAdmin)**
 
@@ -30,7 +30,7 @@
 |||||
 |-|-|-|-|
 |nom|description|type|règle|
-|newsletter_id|l'identifiant de la newsletter|entier|clé primaire|
+|id|l'identifiant de la newsletter|entier|clé primaire|
 |object|le titre de la newsletter|chaîne (255)|requis|
 |target|la cible de la newsletter ("Général" ou "Membres")|chaîne (10)|"Général" par défaut|
 |content|le contenu de la newsletter|texte|requis|
@@ -42,7 +42,7 @@
 |||||
 |-|-|-|-|
 |nom|description|type|règle|
-|user_id|l'identifiant de l'utilisateur|entier|clé primaire|
+|id|l'identifiant de l'utilisateur|entier|clé primaire|
 |email|l'adresse e-mail de l'utilisateur|chaîne (255)|requis, unique|
 |password|le mot de passe de l'utilisateur|chaîne (255)|requis|
 |first_name|le prénom de l'utilisateur|chaîne (50)|requis|
@@ -60,7 +60,7 @@
 |||||
 |-|-|-|-|
 |nom|description|type|règle|
-|event_id|l'identifiant de l'événement|entier|clé primaire|
+|id|l'identifiant de l'événement|entier|clé primaire|
 |title|l'intitulé de l'événement|chaîne (255)|requis, unique|
 |planned_at|la date prévue de l'événement (JJ/MM/AAAA)|date|requis|
 |picture|l'image d'illustration de l'événement|blob|optionnel|
@@ -74,7 +74,7 @@
 |||||
 |-|-|-|-|
 |nom|description|type|règle|
-|reservation_id|l'identifiant de la réservation|entier|clé primaire|
+|id|l'identifiant de la réservation|entier|clé primaire|
 |status|le statut de paiement ("A Payer", "Payé", "Annulé")|chaîne (20)|"A Payer" par défaut|
 |paid_at|la date de paiement (JJ/MM/AAAA)|date|date du jour par défaut|
 |comments|les commentaires de la réservation|texte|optionnel|
@@ -86,7 +86,7 @@
 |||||
 |-|-|-|-|
 |nom|description|type|règle|
-|mode_id|l'identifiant du mode de paiement|entier|clé primaire|
+|id|l'identifiant du mode de paiement|entier|clé primaire|
 |label|le libellé du mode de paiement|chaîne (50)|requis|
 
 **Table - Les tables**
@@ -94,7 +94,7 @@
 |||||
 |-|-|-|-|
 |nom|description|type|règle|
-|table_id|l'identifiant de la table|entier|clé primaire|
+|id|l'identifiant de la table|entier|clé primaire|
 |price|le prix individuel d'une table|décimal (5,2)|prix de base pour un événement par défaut|
 |pos_x|la position en abscisses (X) de la table|entier (3)|0 par défaut|
 |pos_y|la position en ordonnées (Y) de la table|entier (3)|0 par défaut|
