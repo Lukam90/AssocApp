@@ -1,8 +1,6 @@
 -- Script BDD
 
-DROP TABLE IF EXISTS `newsletter_user`;
 DROP TABLE IF EXISTS `newsletter`;
-
 DROP TABLE IF EXISTS `table`;
 DROP TABLE IF EXISTS `reservation`;
 DROP TABLE IF EXISTS `mode`;
@@ -25,12 +23,14 @@ INSERT INTO mode (label) VALUES
 
 CREATE TABLE IF NOT EXISTS newsletter
 (
-    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    newsletter_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     object VARCHAR(255),
     target VARCHAR(10) NOT NULL DEFAULT 'Général',
     content VARCHAR(255),
     is_send BOOLEAN NOT NULL DEFAULT 0,
     send_at DATE NOT NULL DEFAULT NOW(),
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user (user_id),
     INDEX (object)
 );
 
@@ -43,7 +43,7 @@ INSERT INTO newsletter (object, target, content, is_send, send_at) VALUES
 
 CREATE TABLE IF NOT EXISTS `user`
 (
-    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    user_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
@@ -74,29 +74,11 @@ INSERT INTO user (email, password, role, first_name, last_name, label) VALUES
 ('j.bond@test.com', sha('jPass$007'), 'Exposant', 'James', 'BOND', 'Tableaux 007'),
 ('m.simon@test.com', sha('Sim$ity754'), 'Exposant', 'Marc', 'SIMON', 'Cartes Postales Magazine');
 
--- La table intermédiaire newsletter_user
-
-CREATE TABLE IF NOT EXISTS newsletter_user
-(
-    newsletter_id INTEGER NOT NULL,
-    user_id INTEGER NOT NULL,
-    FOREIGN KEY (newsletter_id) REFERENCES newsletter (id) ON DELETE CASCADE,
-    FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE,
-    PRIMARY KEY (newsletter_id, user_id)
-);
-
-INSERT INTO newsletter_user (newsletter_id, user_id) VALUES
-(1,1), (1,2), (1,4),
-(1,5), (1,6), (1,7),
-(1,9), (1,10), (1,11),
-(2,1), (2,4),
-(2,5), (2,6);
-
 -- Les événements (event)
 
 CREATE TABLE IF NOT EXISTS `event`
 (
-    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    event_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) UNIQUE NOT NULL,
     planned_at DATE NOT NULL,
     content TEXT NOT NULL,
@@ -116,7 +98,7 @@ INSERT INTO event (title, planned_at, content, min_price, num_available) VALUES
 
 CREATE TABLE IF NOT EXISTS reservation
 (
-    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    reservation_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     status VARCHAR(20) NOT NULL DEFAULT 'A Payer'
     CHECK (status IN ('A Payer', 'Payé', 'Annulé')),
     paid_at DATE,
@@ -145,7 +127,7 @@ INSERT INTO reservation (status, paid_at, comments, event_id, user_id, mode_id) 
 
 CREATE TABLE IF NOT EXISTS `table`
 (
-    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    table_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     price DECIMAL(5,2) NOT NULL DEFAULT 0
     CHECK (price >= 0 AND price <= 999),
     pos_x INTEGER(3) NOT NULL DEFAULT 0,

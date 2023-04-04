@@ -159,8 +159,8 @@ def add_part(filename):
 
 # Convert MD Files to Docx
 
-def convert_md_files():
-    with open("docs/parts.txt", "r") as file:
+def convert_md_files(files_list = "parts"):
+    with open(f"docs/{files_list}.txt", "r") as file:
         for line in file:
             line = line.strip()
 
@@ -171,9 +171,9 @@ def convert_md_files():
 
         file.close()
 
-    document.save("result/compilation.docx")
+    document.save(f"result/{files_list}.docx")
 
-    print("Compilation du dossier effectuée")
+    print(f"Compilation de la liste {files_list} effectuée")
 
 # Docx File
 
@@ -189,3 +189,4 @@ font.name = "Calibri"
 # Compilation
 
 convert_md_files()
+#convert_md_files("specs")
