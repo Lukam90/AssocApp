@@ -1,11 +1,11 @@
 spe-fonctionnelles
 traitement-donnees
-#roles-utilisateur
-#min/min-page-accueil
-#min/min-inscription-connexion
-#min/min-profil-utilisateur
-#min/min-formulaire-contact
-#min/min-admin-panneau
+roles-utilisateur
+min/min-page-accueil
+min/min-inscription-connexion
+min/min-profil-utilisateur
+min/min-formulaire-contact
+admin-panneau
 #min/min-admin-utilisateurs
 #min/min-admin-modes
 #min/min-admin-evenements

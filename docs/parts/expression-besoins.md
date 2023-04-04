@@ -26,25 +26,25 @@ Les principales fonctionnalités sont classées avec leurs priorités (Basse, Mo
 
 |||
 |-|-|
-|1|La page d'accueil|
+||La page d'accueil|
 |H|L'annonce du prochain événement|
 |H|La réservation de tables|
 |B|L'inscription à la newsletter|
 |B|La confirmation d'inscription à la newsletter|
-|3|L'inscription et la connexion|
+||L'inscription et la connexion|
 |H|L'inscription d'un utilisateur|
 |H|La connexion d'un utilisateur|
 |H|La déconnexion d'un utilisateur|
 |M|L'oubli de mot de passe|
 |B|La réinitialisation du mot de passe|
-|8|Le profil d'un utilisateur|
+||Le profil d'un utilisateur|
 |M|Onglet "Informations Personnelles"|
 |B|Onglet "Identifiants de Connexion"|
 |M|Onglet "Réservation"|
 |M|L'état de la dernière réservation|
 |M|L'annulation de la dernière réservation|
 |M|Le formulaire de contact|
-|2|La gestion des utilisateurs|
+||La gestion des utilisateurs|
 |H|La liste des utilisateurs|
 |M|Le tri des utilisateurs|
 |M|Le filtre des utilisateurs|
@@ -52,8 +52,9 @@ Les principales fonctionnalités sont classées avec leurs priorités (Basse, Mo
 |M|La recherche d'un utilisateur|
 |H|L'inscription manuelle d'un utilisateur|
 |H|L'édition manuelle d'un utilisateur|
+|H|La définition d'un mot de passe aléatoire|
 |H|La suppression d'un utilisateur|
-|4|La gestion des événements|
+||La gestion des événements|
 |H|La liste des événements|
 |B|Le tri des événements|
 |B|La pagination des événements|
@@ -61,12 +62,12 @@ Les principales fonctionnalités sont classées avec leurs priorités (Basse, Mo
 |H|L'ajout d'un événement|
 |H|L'édition d'un événement|
 |H|La suppression d'un événement|
-|5|La gestion des modes de paiement|
+||La gestion des modes de paiement|
 |H|La liste des modes de paiement|
 |H|L'ajout d'un mode de paiement|
 |H|L'édition d'un mode de paiement|
 |H|La suppression d'un mode de paiement|
-|6|La gestion des réservations|
+||La gestion des réservations|
 |H|La liste des réservations|
 |M|Le tri des réservations|
 |M|Le filtre des réservations|
@@ -74,12 +75,12 @@ Les principales fonctionnalités sont classées avec leurs priorités (Basse, Mo
 |M|La recherche d'une réservation|
 |H|L'ajout d'une réservation|
 |H|L'édition d'une réservation|
-|7|La gestion des tables|
+||La gestion des tables|
 |H|La liste des tables|
 |H|L'ajout d'une table|
 |M|L'édition d'une table|
 |M|La suppression d'une table|
-|9|La gestion des newsletters|
+||La gestion des newsletters|
 |B|La liste des newsletters|
 |B|Le tri des newsletters|
 |B|Le filtre des newsletters|
