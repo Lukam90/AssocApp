@@ -10,24 +10,15 @@ Les newsletters sont listées sous forme de tableau avec :
 - le statut d'envoi (case cochée ou non)
 - la date d'envoi (si envoyé)
 
-Sinon, un message indique l'absence de newsletter.
-
 **Le tri des newsletters**
 
 Les newsletters sont listées par leur ID dans l'ordre croissant par défaut.
 
-L'administrateur peut trier les newsletters par ordre (dé)croissant selon :
-
-- leur objet
-- leur date d'envoi
+L'administrateur peut trier les newsletters par ordre (dé)croissant selon leur objet et leur date d'envoi.
 
 **Le filtre des newsletters**
 
-L'administrateur peut filtrer les newsletters selon :
-
-- la cible ("Général" ou "Membres")
-- le statut d'envoi (case à cocher)
-- une date de début et une date de fin
+L'administrateur peut filtrer les newsletters selon la cible ("Général" ou "Membres"), le statut d'envoi (case à cocher), une date de début et une date de fin.
 
 **La pagination des newsletters**
 
@@ -41,16 +32,7 @@ L'administrateur peut rechercher une newsletter avec son objet.
 
 **La création d'une newsletter**
 
-L'administrateur peut créer une nouvelle newsletter avec :
-
-- son objet
-- sa cible ("Général" ou "Membres")
-- son contenu textuel (converti en HTML)
-- sa date d'envoi (actuelle par défaut)
-
-Un message confirme l'ajout d'une nouvelle newsletter.
-
-Sinon, un message d'erreur s'affiche.
+L'administrateur peut créer une nouvelle newsletter avec ses informations et son contenu.
 
 **L'envoi d'une newsletter**
 
@@ -60,24 +42,12 @@ Si la cible est "Général", la newsletter est envoyée à l'ensemble des utilis
 
 Sinon, la newsletter est envoyée aux utilisateurs inscrits et membres de l'association AACCP.
 
-Un message confirme l'envoi de la newsletter.
-
-Sinon, un message d'erreur s'affiche.
-
 **L'édition d'une newsletter**
 
-L'administrateur peut éditer une newsletter avec ses informations basées sur le formulaire de création.
-
-Un message confirme l'édition de la newsletter.
-
-Sinon, un message d'erreur s'affiche.
+L'administrateur peut éditer une newsletter sur la base du formulaire de création.
 
 **La suppression d'une newsletter**
 
 L'administrateur peut supprimer une newsletter.
 
 Une fenêtre modale s'affiche pour confirmer la suppression.
-
-Un message confirme la suppression de la newsletter.
-
-Sinon, un message d'erreur s'affiche.

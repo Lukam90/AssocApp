@@ -6,9 +6,9 @@ min/min-inscription-connexion
 min/min-profil-utilisateur
 min/min-formulaire-contact
 admin-panneau
-#min/min-admin-utilisateurs
-#min/min-admin-modes
-#min/min-admin-evenements
-#min/min-admin-reservations
-#min/min-admin-tables
-#min/min-admin-newsletters
+min/min-admin-utilisateurs
+min/min-admin-modes
+min/min-admin-evenements
+min/min-admin-reservations
+min/min-admin-tables
+min/min-admin-newsletters
