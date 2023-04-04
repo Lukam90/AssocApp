@@ -12,9 +12,6 @@ Ses avantages sont :
 - un framework léger, performant et accessible
 - une liberté de structure du code
 - l'utilisation d'un ORM (Object Relational Mapper) permettant de faciliter l'interaction avec une base de données relationnelle
-- la possibilité d'utiliser un moteur de templates comme EJS pour les pages
-- le format REST (Representational State Transfer) permettant la communication entre des applications
-- le gestionnaire de dépendances et utilitaire NPM (Node Package Manager)
 
 **MySQL**
 
@@ -30,7 +27,7 @@ Il s'agit d'un gestionnaire de dépendances propre à NodeJS et à l'environneme
 
 **Heroku**
 
-Il s'agit de l'hébergeur choisi pour le déploiement de l'application.
+Il s'agit de l'hébergeur choisi pour le déploiement de l'API.
 
 **Jest**
 
