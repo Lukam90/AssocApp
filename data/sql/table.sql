@@ -23,3 +23,9 @@ AND reservation_id = :reservation_id
 DELETE FROM table
 WHERE id = :id
 AND reservation_id = :reservation_id
+
+-- Exemple d'affichage
+
+SELECT reservation_id, id as table_id, price, pos_x, pos_y, comments
+FROM `table`
+ORDER BY id;
