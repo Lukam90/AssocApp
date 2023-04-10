@@ -115,14 +115,6 @@ CREATE TABLE IF NOT EXISTS reservation
     FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE
 );
 
-INSERT INTO reservation (status, paid_at, comments, event_id, user_id, mode_id) VALUES
-('Payé', '2023-03-01', 'une table offerte (membre)', 1, 1, 1),
-('Payé', '2023-03-02', '', 1, 2, 2),
-('A Payer', '2023-03-10', '', 1, 3, 3),
-('Annulé', '2023-03-03', '', 1, 4, 1),
-('Payé', '2023-03-04', '', 1, 5, 2),
-('Payé', '2023-03-05', '', 1, 6, 3);
-
 -- Les tables (table)
 
 CREATE TABLE IF NOT EXISTS `table`
@@ -196,14 +188,3 @@ FOR EACH ROW
         FROM `table` t
     )
     WHERE id = NEW.reservation_id;
-
--- Ajout de tables
-
-INSERT INTO `table` (reservation_id, price, pos_x, pos_y, comments) VALUES
-(1, 30, 0, 0, ''),
-(1, 30, 0, 1, ''),
-(1, 30, 1, 0, ''),
-(1, 30, 1, 1, 'près de la buvette'),
-(2, 30, 1, 2, 'près de la portie de sortie'),
-(2, 30, 2, 1, ''),
-(2, 0, 2, 2, 'table offerte (membre)');
